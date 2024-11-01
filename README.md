@@ -66,10 +66,10 @@ This repository contains a suite of analytics dashboards for Databricks environm
 │   ├── [System Tables] Databricks Unified Cost Analysis.lvdash.json        # Code for Databricks Unified Cost Analysis Dashboard  
 │   ├── [System Tables] Job Operations and Cost Management.lvdash.json      # Code for Job Operations and Cost Management Dashboard  
 │   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Code for DBSQL Cost & Query Performance Dashboard  
-│   └── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Code for Data Lineage and Catalog Utilization Dashboard  
-│   └── create_dashboards.ipynb                                             # Python code to deploy the dashboards to your Databricks  
-│   └── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard  
-│   └── system_table_dashboards.dbc                                         # Databricks Archive to create the entire folder
+│   ├── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Code for Data Lineage and Catalog Utilization Dashboard  
+│   ├── create_dashboards.ipynb                                             # Python code to deploy the dashboards to your Databricks  
+│   ├── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard  
+└── └── system_table_dashboards.dbc                                         # Databricks Archive to create the entire folder
 ```
 ## Setup and Usage
 
