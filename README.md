@@ -81,8 +81,8 @@ The project be imported to a Databricks workspace by either of these 2 options:
   * Open your Databricks workspace.
   * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Create** button. 
   * Select **Git folder**.
-  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite
-  * Click on **Create Git folder**  
+  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite.
+  * Click on **Create Git folder**.
     Once cloned, you’ll see all repository files in your Workspace.
 
 ### [Option 2] Manually downloading and importing files into the workspace
