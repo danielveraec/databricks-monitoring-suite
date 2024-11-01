@@ -6,8 +6,8 @@
   * [Dashboards Included](#dashboards-included)
   * [Repository Structure](#repository-structure)
   * [Setup and Usage](#setup-and-usage)
-    * [Download Required Files](#download-required-files)
-    * [Import into Databricks Workspace](#import-into-databricks-workspace)
+    * [[Option 1] Using Databricks Git folders (Repos)](#option-1-using-databricks-git-folders-repos)
+    * [[Option 2] Manually downloading and importing files into the workspace](#option-2-manually-downloading-and-importing-files-into-the-workspace)
     * [Run the `create_dashboards` Notebook](#run-the-create_dashboards-notebook)
     * [Complete Deployment](#complete-deployment)
   * [Updating Dashboards](#updating-dashboards)
@@ -68,20 +68,32 @@ This repository contains a suite of analytics dashboards for Databricks environm
 │   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Code for DBSQL Cost & Query Performance Dashboard  
 │   ├── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Code for Data Lineage and Catalog Utilization Dashboard  
 │   ├── create_dashboards.ipynb                                             # Python code to deploy the dashboards to your Databricks  
-│   ├── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard  
-└── └── system_table_dashboards.dbc                                         # Databricks Archive to create the entire folder
+└── └── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard
 ```
 ## Setup and Usage
 
-### Download Required Files
-To get started, download the `system_table_dashboards.dbc` file [located](system_table_dashboards/system_table_dashboards.dbc) in the `system_table_dashboards` folder of this repository. This file contains all the necessary resources and dependencies required to enable the dashboards.
+The project be imported to a Databricks workspace by either of these 2 options:
+- Using Databricks Git folders (Repos)
+- Manually downloading and importing files into the workspace
 
-### Import into Databricks Workspace
-After downloading, [import](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) `system_table_dashboards.dbc` into your Databricks workspace to ensure all files become available for immediate use. To do this:
+### [Option 1] Using Databricks Git folders (Repos)
+* **Configure Git folders** - Use [Git folders](https://docs.databricks.com/en/repos/repos-setup.html) in Databricks to check out this project and run notebooks. Steps to be done:
+  * Open your Databricks workspace.
+  * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Create** button. 
+  * Select **Git folder**.
+  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite
+  * Click on **Create Git folder**  
+    Once cloned, you’ll see all repository files in your Workspace.
 
-* Open your Databricks workspace.  
-* Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Import** button.  
-* Choose the `system_table_dashboards.dbc` file you downloaded and upload it to your workspace.
+### [Option 2] Manually downloading and importing files into the workspace
+
+* **Download Required Files** - To get started, download each of the files [located](system_table_dashboards) in the `system_table_dashboards` folder of this repository. These files contain all the necessary resources and dependencies required to enable the dashboards.
+* **Import into Databricks Workspace** - After downloading, [import](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) each of the files into your Databricks workspace to ensure all files become available for immediate use. To do this:
+
+  * Open your Databricks workspace.  
+  * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then create a folder named **system_table_dashboards** (or similar).
+  * Get inside the folder and click on the kebab menu (three vertical dots) and select the **Import** button.  
+  * Choose each of the files you downloaded and upload it to your workspace.
 
 ### Run the `create_dashboards` Notebook
 In your workspace, open the `create_dashboards` notebook. This notebook is designed to deploy the dashboards and set up required resources. It includes several parameters, starting with **`actions`**:
