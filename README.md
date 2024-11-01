@@ -6,9 +6,9 @@
   * [Dashboards Included](#dashboards-included)
   * [Repository Structure](#repository-structure)
   * [Setup and Usage](#setup-and-usage)
-    * [Download Required Files](#download-required-files-)
-    * [Import into Databricks Workspace](#import-into-databricks-workspace-)
-    * [Run the `create_dashboards` Notebook](#run-the-create_dashboards-notebook-)
+    * [Download Required Files](#download-required-files)
+    * [Import into Databricks Workspace](#import-into-databricks-workspace)
+    * [Run the `create_dashboards` Notebook](#run-the-create_dashboards-notebook)
     * [Complete Deployment](#complete-deployment)
   * [Updating Dashboards](#updating-dashboards)
   * [Tables and Functions Created During Deployment](#tables-and-functions-created-during-deployment)
@@ -19,12 +19,12 @@
 
 ## Overview
 
-This repository contains a suite of analytics dashboards for Databricks environments, designed to provide detailed insights into cost allocation, performance metrics, data lineage, and compute efficiency. These dashboards, built using the [Databricks System Tables](#https://docs.databricks.com/en/admin/system-tables/index.html), support efficient management of resources across workspaces, entities, and teams within Databricks, offering both high-level overviews and in-depth analysis tools.
+This repository contains a suite of analytics dashboards for Databricks environments, designed to provide detailed insights into cost allocation, performance metrics, data lineage, and compute efficiency. These dashboards, built using the [Databricks System Tables](https://docs.databricks.com/en/admin/system-tables/index.html), support efficient management of resources across workspaces, entities, and teams within Databricks, offering both high-level overviews and in-depth analysis tools.
 
 
 ## Dashboards Included
 
-1. **[Databricks Unified Cost Analysis Dashboard](#)**  
+1. **[Databricks Unified Cost Analysis Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Databricks%20Unified%20Cost%20Analysis.lvdash.json)**  
    Focuses on overall cost distribution across various compute types, such as all-purpose clusters, Delta Live Tables (DLT), jobs, model inference, and SQL. Ideal for quick cost insights, it includes:  
    * **Daily Spend per Compute Type Over Time** – Visualizes cost trends for each compute type (e.g., SQL, Jobs, DLT, model inference).
    * **Spend Comparison** – Shows spend in the last 30 days vs. the previous 30 days.
@@ -33,7 +33,7 @@ This repository contains a suite of analytics dashboards for Databricks environm
    * **Cost by Compute Type and Workspace** – Analyzes the most recent 30-day spend by each compute type and workspace.  
    For in-depth, segmented analysis, check the specific dashboards below.
 
-2. **[Job Operations and Cost Management Dashboard](#)**  
+2. **[Job Operations and Cost Management Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Job%20Operations%20and%20Cost%20Management.lvdash.json)**  
    Analyzes job-related costs, operational efficiency, and cluster resource utilization. This dashboard helps monitor job performance, manage cluster costs, and identify high-cost jobs:
    * **Daily Cost by Workspace and SKU** – Monitors daily job-related costs across workspaces.
    * **Cost by Team and User Allocation** – Allocates costs by team and user.
@@ -41,7 +41,7 @@ This repository contains a suite of analytics dashboards for Databricks environm
    * **Most expensive and Failing Jobs** – Identifies expensive, highest-failure, and most retried jobs over time.
    * **Cluster Performance Analysis** – Shows memory and CPU utilization, outdated DBR usage, and job counts with fixed workers or all-purpose compute.
 
-3. **[DBSQL Cost & Query Performance Dashboard](#)**  
+3. **[DBSQL Cost & Query Performance Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20DBSQL%20Cost%20&%20Query%20Performance.lvdash.json)**  
    Designed for SQL workloads, this dashboard provides in-depth analysis of SQL costs, query performance, and warehouse efficiency. It helps in tracking SQL usage by team and workspace:
    * **Daily Cost by Workspace and SKU** – Tracks daily SQL costs per workspace.
    * **Cost by Team and User Allocation** – Attributes costs by teams and users.
@@ -50,7 +50,7 @@ This repository contains a suite of analytics dashboards for Databricks environm
    * **Query Count and Run Time Analysis** – Analysis of query counts, run times, queue times, and breakdowns by statement type and source app.
    * **Warehouse Utilization** – Insights on warehouse counts, cluster activity times, and query spills.
 
-4. **[Data Lineage and Catalog Utilization Dashboard](#)**
+4. **[Data Lineage and Catalog Utilization Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Data%20Lineage%20and%20Catalog%20Utilization.lvdash.json)**
    Provides insights into data lineage, usage patterns, and catalog utilization. It supports data governance efforts by showing entity access, catalog trends, and table-specific access and lineage:
    * **Table vs. Path Access** – Access patterns across various entities.
    * **Active User Distribution** – Pie chart showing active users.
@@ -61,29 +61,29 @@ This repository contains a suite of analytics dashboards for Databricks environm
 ## Repository Structure
 
 ```plaintext  
-├── README.md                    \# Project overview and documentation  
-├── system\_table\_dashboards/                  \# Folder containing all dashboards and code  
-│   ├── \[System Tables\] Databricks Unified Cost Analysis.lvdash.json      \# Code for Databricks Unified Cost Analysis Dashboard  
-│   ├── \[System Tables\] Job Operations and Cost Management.lvdash.json   \# Code for Job Operations and Cost Management Dashboard  
-│   ├── \[System Tables\] DBSQL Cost & Query Performance.lvdash.json           \# Code for DBSQL Cost & Query Performance Dashboard  
-│   └── \[System Tables\] Data Lineage and Catalog Utilization.lvdash.json        \# Code for Data Lineage and Catalog Utilization Dashboard  
-│   └── create\_dashboards        \# Python code to deploy the dashboards to your Databricks  
-│   └── extract\_dashboard        \# Python code to extract a specific dashboard  
-│   └── all\_files.dbc        \# Databricks Archive to create the entire folder
+├── README.md                                                               # Project overview and documentation  
+├── system_table_dashboards                                                 # Folder containing all dashboards and code  
+│   ├── [System Tables] Databricks Unified Cost Analysis.lvdash.json        # Code for Databricks Unified Cost Analysis Dashboard  
+│   ├── [System Tables] Job Operations and Cost Management.lvdash.json      # Code for Job Operations and Cost Management Dashboard  
+│   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Code for DBSQL Cost & Query Performance Dashboard  
+│   └── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Code for Data Lineage and Catalog Utilization Dashboard  
+│   └── create_dashboards.ipynb                                             # Python code to deploy the dashboards to your Databricks  
+│   └── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard  
+│   └── system_table_dashboards.dbc                                         # Databricks Archive to create the entire folder
 ```
 ## Setup and Usage
 
-### Download Required Files  
-To get started, download the `all_files.dbc` file located in the `system_table_dashboards` folder of this repository. This file contains all the necessary resources and dependencies required to enable the dashboards.
+### Download Required Files
+To get started, download the `system_table_dashboards.dbc` file [located](system_table_dashboards/system_table_dashboards.dbc) in the `system_table_dashboards` folder of this repository. This file contains all the necessary resources and dependencies required to enable the dashboards.
 
-### Import into Databricks Workspace  
-After downloading, [import](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) `all_files.dbc` into your Databricks workspace to ensure all files become available for immediate use. To do this:
+### Import into Databricks Workspace
+After downloading, [import](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) `system_table_dashboards.dbc` into your Databricks workspace to ensure all files become available for immediate use. To do this:
 
 * Open your Databricks workspace.  
 * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Import** button.  
-* Choose the `all_files.dbc` file you downloaded and upload it to your workspace.
+* Choose the `system_table_dashboards.dbc` file you downloaded and upload it to your workspace.
 
-### Run the `create_dashboards` Notebook  
+### Run the `create_dashboards` Notebook
 In your workspace, open the `create_dashboards` notebook. This notebook is designed to deploy the dashboards and set up required resources. It includes several parameters, starting with **`actions`**:
 
 * **`actions` (Multi-Select Dropdown)**: This parameter allows you to select specific tasks to perform during deployment, with the following options:  
@@ -106,7 +106,7 @@ In your workspace, open the `create_dashboards` notebook. This notebook is desig
     * If multiple tag keys are used (e.g., `team_name` for some clusters and `group_name` for others), provide both keys, such as `team_name,group_name`. This setup ensures that all relevant teams are accurately captured in the dashboards.
 
 **Account API [Optional] Parameters**  
-These parameters are only required if you want **workspace names** (instead of workspace IDs) to display within the dashboards. The dashboards are built using system tables, which currently store only workspace IDs. These parameters allow the dashboards to connect to the account console to retrieve workspace names via the Databricks Account API. Note that account-level access (using M2M OAuth) is required to populate the **workspace\_reference** table with workspace names. [How to get these?](#https://docs.databricks.com/en/dev-tools/auth/index.html#how-do-i-use-oauth-to-authenticate-with-databricks)
+These parameters are only required if you want **workspace names** (instead of workspace IDs) to display within the dashboards. The dashboards are built using system tables, which currently store only workspace IDs. These parameters allow the dashboards to connect to the account console to retrieve workspace names via the Databricks Account API. Note that account-level access (using M2M OAuth) is required to populate the **workspace\_reference** table with workspace names. [How to get these?](https://docs.databricks.com/en/dev-tools/auth/index.html#how-do-i-use-oauth-to-authenticate-with-databricks)
 
 * **`account_host`**: The URL of the Databricks account host.  
 * **`account_id`**: The identifier for the Databricks account.  
@@ -171,6 +171,6 @@ As part of the deployment, several tables and functions are created to support d
 
 Thank you for exploring the **Databricks Dashboard Repository**\! This project aims to enhance your data analysis and visualization capabilities by providing comprehensive dashboards built on key system tables.
 
-We hope you find these dashboards useful for your analytical needs. If you have any questions, suggestions, or need assistance with the setup and usage, please feel free to reach out via the [Issues](https://github.com/your-username/your-repo-name/issues) page.
+We hope you find these dashboards useful for your analytical needs. If you have any questions, suggestions, or need assistance with the setup and usage, please feel free to reach out via the [Issues](https://github.com/mohanab89/databricks-dashboard-suite/issues) page.
 
 Happy analyzing!
