@@ -72,7 +72,7 @@ This repository contains a suite of analytics dashboards for Databricks environm
 ```
 ## Setup and Usage
 
-The project be imported to a Databricks workspace by either of these 2 options:
+The project must be imported to a Databricks workspace by either of these 2 options:
 - Using Databricks Git folders (Repos)
 - Manually downloading and importing files into the workspace
 
@@ -81,9 +81,9 @@ The project be imported to a Databricks workspace by either of these 2 options:
   * Open your Databricks workspace.
   * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Create** button. 
   * Select **Git folder**.
-  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite.
-  * Click on **Create Git folder**.
-    Once cloned, you’ll see all repository files in your Workspace.
+  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite
+  * Click on **Create Git folder**.  
+    Once cloned, you’ll see all repository files in your Workspace. Click on the **system_table_dashboards** folder.
 
 ### [Option 2] Manually downloading and importing files into the workspace
 
