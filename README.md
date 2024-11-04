@@ -58,6 +58,8 @@ This repository contains a suite of analytics dashboards for Databricks environm
    * **Catalog and Team Usage** – Catalog usage by teams and entity types.
    * **Table Access Details** – Includes access frequency by entity, user-level access, and upstream/downstream table lineage.
 
+![Sample Dashboard](assets/sample_screenshot_1.png)
+
 ## Repository Structure
 
 ```plaintext  
