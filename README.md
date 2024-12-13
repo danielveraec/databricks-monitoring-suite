@@ -167,16 +167,13 @@ As part of the deployment, several tables and functions are created to support d
 
 #### **SQL Functions**
 
-1. **`compute_type_from_sku`**  
-   * **Description**: Extracts the compute type (e.g., Jobs, Delta Live Tables (DLT), SQL) from the SKU name.  
-   * **Usage**: Used to categorize costs and usage metrics by compute type in dashboards, enabling detailed cost breakdowns by type.  
-2. **`job_type_from_sku`**  
+1. **`job_type_from_sku`**  
    * **Description**: Identifies the job type (e.g., classic job, job with Photon, serverless job) from the SKU.  
    * **Usage**: Provides granularity for job cost analysis by job type, helping in comparing performance and cost metrics across different job setups.  
-3. **`sql_type_from_sku`**  
+2. **`sql_type_from_sku`**  
    * **Description**: Determines the SQL warehouse type (e.g., Pro, Classic, Serverless) based on SKU.  
    * **Usage**: Supports analysis and cost breakdowns for SQL warehouses, giving insights into cost and usage patterns across warehouse types.  
-4. **`team_name_from_tags`**  
+3. **`team_name_from_tags`**  
    * **Description**: Extracts the team name based on tag keys provided in the `tags_to_consider_for_team_name` parameter.  
    * **Usage**: Allows dashboards to segment costs and usage data by team, even if multiple tag keys (e.g., `team_name`, `group_name`) are used across clusters for team designation.
 
