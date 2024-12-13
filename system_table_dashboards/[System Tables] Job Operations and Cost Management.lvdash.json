@@ -94,13 +94,13 @@
     },
     {
       "name": "fe4804e7",
-      "displayName": "longest_running_jobs_t7",
-      "query": "with most_recent_jobs as (\n  SELECT\n    *,\n    ROW_NUMBER() OVER(\n      PARTITION BY workspace_id,\n      job_id\n      ORDER BY\n        change_time DESC\n    ) as rn\n  FROM\n    system.lakeflow.jobs QUALIFY rn = 1\n),\nbilling_jobs_w_org_team as (\n  SELECT\n    workspace_id,\n    job_id,\n    ifnull(first(recent_team_name), 'unknown') as team_name,\n    first(recent_sku_name) as sku_name\n  FROM\n    (\n      SELECT\n        workspace_id,\n        job_id,\n        case\n          when usage_end_time is null then null\n          else FIRST_VALUE(sku_name) OVER (\n            PARTITION BY job_id\n            ORDER BY\n              usage_end_time DESC\n          )\n        end AS recent_sku_name,\n        case\n          when usage_end_time is null then null\n          else FIRST_VALUE(\n            {catalog}.{schema}.team_name_from_tags(custom_tags, tags)\n          ) OVER (\n            PARTITION BY job_id\n            ORDER BY\n              usage_end_time DESC\n          )\n        end AS recent_team_name\n      FROM\n        (\n          select\n            coalesce(t1.workspace_id, t2.workspace_id) as workspace_id,\n            coalesce(t1.usage_metadata.job_id, t2.job_id) as job_id,\n            t1.sku_name,\n            t1.usage_end_time,\n            t1.custom_tags,\n            t2.tags\n          FROM\n            system.billing.usage t1\n            LEFT JOIN most_recent_jobs t2 ON t1.workspace_id = t2.workspace_id\n            AND t1.usage_metadata.job_id = t2.job_id\n        )\n    )\n  group by\n    all\n),\njob_run_duration as (\n  SELECT\n    workspace_id,\n    job_id,\n    run_id,\n    CAST(SUM(period_end_time - period_start_time) AS LONG) as duration\n  FROM\n    system.lakeflow.job_run_timeline\n  WHERE\n    period_start_time > CURRENT_TIMESTAMP() - INTERVAL 7 DAYS\n  GROUP BY\n    ALL\n)\nSELECT\n  t1.workspace_id,\n  t1.job_id,\n  t3.workspace_name,\n  coalesce(t4.name, t1.job_id) as job_name,\n  ifnull(\n    {catalog}.{schema}.job_type_from_sku(t2.sku_name),\n    'UNKNOWN'\n  ) as job_type_from_sku,\n  ifnull(t2.team_name, 'unknown') as team_name,\n  COUNT(DISTINCT t1.run_id) as runs,\n  MEAN(t1.duration) as mean_seconds,\n  AVG(t1.duration) as avg_seconds,\n  PERCENTILE(t1.duration, 0.9) as p90_seconds,\n  PERCENTILE(t1.duration, 0.95) as p95_seconds\nFROM\n  job_run_duration t1\n  LEFT JOIN billing_jobs_w_org_team t2 USING (workspace_id, job_id)\n  LEFT JOIN {catalog}.{schema}.workspace_reference t3 USING (workspace_id)\n  LEFT JOIN most_recent_jobs t4 USING (workspace_id, job_id)\nGROUP BY\n  ALL\nORDER BY\n  mean_seconds DESC\nLIMIT\n  10;"
+      "displayName": "longest_running_jobs_t30",
+      "query": "with most_recent_jobs as (\n  SELECT\n    *,\n    ROW_NUMBER() OVER(\n      PARTITION BY workspace_id,\n      job_id\n      ORDER BY\n        change_time DESC\n    ) as rn\n  FROM\n    system.lakeflow.jobs QUALIFY rn = 1\n),\nbilling_jobs_w_org_team as (\n  SELECT\n    workspace_id,\n    job_id,\n    ifnull(first(recent_team_name), 'unknown') as team_name,\n    first(recent_sku_name) as sku_name\n  FROM\n    (\n      SELECT\n        workspace_id,\n        job_id,\n        case\n          when usage_end_time is null then null\n          else FIRST_VALUE(sku_name) OVER (\n            PARTITION BY job_id\n            ORDER BY\n              usage_end_time DESC\n          )\n        end AS recent_sku_name,\n        case\n          when usage_end_time is null then null\n          else FIRST_VALUE(\n            {catalog}.{schema}.team_name_from_tags(custom_tags, tags)\n          ) OVER (\n            PARTITION BY job_id\n            ORDER BY\n              usage_end_time DESC\n          )\n        end AS recent_team_name\n      FROM\n        (\n          select\n            coalesce(t1.workspace_id, t2.workspace_id) as workspace_id,\n            coalesce(t1.usage_metadata.job_id, t2.job_id) as job_id,\n            t1.sku_name,\n            t1.usage_end_time,\n            t1.custom_tags,\n            t2.tags\n          FROM\n            system.billing.usage t1\n            LEFT JOIN most_recent_jobs t2 ON t1.workspace_id = t2.workspace_id\n            AND t1.usage_metadata.job_id = t2.job_id\n        )\n    )\n  group by\n    all\n),\njob_run_duration as (\n  SELECT\n    workspace_id,\n    job_id,\n    run_id,\n    CAST(SUM(period_end_time - period_start_time) AS LONG) as duration\n  FROM\n    system.lakeflow.job_run_timeline\n  WHERE\n    period_start_time > CURRENT_TIMESTAMP() - INTERVAL 30 DAYS\n  GROUP BY\n    ALL\n)\nSELECT\n  t1.workspace_id,\n  t1.job_id,\n  t3.workspace_name,\n  coalesce(t4.name, t1.job_id) as job_name,\n  ifnull(\n    {catalog}.{schema}.job_type_from_sku(t2.sku_name),\n    'UNKNOWN'\n  ) as job_type_from_sku,\n  ifnull(t2.team_name, 'unknown') as team_name,\n  COUNT(DISTINCT t1.run_id) as runs,\n  MEAN(t1.duration) as mean_seconds,\n  AVG(t1.duration) as avg_seconds,\n  PERCENTILE(t1.duration, 0.9) as p90_seconds,\n  PERCENTILE(t1.duration, 0.95) as p95_seconds\nFROM\n  job_run_duration t1\n  LEFT JOIN billing_jobs_w_org_team t2 USING (workspace_id, job_id)\n  LEFT JOIN {catalog}.{schema}.workspace_reference t3 USING (workspace_id)\n  LEFT JOIN most_recent_jobs t4 USING (workspace_id, job_id)\nGROUP BY\n  ALL\nORDER BY\n  mean_seconds DESC\nLIMIT\n  10;"
     },
     {
       "name": "9f1b61ef",
       "displayName": "job_cpu_mem",
-      "query": "with most_recent_jobs as (\n  SELECT\n    *,\n    ROW_NUMBER() OVER(\n      PARTITION BY workspace_id,\n      job_id\n      ORDER BY\n        change_time DESC\n    ) as rn\n  FROM\n    system.lakeflow.jobs QUALIFY rn = 1\n),\nbilling_w_org_team as (\n  SELECT\n    *,\n    case\n      when usage_end_time is null then null\n      else FIRST_VALUE(sku_name) OVER (\n        PARTITION BY job_id\n        ORDER BY\n          usage_end_time DESC\n      )\n    end AS recent_sku_name,\n    case\n      when usage_end_time is null then null\n      else FIRST_VALUE(\n        {catalog}.{schema}.team_name_from_tags(custom_tags, tags)\n      ) OVER (\n        PARTITION BY job_id\n        ORDER BY\n          usage_end_time DESC\n      )\n    end AS recent_team_name\n  FROM\n    (\n      SELECT\n        t1.*,\n        t1.usage_metadata.job_id as job_id,\n        t1.sku_name,\n        t1.usage_end_time,\n        t1.custom_tags,\n        t2.tags\n      FROM\n        system.billing.usage t1\n        LEFT JOIN most_recent_jobs t2 ON t1.workspace_id = t2.workspace_id\n        AND t1.usage_metadata.job_id = t2.job_id\n    )\n),\nlist_cost_per_job_cluster as (\n  SELECT\n    t1.workspace_id,\n    t1.usage_metadata.job_id,\n    t1.usage_metadata.cluster_id,\n    first(t1.recent_team_name) as team_name,\n    ifnull(\n      {catalog}.{schema}.job_type_from_sku(first(t1.recent_sku_name)),\n      'UNKNOWN'\n    ) as job_type_from_sku,\n    COUNT(DISTINCT t1.usage_metadata.job_run_id) as runs,\n    SUM(t1.usage_quantity * list_prices.pricing.default) as list_cost,\n    first(identity_metadata.run_as, true) as run_as,\n    first(t1.custom_tags, true) as custom_tags,\n    MAX(t1.usage_end_time) as last_seen_date\n  FROM\n    billing_w_org_team t1\n    INNER JOIN system.billing.list_prices list_prices on t1.cloud = list_prices.cloud\n    and t1.sku_name = list_prices.sku_name\n    and t1.usage_start_time >= list_prices.price_start_time\n    and (\n      t1.usage_end_time <= list_prices.price_end_time\n      or list_prices.price_end_time is null\n    )\n  WHERE\n    t1.sku_name LIKE '%JOBS%'\n    AND t1.usage_metadata.job_id IS NOT NULL\n    AND t1.usage_date >= CURRENT_DATE() - INTERVAL 30 DAY\n  GROUP BY\n    ALL\n),\njobsrollingmonth as (\n  SELECT\n    t2.name,\n    t1.job_id,\n    t1.workspace_id,\n    t1.cluster_id,\n    ifnull(first(t1.team_name), 'unknown') as team_name,\n    ifnull(first(t1.job_type_from_sku), 'UNKNOWN') as job_type_from_sku,\n    t1.runs,\n    t1.run_as,\n    SUM(list_cost) as list_cost,\n    t1.last_seen_date\n  FROM\n    list_cost_per_job_cluster t1\n    LEFT JOIN most_recent_jobs t2 USING (workspace_id, job_id)\n  GROUP BY\n    ALL\n  ORDER BY\n    list_cost DESC\n),\nclusterutil as (\n  SELECT\n    *\n  from\n    system.compute.node_timeline\n  WHERE\n    start_time >= CURRENT_DATE() - INTERVAL 30 DAY\n),\njobswithutil as (\n  select\n    jobsrollingmonth.workspace_id,\n    jobsrollingmonth.job_id,\n    coalesce(jobsrollingmonth.name, jobsrollingmonth.job_id) as job_name,\n    max(jobsrollingmonth.team_name) as team_name,\n    max(jobsrollingmonth.job_type_from_sku) as job_type_from_sku,\n    avg(cpu_user_percent + cpu_system_percent) as `Avg CPU Utilization`,\n    100 - avg(cpu_user_percent + cpu_system_percent) as `Avg Unutilized CPU`,\n    max(cpu_user_percent + cpu_system_percent) as `Peak CPU Utilization`,\n    avg(cpu_wait_percent) as `Avg CPU Disk Wait`,\n    max(cpu_wait_percent) as `Max CPU Disk Wait`,\n    avg(mem_used_percent) as `Avg Memory Utilization`,\n    max(mem_used_percent) as `Max Memory Utilization`\n  from\n    clusterutil\n    join jobsrollingmonth on clusterutil.cluster_id = jobsrollingmonth.cluster_id\n  where\n    jobsrollingmonth.name is not null\n  group by\n    1,\n    2,\n    3\n)\nselect\n  t1.*,\n  t3.workspace_name\nfrom\n  jobswithutil t1\n  LEFT JOIN {catalog}.{schema}.workspace_reference t3 USING (workspace_id)\norder by\n  `Avg Memory Utilization` desc;"
+      "query": "with most_recent_jobs as (\n  SELECT\n    *,\n    ROW_NUMBER() OVER(\n      PARTITION BY workspace_id,\n      job_id\n      ORDER BY\n        change_time DESC\n    ) as rn\n  FROM\n    system.lakeflow.jobs QUALIFY rn = 1\n),\nbilling_w_org_team as (\n  SELECT\n    *,\n    case\n      when usage_end_time is null then null\n      else FIRST_VALUE(sku_name) OVER (\n        PARTITION BY job_id\n        ORDER BY\n          usage_end_time DESC\n      )\n    end AS recent_sku_name,\n    case\n      when usage_end_time is null then null\n      else FIRST_VALUE(\n        {catalog}.{schema}.team_name_from_tags(custom_tags, tags)\n      ) OVER (\n        PARTITION BY job_id\n        ORDER BY\n          usage_end_time DESC\n      )\n    end AS recent_team_name\n  FROM\n    (\n      SELECT\n        t1.*,\n        t1.usage_metadata.job_id as job_id,\n        t1.sku_name,\n        t1.usage_end_time,\n        t1.custom_tags,\n        t2.tags\n      FROM\n        system.billing.usage t1\n        LEFT JOIN most_recent_jobs t2 ON t1.workspace_id = t2.workspace_id\n        AND t1.usage_metadata.job_id = t2.job_id\n    )\n),\nlist_cost_per_job_cluster as (\n  SELECT\n    t1.workspace_id,\n    t1.usage_metadata.job_id,\n    t1.usage_metadata.cluster_id,\n    first(t1.recent_team_name) as team_name,\n    ifnull(\n      {catalog}.{schema}.job_type_from_sku(first(t1.recent_sku_name)),\n      'UNKNOWN'\n    ) as job_type_from_sku,\n    COUNT(DISTINCT t1.usage_metadata.job_run_id) as runs,\n    SUM(t1.usage_quantity * list_prices.pricing.default) as list_cost,\n    first(identity_metadata.run_as, true) as run_as,\n    first(t1.custom_tags, true) as custom_tags,\n    MAX(t1.usage_end_time) as last_seen_date\n  FROM\n    billing_w_org_team t1\n    INNER JOIN system.billing.list_prices list_prices on t1.cloud = list_prices.cloud\n    and t1.sku_name = list_prices.sku_name\n    and t1.usage_start_time >= list_prices.price_start_time\n    and (\n      t1.usage_end_time <= list_prices.price_end_time\n      or list_prices.price_end_time is null\n    )\n  WHERE\n    t1.sku_name LIKE '%JOBS%'\n    AND t1.usage_metadata.job_id IS NOT NULL\n    AND t1.usage_date >= CURRENT_DATE() - INTERVAL 30 DAY\n  GROUP BY\n    ALL\n),\njobsrollingmonth as (\n  SELECT\n    t2.name,\n    t1.job_id,\n    t1.workspace_id,\n    t1.cluster_id,\n    ifnull(first(t1.team_name), 'unknown') as team_name,\n    ifnull(first(t1.job_type_from_sku), 'UNKNOWN') as job_type_from_sku,\n    t1.runs,\n    t1.run_as,\n    SUM(list_cost) as list_cost,\n    t1.last_seen_date\n  FROM\n    list_cost_per_job_cluster t1\n    LEFT JOIN most_recent_jobs t2 USING (workspace_id, job_id)\n  GROUP BY\n    ALL\n  ORDER BY\n    list_cost DESC\n),\nclusterutil as (\n  SELECT\n    *\n  from\n    system.compute.node_timeline\n  WHERE\n    start_time >= CURRENT_DATE() - INTERVAL 30 DAY\n),\njobswithutil as (\n  select\n    jobsrollingmonth.workspace_id,\n    jobsrollingmonth.job_id,\n    coalesce(jobsrollingmonth.name, jobsrollingmonth.job_id) as job_name,\n    max(jobsrollingmonth.team_name) as team_name,\n    max(jobsrollingmonth.job_type_from_sku) as job_type_from_sku,\n    avg(cpu_user_percent + cpu_system_percent) as `Avg CPU Utilization`,\n    100 - avg(cpu_user_percent + cpu_system_percent) as `Avg Unutilized CPU`,\n    max(cpu_user_percent + cpu_system_percent) as `Peak CPU Utilization`,\n    avg(cpu_wait_percent) as `Avg CPU Disk Wait`,\n    max(cpu_wait_percent) as `Max CPU Disk Wait`,\n    avg(mem_used_percent) as `Avg Memory Utilization`,\n    max(mem_used_percent) as `Max Memory Utilization`\n  from\n    clusterutil\n    join jobsrollingmonth on clusterutil.cluster_id = jobsrollingmonth.cluster_id\n  where\n    jobsrollingmonth.name is not null\n  group by\n    1,\n    2,\n    3\n)\nselect\n  t1.*,\n  t3.workspace_name\nfrom\n  jobswithutil t1\n  LEFT JOIN {catalog}.{schema}.workspace_reference t3 USING (workspace_id)\norder by\n  `Avg Memory Utilization`;"
     },
     {
       "name": "9738c1b0",
@@ -1086,7 +1086,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Rolling 30 $list by Team",
+                "title": "Rolling t30 $list by Team",
                 "showDescription": true,
                 "description": "Cost per team name tag attributed by jobs"
               }
@@ -6108,8 +6108,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Top 10 longest running jobs t7",
-                "description": "Longest running jobs in the last 7 days"
+                "title": "Top 10 longest running jobs t30",
+                "description": "Longest running jobs in the last 30 days"
               }
             }
           },
@@ -6606,7 +6606,7 @@
                 "showTitle": true,
                 "title": "CPU and Memory Utilization per Job",
                 "showDescription": true,
-                "description": "Tablular level details of the above chart showing  CPU and Memory for jobs. This, by default, is sorted on the maximum average memory, but can be sorted by other columns by clicking on the corresponding column name."
+                "description": "Tablular level details of the above chart showing  CPU and Memory for jobs. This, by default, is sorted on the lowest average memory, but can be sorted by other columns by clicking on the corresponding column name."
               }
             }
           },
@@ -7395,10 +7395,6 @@
                       "expression": "`team_name`"
                     },
                     {
-                      "name": "job_type_from_sku",
-                      "expression": "`job_type_from_sku`"
-                    },
-                    {
                       "name": "task_runs",
                       "expression": "`task_runs`"
                     },
@@ -7525,33 +7521,6 @@
                     "displayName": "team_name"
                   },
                   {
-                    "fieldName": "job_type_from_sku",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 100005,
-                    "title": "job_type_from_sku",
-                    "allowSearch": false,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
-                  },
-                  {
                     "fieldName": "task_runs",
                     "numberFormat": "0",
                     "booleanValues": [
@@ -7627,6 +7596,31 @@
                   "displayAs": "string",
                   "order": 100000,
                   "title": "workspace_id",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "job_type_from_sku",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 100005,
+                  "title": "job_type_from_sku",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,

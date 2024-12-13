@@ -269,15 +269,15 @@
                       "expression": "`week_start`"
                     },
                     {
-                      "name": "sum(weekly_growth)",
-                      "expression": "SUM(`weekly_growth`)"
+                      "name": "weekly_growth",
+                      "expression": "`weekly_growth`"
                     },
                     {
-                      "name": "sum(3_months_growth_moving_avg)",
-                      "expression": "SUM(`3_months_growth_moving_avg`)"
+                      "name": "3_months_growth_moving_avg",
+                      "expression": "`3_months_growth_moving_avg`"
                     }
                   ],
-                  "disaggregated": false
+                  "disaggregated": true
                 }
               }
             ],
@@ -296,16 +296,16 @@
                   "primary": {
                     "fields": [
                       {
-                        "fieldName": "sum(weekly_growth)",
-                        "displayName": "Sum of weekly_growth"
+                        "fieldName": "weekly_growth",
+                        "displayName": "weekly %change"
                       }
                     ]
                   },
                   "secondary": {
                     "fields": [
                       {
-                        "fieldName": "sum(3_months_growth_moving_avg)",
-                        "displayName": "Sum of 3_months_growth_moving_avg"
+                        "fieldName": "3_months_growth_moving_avg",
+                        "displayName": "3_months_growth_moving_avg"
                       }
                     ]
                   },
