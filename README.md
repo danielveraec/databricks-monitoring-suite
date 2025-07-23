@@ -15,6 +15,7 @@
       * [**Tables**](#tables)
       * [**SQL Functions**](#sql-functions)
   * [Conclusion](#conclusion)
+    * [Disclaimer](#disclaimer)
 <!-- TOC -->
 
 ## Overview
@@ -58,7 +59,7 @@ This repository contains a suite of analytics dashboards for Databricks environm
    * **Catalog and Team Usage** – Catalog usage by teams and entity types.
    * **Table Access Details** – Includes access frequency by entity, user-level access, and upstream/downstream table lineage.
 
-![Sample Dashboard](assets/sample_screenshot_1.png)
+![Sample Dashboard](sample_screenshot_1.png)
 
 ## Repository Structure
 
@@ -185,3 +186,7 @@ Thank you for exploring the **Databricks Dashboard Repository**\! This project a
 We hope you find these dashboards useful for your analytical needs. If you have any questions, suggestions, or need assistance with the setup and usage, please feel free to reach out via the [Issues](https://github.com/mohanab89/databricks-dashboard-suite/issues) page.
 
 Happy analyzing!
+
+### Disclaimer
+
+This project and the accompanying dashboards are not official Databricks products. They are community-built resources provided as-is, with no dedicated ongoing support. Please review and test in your environment, as they are intended for use at your own risk.
