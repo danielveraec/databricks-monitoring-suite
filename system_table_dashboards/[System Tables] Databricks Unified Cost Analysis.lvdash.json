@@ -541,28 +541,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Gasto Diario por Workspace",
-                "description": "Gasto diario por workspace (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución temporal del gasto diario segmentado por workspace. Cada color representa un workspace diferente. Útil para comparar consumo entre entornos e identificar workspaces con mayor impacto en costos."
               }
             }
           },
