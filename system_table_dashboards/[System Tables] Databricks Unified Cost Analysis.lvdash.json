@@ -448,14 +448,14 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "compute_type",
@@ -488,14 +488,14 @@
                       }
                     ]
                   },
-                  "displayName": "compute_type"
+                  "displayName": "Tipo de Compute"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Gasto Diario por Tipo de Compute",
-                "description": "Gasto diario por tipo de compute (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución temporal del gasto diario segmentado por tipo de compute (Jobs, SQL, Notebooks, etc.). Cada color representa un tipo diferente. Útil para identificar picos de consumo, tendencias de gasto y qué tipos de compute generan más costos en períodos específicos."
               }
             }
           },
