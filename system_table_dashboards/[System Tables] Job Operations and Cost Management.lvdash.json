@@ -152,7 +152,7 @@
               "encodings": {
                 "value": {
                   "fieldName": "sum(Last30to60DaySpend)",
-                  "displayName": "Sum of Last30to60DaySpend"
+                  "displayName": "Gasto Total"
                 }
               },
               "frame": {
@@ -287,7 +287,7 @@
                   },
                   {
                     "fieldName": "usage_end_time",
-                    "displayName": "usage_end_time",
+                    "displayName": "Fecha Fin",
                     "queryName": "dashboards/01ef9641cdd8191099b62856082e0945/datasets/01ef9641cddc188ca0fbf01a00ba4b21_usage_end_time"
                   }
                 ]
@@ -354,7 +354,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
@@ -364,21 +364,21 @@
                   "axis": {
                     "title": "$list"
                   },
-                  "displayName": "$DBU"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "sku_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Daily $list by SKU",
+                "title": "Gasto Diario por SKU",
                 "showDescription": true,
-                "description": "Daily spend per SKU (y-axis) over time (x-axis)"
+                "description": "Evolución temporal del gasto diario por tipo de SKU. Cada color representa un SKU diferente. Útil para identificar qué tipos de jobs generan más costos."
               }
             }
           },
@@ -424,7 +424,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
@@ -434,21 +434,21 @@
                   "axis": {
                     "title": "$list"
                   },
-                  "displayName": "$DBU"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Daily $list by Workspace",
+                "title": "Gasto Diario por Workspace",
                 "showDescription": true,
-                "description": "Daily spend per workspace (y-axis) over time (x-axis)"
+                "description": "Evolución temporal del gasto diario de jobs por workspace. Cada color representa un workspace diferente. Útil para comparar consumo de jobs entre entornos."
               }
             }
           },
@@ -794,97 +794,97 @@
                 "fields": [
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e184f844664253db9be3d_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e190795f396ef64ed632c_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e196eb9f4b61cdc524557_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e19d7ab28b298bc5d5f64_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e1a28b3d63ba275c2c068_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932b112018b297e6fe373b6f4991_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932e9c0414d1adbb7feabeb7904b_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932f2eca1b078d8eb898ccd75420_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93304b241845a0e570b54b483387_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93322c881206b9008e9618b3bc3d_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef9547d1c11cce813b5772a486c580_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956d4a8b1ed0a48c98e4f1a60599_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956ea190112d9ff3e08ce5e4abc7_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef957710581b28973e59b81d361ac0_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef95782cea1784ad4080357e0d062e_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960545d81a3caa9fd52d71b338fb_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960924b0102f9a9c6b3128fb2ca7_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960baaa51fe3807e9969b7f25bbc_workspace_name"
                   },
                   {
                     "fieldName": "workspace_name",
-                    "displayName": "workspace_name",
+                    "displayName": "Workspace",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960bc21917b79348ebed24c5e45f_workspace_name"
                   }
                 ]
@@ -926,7 +926,7 @@
               "encodings": {
                 "value": {
                   "fieldName": "sum(Last30DaySpend)",
-                  "displayName": "Sum of Last30DaySpend"
+                  "displayName": "Gasto Total"
                 }
               },
               "frame": {
@@ -979,14 +979,14 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "week_start"
+                  "displayName": "Semana"
                 },
                 "y": {
                   "primary": {
                     "fields": [
                       {
                         "fieldName": "weekly_growth",
-                        "displayName": "weekly %change"
+                        "displayName": "Cambio Semanal (%)"
                       }
                     ]
                   },
@@ -994,7 +994,7 @@
                     "fields": [
                       {
                         "fieldName": "3_months_growth_moving_avg",
-                        "displayName": "3_months_growth_moving_avg"
+                        "displayName": "Promedio Móvil 3 Meses (%)"
                       }
                     ]
                   },
@@ -1005,9 +1005,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Cambio % Semanal de Costo de Jobs",
+                "title": "Tendencia de Crecimiento de Costos de Jobs",
                 "showDescription": true,
-                "description": "Cambio porcentual de costo de jobs semana tras semana (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Muestra el cambio porcentual del costo de jobs de cada semana respecto a la anterior (línea volátil) y su promedio móvil de 3 meses (línea suave). Valores positivos indican aumento de costos, negativos indican reducción. Útil para detectar si los costos de jobs están acelerándose o estabilizándose."
               }
             }
           },
@@ -1021,7 +1021,7 @@
         {
           "widget": {
             "name": "e8fc41c4",
-            "textbox_spec": "### Jobs Cost, Operational, and Cluster Performance Dashboard\n----\nThis comprehensive dashboard provides insights into job costs, operations, and resource utilization, enabling teams to monitor, analyze, and optimize job-related performance and spending. The dashboard is organized into four sections, each enhanced by global filters that apply across all sections, allowing for customized and granular analysis.\n\n#### Dashboard Filters\n\n- **Date Range**: Select a specific date range to focus on recent or historical job activity and spending, enabling flexible time-based analysis across costs, operations, and resource usage.\n\n- **Workspace Name**: Filter by workspace to view job-related metrics specific to individual workspaces, giving teams a clear view of workspace-level job activity and cost impact.\n\n- **Job Type**: Narrow down the data by specific job SKU types (e.g., serverless or classic) to analyze cost and performance variations based on job SKU type.\n\n- **Job ID and Job Name**: Filter data by job ID or job name to analyze metrics specific to individual jobs, allowing for detailed troubleshooting or performance review of particular workflows.\n\n- **Team Name**: Filter by team to attribute job costs, resource usage, and operational insights to specific teams, aiding in accountability and team-based optimization efforts.\n\n#### Dashboard Sections\n\n1. **Cost Breakdown and Usage Analysis**: Visualizations and tables providing daily job-related cost breakdowns by workspace, SKU, team, and user, along with insights on high-cost jobs. This section helps track spending patterns and identify major cost drivers.\n\n2. **Cost Comparison and Change Analysis**: Enables cost comparison over customizable timeframes, providing insights into recent changes and job-level cost fluctuations for more targeted cost management.\n\n3. **Operational Analysis**: Visuals of job run counts, run times, and failure rates across different dimensions, offering insights into operational efficiency, job success rates, and patterns in job execution across teams and triggers.\n\n4. **Cluster Analysis**: Resource utilization metrics, including CPU and memory usage, peak utilization by job, and jobs with outdated configurations, supporting efficient cluster management and configuration optimization.\n\nTogether, these sections and filters provide a holistic view of job performance, costs, and resource utilization, empowering teams to make data-driven decisions to optimize job configurations, reduce operational costs, and enhance overall performance.\n\n#### System Tables Used\n- system.billing.usage\n- system.billing.list_prices\n- system.lakeflow.jobs\n- system.lakeflow.job_run_timeline\n- system.compute.clusters\n- system.access.table_lineage\n\n"
+            "textbox_spec": "### Dashboard de Costos, Operaciones y Rendimiento de Clusters para Jobs\n----\nEste dashboard integral proporciona información sobre costos de jobs, operaciones y utilización de recursos, permitiendo a los equipos monitorear, analizar y optimizar el rendimiento y gasto relacionado con jobs. El dashboard está organizado en cuatro secciones, cada una mejorada por filtros globales que aplican a través de todas las secciones, permitiendo análisis personalizado y granular.\n\n#### Filtros del Dashboard\n\n- **Rango de Fechas**: Selecciona un rango de fechas específico para enfocarse en actividad y gasto de jobs reciente o histórico, permitiendo análisis flexible basado en tiempo a través de costos, operaciones y uso de recursos.\n\n- **Nombre del Workspace**: Filtra por workspace para ver métricas relacionadas con jobs específicas de workspaces individuales, dando a los equipos una vista clara de actividad de jobs e impacto de costos a nivel de workspace.\n\n- **Tipo de Job**: Filtra los datos por tipos específicos de SKU de job (ej., serverless o classic) para analizar variaciones de costo y rendimiento basadas en el tipo de SKU del job.\n\n- **ID de Job y Nombre de Job**: Filtra datos por ID de job o nombre de job para analizar métricas específicas de jobs individuales, permitiendo troubleshooting detallado o revisión de rendimiento de workflows particulares.\n\n- **Nombre del Equipo**: Filtra por equipo para atribuir costos de jobs, uso de recursos e información operacional a equipos específicos, ayudando en responsabilidad y esfuerzos de optimización basados en equipo.\n\n#### Secciones del Dashboard\n\n1. **Desglose de Costos y Análisis de Uso**: Visualizaciones y tablas proporcionando desgloses de costos diarios relacionados con jobs por workspace, SKU, equipo y usuario, junto con información sobre jobs de alto costo. Esta sección ayuda a rastrear patrones de gasto e identificar principales impulsores de costos.\n\n2. **Comparación de Costos y Análisis de Cambios**: Permite comparación de costos sobre marcos de tiempo personalizables, proporcionando información sobre cambios recientes y fluctuaciones de costos a nivel de job para gestión de costos más dirigida.\n\n3. **Análisis Operacional**: Visuales de conteos de ejecuciones de jobs, tiempos de ejecución y tasas de fallo a través de diferentes dimensiones, ofreciendo información sobre eficiencia operacional, tasas de éxito de jobs y patrones en ejecución de jobs a través de equipos y triggers.\n\n4. **Análisis de Clusters**: Métricas de utilización de recursos, incluyendo uso de CPU y memoria, utilización pico por job, y jobs con configuraciones desactualizadas, soportando gestión eficiente de clusters y optimización de configuración.\n\nEn conjunto, estas secciones y filtros proporcionan una vista holística de rendimiento de jobs, costos y utilización de recursos, empoderando a los equipos para tomar decisiones basadas en datos para optimizar configuraciones de jobs, reducir costos operacionales y mejorar el rendimiento general.\n\n#### System Tables Utilizadas\n- system.billing.usage\n- system.billing.list_prices\n- system.lakeflow.jobs\n- system.lakeflow.job_run_timeline\n- system.compute.clusters\n- system.access.table_lineage\n\n"
           },
           "position": {
             "x": 0,
@@ -1061,7 +1061,7 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "tagbucket",
@@ -1078,7 +1078,7 @@
                       }
                     ]
                   },
-                  "displayName": "tagbucket"
+                  "displayName": "Equipo"
                 },
                 "label": {
                   "show": false
@@ -1086,9 +1086,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Rolling t30 $list by Team",
+                "title": "Costo 30d por Equipo",
                 "showDescription": true,
-                "description": "Cost per team name tag attributed by jobs"
+                "description": "Distribución de costos de jobs de los últimos 30 días por equipo. Cada color representa un equipo diferente basado en los tags de los jobs. Útil para asignación de costos y facturación por equipo."
               }
             }
           },
@@ -1434,97 +1434,97 @@
                 "fields": [
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e184f844664253db9be3d_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e190795f396ef64ed632c_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e196eb9f4b61cdc524557_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e19d7ab28b298bc5d5f64_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e1a28b3d63ba275c2c068_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932b112018b297e6fe373b6f4991_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932e9c0414d1adbb7feabeb7904b_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932f2eca1b078d8eb898ccd75420_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93304b241845a0e570b54b483387_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93322c881206b9008e9618b3bc3d_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef9547d1c11cce813b5772a486c580_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956d4a8b1ed0a48c98e4f1a60599_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956ea190112d9ff3e08ce5e4abc7_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef957710581b28973e59b81d361ac0_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef95782cea1784ad4080357e0d062e_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960545d81a3caa9fd52d71b338fb_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960924b0102f9a9c6b3128fb2ca7_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960baaa51fe3807e9969b7f25bbc_job_type_from_sku"
                   },
                   {
                     "fieldName": "job_type_from_sku",
-                    "displayName": "job_type_from_sku",
+                    "displayName": "Tipo Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960bc21917b79348ebed24c5e45f_job_type_from_sku"
                   }
                 ]
@@ -1843,87 +1843,87 @@
                 "fields": [
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e184f844664253db9be3d_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e190795f396ef64ed632c_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e19d7ab28b298bc5d5f64_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932b112018b297e6fe373b6f4991_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932e9c0414d1adbb7feabeb7904b_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932f2eca1b078d8eb898ccd75420_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93304b241845a0e570b54b483387_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93322c881206b9008e9618b3bc3d_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef9547d1c11cce813b5772a486c580_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956d4a8b1ed0a48c98e4f1a60599_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956ea190112d9ff3e08ce5e4abc7_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef957710581b28973e59b81d361ac0_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef95782cea1784ad4080357e0d062e_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960545d81a3caa9fd52d71b338fb_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960924b0102f9a9c6b3128fb2ca7_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960baaa51fe3807e9969b7f25bbc_team_name"
                   },
                   {
                     "fieldName": "team_name",
-                    "displayName": "team_name",
+                    "displayName": "Equipo",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960bc21917b79348ebed24c5e45f_team_name"
                   }
                 ]
@@ -1976,28 +1976,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_end_time"
+                  "displayName": "Semana"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "team_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "team_name"
+                  "displayName": "Equipo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Weekly $list by Tag",
-                "description": "Daily spend per team (y-axis) over time (x-axis)"
+                "title": "Gasto Semanal por Equipo",
+                "description": "Evolución temporal del gasto semanal de jobs por equipo. Cada línea representa un equipo diferente basado en los tags de los jobs. Útil para rastrear tendencias de consumo por equipo a lo largo del tiempo."
               }
             }
           },
@@ -2343,97 +2343,97 @@
                 "fields": [
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e184f844664253db9be3d_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e190795f396ef64ed632c_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e196eb9f4b61cdc524557_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e19d7ab28b298bc5d5f64_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e1a28b3d63ba275c2c068_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932b112018b297e6fe373b6f4991_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932e9c0414d1adbb7feabeb7904b_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932f2eca1b078d8eb898ccd75420_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93304b241845a0e570b54b483387_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93322c881206b9008e9618b3bc3d_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef9547d1c11cce813b5772a486c580_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956d4a8b1ed0a48c98e4f1a60599_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956ea190112d9ff3e08ce5e4abc7_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef957710581b28973e59b81d361ac0_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef95782cea1784ad4080357e0d062e_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960545d81a3caa9fd52d71b338fb_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960924b0102f9a9c6b3128fb2ca7_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960baaa51fe3807e9969b7f25bbc_job_id"
                   },
                   {
                     "fieldName": "job_id",
-                    "displayName": "job_id",
+                    "displayName": "ID Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960bc21917b79348ebed24c5e45f_job_id"
                   }
                 ]
@@ -2786,97 +2786,97 @@
                 "fields": [
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e184f844664253db9be3d_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e190795f396ef64ed632c_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e196eb9f4b61cdc524557_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e19d7ab28b298bc5d5f64_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef931c354e1a28b3d63ba275c2c068_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932b112018b297e6fe373b6f4991_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932e9c0414d1adbb7feabeb7904b_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef932f2eca1b078d8eb898ccd75420_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93304b241845a0e570b54b483387_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef93322c881206b9008e9618b3bc3d_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef9547d1c11cce813b5772a486c580_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956d4a8b1ed0a48c98e4f1a60599_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef956ea190112d9ff3e08ce5e4abc7_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef957710581b28973e59b81d361ac0_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef95782cea1784ad4080357e0d062e_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960545d81a3caa9fd52d71b338fb_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960924b0102f9a9c6b3128fb2ca7_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960baaa51fe3807e9969b7f25bbc_job_name"
                   },
                   {
                     "fieldName": "job_name",
-                    "displayName": "job_name",
+                    "displayName": "Job",
                     "queryName": "dashboards/01ef931c35481d2593d1eef1ae0bd192/datasets/01ef960bc21917b79348ebed24c5e45f_job_name"
                   }
                 ]
@@ -2929,14 +2929,14 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "job_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "avg(job_duration_in_secs)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Average job_duration_in_secs"
+                  "displayName": "Tiempo Promedio (seg)"
                 },
                 "color": {
                   "fieldName": "sku_name",
@@ -2949,7 +2949,7 @@
                       }
                     ]
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 },
                 "label": {
                   "show": false
@@ -2959,7 +2959,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Tendencia de Tiempo de Ejecución de Job",
-                "description": "Tiempo promedio de ejecución de job (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución del tiempo promedio de ejecución de jobs por tipo de SKU. Cada color representa un SKU diferente. Útil para detectar degradación de rendimiento y comparar eficiencia entre tipos de compute."
               }
             }
           },
@@ -3001,21 +3001,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Asignado"
                 },
                 "color": {
                   "fieldName": "run_as",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "run_as"
+                  "displayName": "Usuario"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Allocated Job Cost By User",
-                "description": "Job run cost per user"
+                "title": "Distribución de Costos de Jobs por Usuario",
+                "description": "Distribución de costos de jobs por usuario basado en sus ejecuciones. Cada color representa un usuario diferente. Útil para identificar usuarios con mayor consumo de recursos en jobs."
               }
             }
           },
@@ -3029,7 +3029,7 @@
         {
           "widget": {
             "name": "88433c9b",
-            "textbox_spec": "### Cost Breakdown and Usage Analysis Section\n----\nThis section provides a comprehensive view of job-related costs, broken down by various dimensions to enable deeper insights into spending patterns and resource utilization. Key elements include:\n\n1. **Daily Cost by Workspace and SKU**: Visuals displaying daily cost trends segmented by workspace and SKU, helping users identify the main contributors to job-related expenditures.\n\n2. **Cost by Team**: A breakdown of costs by team, allowing for team-specific insights and accountability in resource usage.\n\n3. **Cost Allocated by Users**: Charts showing job costs attributed to specific users, giving visibility into individual usage patterns and potential optimization areas.\n\n4. **Daily Cost per Status**: Analysis of daily costs segmented by job status, such as succeeded, error, or cancelled, providing insights into how job outcomes affect resource usage.\n\n5. **Expensive Jobs Table**: A table listing high-cost jobs, detailing list costs, number of runs, and associated sources, facilitating targeted optimizations of costly operations.\n\nThis section empowers teams with clear, actionable data to manage job costs effectively and optimize job-related resource consumption."
+            "textbox_spec": "### Sección de Desglose de Costos y Análisis de Uso\n----\nEsta sección proporciona una vista integral de costos relacionados con jobs, desglosados por varias dimensiones para permitir información más profunda sobre patrones de gasto y utilización de recursos. Los elementos clave incluyen:\n\n1. **Costo Diario por Workspace y SKU**: Visuales mostrando tendencias de costos diarios segmentados por workspace y SKU, ayudando a los usuarios a identificar los principales contribuyentes a gastos relacionados con jobs.\n\n2. **Costo por Equipo**: Un desglose de costos por equipo, permitiendo información específica por equipo y responsabilidad en el uso de recursos.\n\n3. **Costo Asignado por Usuarios**: Gráficos mostrando costos de jobs atribuidos a usuarios específicos, dando visibilidad sobre patrones de uso individual y áreas potenciales de optimización.\n\n4. **Costo Diario por Estado**: Análisis de costos diarios segmentados por estado de job, como exitoso, error o cancelado, proporcionando información sobre cómo los resultados de jobs afectan el uso de recursos.\n\n5. **Tabla de Jobs Costosos**: Una tabla listando jobs de alto costo, detallando costos, número de ejecuciones y fuentes asociadas, facilitando optimizaciones dirigidas de operaciones costosas.\n\nEsta sección empodera a los equipos con datos claros y accionables para gestionar costos de jobs efectivamente y optimizar el consumo de recursos relacionados con jobs."
           },
           "position": {
             "x": 0,
@@ -3041,7 +3041,7 @@
         {
           "widget": {
             "name": "3ce0d928",
-            "textbox_spec": "### Operational Analysis Section\n----\nThis section provides operational insights into job execution patterns, run durations, and reliability, supporting teams in optimizing job efficiency and troubleshooting issues. Key visualizations include:\n\n1. **Job Run Count Change Over Time by Team**: A trend view of job run counts over time, organized by team, which enables teams to assess their job activity levels and identify any operational shifts.\n\n2. **Job Run Time per Day by Job Name and SKU**: Visualizes daily run times grouped by job name and SKU, helping users identify resource-intensive jobs and optimize job configuration or scheduling.\n\n3. **Run Time by Trigger Type and Status**: A breakdown of job run times segmented by trigger type (e.g., cron, periodic) and status, providing insights into the efficiency and success rates of different job triggers.\n\n4. **Top 10 Longest Running Jobs (Last 7 Days)**: Shows the longest-running jobs over the past week, enabling teams to examine and potentially optimize time-consuming jobs.\n\n5. **Highest Failure Jobs (Last 30 Days)**: Identifies jobs with the most failures in the past month, highlighting jobs that may need troubleshooting to improve reliability.\n\nThis section offers a comprehensive view of job operations, empowering teams to monitor performance, troubleshoot high-failure jobs, and enhance operational efficiency across their workloads.\n"
+            "textbox_spec": "### Sección de Análisis Operacional\n----\nEsta sección proporciona información operacional sobre patrones de ejecución de jobs, duraciones de ejecución y confiabilidad, soportando a los equipos en optimizar eficiencia de jobs y solucionar problemas. Las visualizaciones clave incluyen:\n\n1. **Cambio en Conteo de Ejecuciones de Jobs a lo Largo del Tiempo por Equipo**: Una vista de tendencia de conteos de ejecuciones de jobs a lo largo del tiempo, organizada por equipo, que permite a los equipos evaluar sus niveles de actividad de jobs e identificar cualquier cambio operacional.\n\n2. **Tiempo de Ejecución de Job por Día por Nombre de Job y SKU**: Visualiza tiempos de ejecución diarios agrupados por nombre de job y SKU, ayudando a los usuarios a identificar jobs intensivos en recursos y optimizar configuración o programación de jobs.\n\n3. **Tiempo de Ejecución por Tipo de Trigger y Estado**: Un desglose de tiempos de ejecución de jobs segmentados por tipo de trigger (ej., cron, periódico) y estado, proporcionando información sobre la eficiencia y tasas de éxito de diferentes triggers de jobs.\n\n4. **Top 10 Jobs con Mayor Tiempo de Ejecución (Últimos 7 Días)**: Muestra los jobs de mayor duración en la última semana, permitiendo a los equipos examinar y potencialmente optimizar jobs que consumen mucho tiempo.\n\n5. **Jobs con Más Fallos (Últimos 30 Días)**: Identifica jobs con mayor número de fallos en el último mes, destacando jobs que pueden necesitar troubleshooting para mejorar confiabilidad.\n\nEsta sección ofrece una vista integral de operaciones de jobs, empoderando a los equipos para monitorear rendimiento, solucionar problemas de jobs con altos fallos y mejorar eficiencia operacional a través de sus cargas de trabajo.\n"
           },
           "position": {
             "x": 0,
@@ -3053,7 +3053,7 @@
         {
           "widget": {
             "name": "71ccb23c",
-            "textbox_spec": "### Cluster Analysis Section\n----\nThis section provides detailed insights into the resource utilization of job clusters, helping teams optimize cluster configurations for cost-efficiency and performance. Key components include:\n\n1. **Average Memory and CPU Utilization Across Jobs**: Visualizations of memory and CPU utilization across all jobs, offering an overview of resource demands and helping identify potential areas for efficiency improvements.\n\n2. **Peak and Average Memory and CPU Utilization by Job**: A table with detailed metrics on each job's peak and average resource usage, allowing teams to pinpoint resource-intensive jobs and fine-tune configurations for optimal performance.\n\n3. **Jobs with Fixed Number of Workers**: Identifies jobs running with a fixed worker count, providing insights into workload distribution and helping teams evaluate if dynamic scaling might improve efficiency.\n\n4. **Jobs Running Outdated DBR**: Lists jobs using outdated Databricks Runtime (DBR) versions, encouraging teams to update for better performance, security, and compatibility.\n\n5. **Jobs Running on All-Purpose Compute**: Displays jobs running on all-purpose clusters, helping identify opportunities to shift workloads to job-specific clusters, which can be more cost-effective.\n\nThis section supports effective resource allocation and performance tuning by highlighting areas where job cluster configurations could be optimized to reduce costs and enhance performance.\n"
+            "textbox_spec": "### Sección de Análisis de Clusters\n----\nEsta sección proporciona información detallada sobre la utilización de recursos de clusters de jobs, ayudando a los equipos a optimizar configuraciones de clusters para eficiencia de costos y rendimiento. Los componentes clave incluyen:\n\n1. **Utilización Promedio de Memoria y CPU a Través de Jobs**: Visualizaciones de utilización de memoria y CPU a través de todos los jobs, ofreciendo una visión general de demandas de recursos y ayudando a identificar áreas potenciales para mejoras de eficiencia.\n\n2. **Utilización Pico y Promedio de Memoria y CPU por Job**: Una tabla con métricas detalladas sobre el uso pico y promedio de recursos de cada job, permitiendo a los equipos identificar jobs intensivos en recursos y afinar configuraciones para rendimiento óptimo.\n\n3. **Jobs con Número Fijo de Workers**: Identifica jobs ejecutándose con un conteo fijo de workers, proporcionando información sobre distribución de carga de trabajo y ayudando a los equipos a evaluar si el escalado dinámico podría mejorar la eficiencia.\n\n4. **Jobs Ejecutándose en DBR Desactualizado**: Lista jobs usando versiones desactualizadas de Databricks Runtime (DBR), alentando a los equipos a actualizar para mejor rendimiento, seguridad y compatibilidad.\n\n5. **Jobs Ejecutándose en Compute de Propósito General**: Muestra jobs ejecutándose en clusters de propósito general, ayudando a identificar oportunidades para trasladar cargas de trabajo a clusters específicos de jobs, que pueden ser más rentables.\n\nEsta sección soporta asignación efectiva de recursos y ajuste de rendimiento destacando áreas donde las configuraciones de clusters de jobs podrían ser optimizadas para reducir costos y mejorar rendimiento.\n"
           },
           "position": {
             "x": 0,
@@ -3086,14 +3086,14 @@
               "encodings": {
                 "value": {
                   "fieldName": "sum(LastPeriodSpend)",
-                  "displayName": "Sum of LastPeriodSpend"
+                  "displayName": "Gasto Total"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Last Period $list Spend",
-                "description": "Spend in the above period"
+                "title": "Gasto del Último Período",
+                "description": "Gasto en el período especificado arriba"
               }
             }
           },
@@ -3135,7 +3135,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Number of days to compare in the next table"
+                "title": "Número de días para comparar en la siguiente tabla"
               }
             }
           },
@@ -3170,14 +3170,14 @@
               "encodings": {
                 "value": {
                   "fieldName": "sum(OlderPeriodSpend)",
-                  "displayName": "Sum of OlderPeriodSpend"
+                  "displayName": "Gasto Total"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Older Period $list Spend",
-                "description": "Spend in the previous period"
+                "title": "Gasto del Período Anterior",
+                "description": "Gasto en el período previo"
               }
             }
           },
@@ -3265,14 +3265,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -3292,14 +3292,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -3319,14 +3319,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -3346,14 +3346,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -3373,14 +3373,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "run_as",
@@ -3400,14 +3400,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 6,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "LastPeriodSpend",
@@ -3427,14 +3427,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "LastPeriodSpend",
+                    "title": "Gasto Último Período",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "LastPeriodSpend"
+                    "displayName": "Gasto Último Período"
                   },
                   {
                     "fieldName": "OlderPeriodSpend",
@@ -3454,14 +3454,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "OlderPeriodSpend",
+                    "title": "Gasto Período Anterior",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "OlderPeriodSpend"
+                    "displayName": "Gasto Período Anterior"
                   },
                   {
                     "fieldName": "LastPeriodGrowth",
@@ -3481,14 +3481,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 10,
-                    "title": "LastPeriodGrowth",
+                    "title": "Cambio de Costo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "LastPeriodGrowth"
+                    "displayName": "Cambio de Costo"
                   },
                   {
                     "fieldName": "LastPeriodGrowthPct",
@@ -3509,7 +3509,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 11,
-                    "title": "LastPeriodGrowthPct",
+                    "title": "Cambio de Costo (%)",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -3533,7 +3533,7 @@
                         }
                       ]
                     },
-                    "displayName": "LastPeriodGrowthPct"
+                    "displayName": "Cambio de Costo (%)"
                   }
                 ]
               },
@@ -3555,7 +3555,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -3580,7 +3580,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 7,
-                  "title": "sku_name",
+                    "title": "SKU",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -3597,8 +3597,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Highest change in monthly $list",
-                "description": "Tabular details of what has changed per job in the given period"
+                "title": "Mayor Cambio en Costo Mensual",
+                "description": "Muestra jobs con mayor variación de costos entre dos períodos comparables. Compara el gasto del último período vs el período anterior. Útil para detectar aumentos significativos de costos de jobs y tomar acciones correctivas."
               }
             }
           },
@@ -3682,14 +3682,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 0,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -3709,14 +3709,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -3736,14 +3736,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -3763,14 +3763,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -3790,14 +3790,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "usage_end_time",
@@ -3818,14 +3818,14 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 6,
-                    "title": "usage_end_time",
+                    "title": "Fecha Fin",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "usage_end_time"
+                    "displayName": "Fecha Fin"
                   },
                   {
                     "fieldName": "runs",
@@ -3846,14 +3846,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 7,
-                    "title": "runs",
+                    "title": "Ejecuciones",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "runs"
+                    "displayName": "Ejecuciones"
                   },
                   {
                     "fieldName": "run_as",
@@ -3873,14 +3873,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 8,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "list_cost",
@@ -3900,14 +3900,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "list_cost",
+                    "title": "Costo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "list_cost"
+                    "displayName": "Costo"
                   }
                 ]
               },
@@ -3929,7 +3929,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 1,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -3945,9 +3945,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Most Expensive Jobs Last 30 Days",
+                "title": "Jobs Más Costosos Últimos 30 Días",
                 "showDescription": true,
-                "description": "List the most expensive jobs and includes the $list for the last 30 days combined."
+                "description": "Lista los jobs más costosos e incluye el costo total de los últimos 30 días combinados. Útil para identificar jobs que requieren optimización."
               }
             }
           },
@@ -4019,14 +4019,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -4046,14 +4046,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -4073,14 +4073,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -4100,14 +4100,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "tags",
@@ -4127,14 +4127,14 @@
                     "displayAs": "json",
                     "visible": true,
                     "order": 6,
-                    "title": "tags",
+                    "title": "Tags",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "tags"
+                    "displayName": "Tags"
                   },
                   {
                     "fieldName": "list_cost",
@@ -4155,14 +4155,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "list_cost_t30",
+                    "title": "Costo 30d",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "list_cost"
+                    "displayName": "Costo"
                   }
                 ]
               },
@@ -4184,7 +4184,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -4234,7 +4234,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 7,
-                  "title": "first(recent_sku_name)",
+                    "title": "SKU Reciente",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -4251,8 +4251,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Untagged Jobs Last 30 Days",
-                "description": "These jobs are not tagged and have been run in last 30 days; consider tagging them for cost attribution"
+                "title": "Jobs Sin Tags Últimos 30 Días",
+                "description": "Estos jobs no tienen tags y han sido ejecutados en los últimos 30 días; considera etiquetarlos para atribución de costos"
               }
             }
           },
@@ -4266,7 +4266,7 @@
         {
           "widget": {
             "name": "7519e499",
-            "textbox_spec": "### Cost Comparison and Change Analysis Section\n----\nThis section allows users to compare job costs over customizable timeframes, providing a focused view of spending changes and recent cost fluctuations. By entering a specific number of days (e.g., 7 days), users can view:\n\n1. **Comparative Cost Overview**: Displays the cost of the chosen period (e.g., last 7 days) alongside the prior period, enabling quick insights into recent spending trends and potential anomalies.\n\n2. **Detailed Change Analysis**: A breakdown of job-level cost changes within the selected timeframe, highlighting specific jobs with notable increases or decreases. This granularity helps users identify areas where job-related costs have shifted and provides insights for targeted optimization.\n\nThis section supports proactive cost management by making it easy to detect trends and act on changes in job-related spending, ensuring teams can maintain control over resource allocation and cost efficiency.\n"
+            "textbox_spec": "### Sección de Comparación de Costos y Análisis de Cambios\n----\nEsta sección permite a los usuarios comparar costos de jobs sobre marcos de tiempo personalizables, proporcionando una vista enfocada de cambios de gasto y fluctuaciones de costos recientes. Al ingresar un número específico de días (ej., 7 días), los usuarios pueden ver:\n\n1. **Resumen Comparativo de Costos**: Muestra el costo del período elegido (ej., últimos 7 días) junto con el período anterior, permitiendo información rápida sobre tendencias de gasto recientes y anomalías potenciales.\n\n2. **Análisis Detallado de Cambios**: Un desglose de cambios de costos a nivel de job dentro del marco de tiempo seleccionado, destacando jobs específicos con aumentos o disminuciones notables. Esta granularidad ayuda a los usuarios a identificar áreas donde los costos relacionados con jobs han cambiado y proporciona información para optimización dirigida.\n\nEsta sección soporta gestión proactiva de costos facilitando detectar tendencias y actuar sobre cambios en gasto relacionado con jobs, asegurando que los equipos puedan mantener control sobre asignación de recursos y eficiencia de costos.\n"
           },
           "position": {
             "x": 0,
@@ -4310,28 +4310,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(no_of_runs)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of no_of_runs"
+                  "displayName": "Número de Ejecuciones"
                 },
                 "color": {
                   "fieldName": "team_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "team_name"
+                  "displayName": "Equipo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Job run count with time",
-                "description": "Number of job runs (y-axis) over time (x-axis)"
+                "title": "Conteo de Ejecuciones de Jobs a lo Largo del Tiempo",
+                "description": "Evolución del número de ejecuciones de jobs por equipo. Cada línea representa un equipo diferente. Útil para rastrear actividad por equipo e identificar picos de uso."
               }
             }
           },
@@ -4419,14 +4419,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -4446,14 +4446,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -4473,14 +4473,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -4500,14 +4500,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -4527,14 +4527,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "runs",
@@ -4555,14 +4555,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "runs",
+                    "title": "Ejecuciones",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "runs"
+                    "displayName": "Ejecuciones"
                   },
                   {
                     "fieldName": "run_as",
@@ -4582,14 +4582,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 7,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "failures",
@@ -4610,14 +4610,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "failures",
+                    "title": "Fallos",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "failures"
+                    "displayName": "Fallos"
                   },
                   {
                     "fieldName": "success_ratio",
@@ -4638,7 +4638,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "success_ratio",
+                    "title": "Ratio de Éxito",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -4662,7 +4662,7 @@
                         }
                       ]
                     },
-                    "displayName": "success_ratio"
+                    "displayName": "Ratio de Éxito"
                   },
                   {
                     "fieldName": "failure_list_cost",
@@ -4683,14 +4683,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 10,
-                    "title": "failure_list_cost",
+                    "title": "Costo de Fallos",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "failure_list_cost"
+                    "displayName": "Costo de Fallos"
                   }
                 ]
               },
@@ -4712,7 +4712,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -4755,7 +4755,7 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Highest Failure Jobs Last 30 Days",
+                "title": "Jobs con Más Fallos Últimos 30 Días",
                 "description": "Shows jobs with a high number of failed runs over the last 30 days; includes number of runs, number of failures, the success ratio, and list cost of the job\u2019s failed runs."
               }
             }
@@ -4848,14 +4848,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 0,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -4875,14 +4875,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -4902,14 +4902,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "run_id",
@@ -4936,7 +4936,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_id"
+                    "displayName": "ID Ejecución"
                   },
                   {
                     "fieldName": "last_seen_date",
@@ -4957,14 +4957,14 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 5,
-                    "title": "last_seen_date",
+                    "title": "Última Fecha",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "last_seen_date"
+                    "displayName": "Última Fecha"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -4984,14 +4984,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 6,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -5011,14 +5011,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 7,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "run_as",
@@ -5038,14 +5038,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 8,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "repairs",
@@ -5066,14 +5066,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "repairs",
+                    "title": "Reintentos",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "repairs"
+                    "displayName": "Reintentos"
                   },
                   {
                     "fieldName": "repair_time_seconds",
@@ -5094,15 +5094,15 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 10,
-                    "title": "repair_time",
+                    "title": "Tiempo de Reintento",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "description": "Repair time in seconds",
-                    "displayName": "repair_time_seconds"
+                    "description": "Tiempo de reintento en segundos",
+                    "displayName": "Tiempo de Reintento (seg)"
                   },
                   {
                     "fieldName": "repair_list_cost",
@@ -5123,14 +5123,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 11,
-                    "title": "repair_list_cost",
+                    "title": "Costo de Reintentos",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "repair_list_cost"
+                    "displayName": "Costo de Reintentos"
                   }
                 ]
               },
@@ -5152,7 +5152,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 1,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -5168,9 +5168,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Most Retried Runs Last 30 Days",
+                "title": "Ejecuciones con Más Reintentos Últimos 30 Días",
                 "showDescription": true,
-                "description": "Lists jobs with frequent repairs over the last 30 days, including the number of repairs, the cumulative duration of the repair runs, and the cost of the repairs. NULL repair time means there was no successful repair (yet)."
+                "description": "Lista jobs con reintentos frecuentes en los últimos 30 días, incluyendo el número de reintentos, la duración acumulada de los reintentos y el costo de los mismos. Tiempo NULL indica que no hubo reintento exitoso aún. Útil para identificar jobs inestables."
               }
             }
           },
@@ -5266,14 +5266,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -5293,14 +5293,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -5320,14 +5320,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -5347,14 +5347,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -5374,14 +5374,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "runs",
@@ -5402,14 +5402,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "runs",
+                    "title": "Ejecuciones",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "runs"
+                    "displayName": "Ejecuciones"
                   },
                   {
                     "fieldName": "total_list_cost",
@@ -5430,14 +5430,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 7,
-                    "title": "total_list_cost",
+                    "title": "Costo Total",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "total_list_cost"
+                    "displayName": "Costo Total"
                   },
                   {
                     "fieldName": "avg_list_cost",
@@ -5458,14 +5458,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "avg_list_cost",
+                    "title": "Costo Promedio",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "avg_list_cost"
+                    "displayName": "Costo Promedio"
                   },
                   {
                     "fieldName": "max_list_cost",
@@ -5486,14 +5486,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "max_list_cost",
+                    "title": "Costo Máximo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "max_list_cost"
+                    "displayName": "Costo Máximo"
                   },
                   {
                     "fieldName": "p90",
@@ -5514,14 +5514,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 10,
-                    "title": "p90_list_cost",
+                    "title": "Costo P90",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "p90"
+                    "displayName": "Costo P90"
                   },
                   {
                     "fieldName": "last_seen_date",
@@ -5542,14 +5542,14 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 11,
-                    "title": "last_seen_date",
+                    "title": "Última Fecha",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "last_seen_date"
+                    "displayName": "Última Fecha"
                   },
                   {
                     "fieldName": "list_cost_deviation_from_p90",
@@ -5570,14 +5570,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 12,
-                    "title": "list_cost_deviation_from_p90",
+                    "title": "Desviación desde P90",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "list_cost_deviation_from_p90"
+                    "displayName": "Desviación desde P90"
                   }
                 ]
               },
@@ -5599,7 +5599,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -5615,9 +5615,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Jobs Outliers Last 30 Days",
+                "title": "Jobs con Costos Atípicos Últimos 30 Días",
                 "showDescription": true,
-                "description": "Helps analyze the job's $list deviation across multiple runs. "
+                "description": "Ayuda a analizar la desviación de costos del job a través de múltiples ejecuciones. Muestra jobs con variaciones significativas de costo entre ejecuciones. Útil para detectar problemas de rendimiento inconsistente. "
               }
             }
           },
@@ -5659,21 +5659,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of query runs"
+                  "displayName": "Número de Ejecuciones"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Run count t30",
-                "description": "Job run count comparison in workspaces"
+                "title": "Conteo de Ejecuciones 30d",
+                "description": "Distribución del número de ejecuciones de jobs por workspace en los últimos 30 días. Útil para identificar qué workspaces tienen mayor actividad de jobs."
               }
             }
           },
@@ -5715,21 +5715,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Unique job_id"
+                  "displayName": "Número de Jobs"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Job count t30",
+                "title": "Conteo de Jobs 30d",
                 "showDescription": true,
-                "description": "Job count comparison in workspaces"
+                "description": "Distribución del número de jobs únicos por workspace en los últimos 30 días. Útil para comparar la cantidad de jobs activos entre workspaces."
               }
             }
           },
@@ -5775,7 +5775,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "period_end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "countdistinct(run_id)",
@@ -5785,7 +5785,7 @@
                   "axis": {
                     "title": "% of jobs by run status"
                   },
-                  "displayName": "% of jobs by run status"
+                  "displayName": "Porcentaje (%)"
                 },
                 "color": {
                   "fieldName": "result_state",
@@ -5810,14 +5810,14 @@
                       }
                     ]
                   },
-                  "displayName": "result_state"
+                  "displayName": "Estado"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Daily Run Status Distribution",
-                "description": "Breakup of job status as percentage (y-axis) over time (x-axis)"
+                "title": "Distribución Diaria de Estado de Ejecución",
+                "description": "Muestra el porcentaje de jobs por estado (exitoso, fallido, cancelado, etc.) a lo largo del tiempo. Cada color representa un estado diferente. Útil para identificar períodos con mayor tasa de fallos y problemas de confiabilidad."
               },
               "mark": {
                 "layout": "percent-stack"
@@ -5866,14 +5866,14 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "result_state"
+                  "displayName": "Estado"
                 },
                 "y": {
                   "fieldName": "trigger_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "trigger_type"
+                  "displayName": "Tipo de Trigger"
                 },
                 "color": {
                   "fieldName": "avg(job_duration_in_secs)",
@@ -5884,14 +5884,14 @@
                       "scheme": "greenblue"
                     }
                   },
-                  "displayName": "Avg TIme sec"
+                  "displayName": "Tiempo Promedio (seg)"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Job Runtime By Trigger Type and Status",
-                "description": "Job runtime distribution with trigger type (y-axis) and status (x-axis)"
+                "title": "Tiempo de Ejecución de Job por Tipo de Trigger y Estado",
+                "description": "Mapa de calor que muestra el tiempo promedio de ejecución por tipo de trigger (cron, manual, etc.) y estado (exitoso, fallido). Colores más intensos indican mayor tiempo. Útil para identificar qué tipos de triggers tienen mejor rendimiento."
               }
             }
           },
@@ -5937,28 +5937,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "job_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(job_duration_in_secs)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of job_duration_in_secs"
+                  "displayName": "Tiempo Total (seg)"
                 },
                 "color": {
                   "fieldName": "job_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "job_name"
+                  "displayName": "Job"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Job Runtime per Day",
-                "description": "Breakup of runtime in seconds (y-axis) over time (x-axis)"
+                "title": "Tiempo de Ejecución de Job por Día",
+                "description": "Evolución del tiempo total de ejecución de jobs por nombre de job. Cada color representa un job diferente. Útil para identificar jobs con mayor carga de procesamiento y optimizar distribución de trabajo."
               }
             }
           },
@@ -6004,7 +6004,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(result_state_cost)",
@@ -6014,7 +6014,7 @@
                   "axis": {
                     "title": "% of $list by run status"
                   },
-                  "displayName": "% of $list by run status"
+                  "displayName": "Porcentaje (%)"
                 },
                 "color": {
                   "fieldName": "result_state",
@@ -6043,14 +6043,14 @@
                       }
                     ]
                   },
-                  "displayName": "result_state"
+                  "displayName": "Estado"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Daily $list by Run Status Distribution",
-                "description": "Breakup of spend per job status (y-axis) over time (x-axis)"
+                "title": "Distribución Diaria de Costo por Estado de Ejecución",
+                "description": "Muestra el porcentaje de costo por estado de job (exitoso, error, cancelado, etc.) a lo largo del tiempo. Cada color representa un estado diferente. Útil para identificar cuánto costo se desperdicia en jobs fallidos y optimizar confiabilidad."
               },
               "mark": {
                 "layout": "percent-stack"
@@ -6095,21 +6095,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of avg_seconds"
+                  "displayName": "Tiempo Promedio (seg)"
                 },
                 "color": {
                   "fieldName": "job_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "job_name"
+                  "displayName": "Job"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Top 10 longest running jobs t30",
-                "description": "Longest running jobs in the last 30 days"
+                "title": "Top 10 Jobs de Mayor Duración 30d",
+                "description": "Muestra los 10 jobs con mayor tiempo de ejecución promedio en los últimos 30 días. Útil para identificar jobs que requieren optimización de rendimiento."
               }
             }
           },
@@ -6193,14 +6193,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -6220,14 +6220,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -6247,14 +6247,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -6274,14 +6274,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -6301,14 +6301,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "Avg CPU Utilization",
@@ -6329,7 +6329,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "Avg CPU Utilization",
+                    "title": "Utilización CPU Promedio",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -6353,7 +6353,7 @@
                         }
                       ]
                     },
-                    "displayName": "Avg CPU Utilization"
+                    "displayName": "Utilización CPU Promedio"
                   },
                   {
                     "fieldName": "Peak CPU Utilization",
@@ -6374,14 +6374,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "Peak CPU Utilization",
+                    "title": "Utilización CPU Pico",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "Peak CPU Utilization"
+                    "displayName": "Utilización CPU Pico"
                   },
                   {
                     "fieldName": "Avg Memory Utilization",
@@ -6402,7 +6402,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 11,
-                    "title": "Avg Memory Utilization",
+                    "title": "Utilización Memoria Promedio",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -6426,7 +6426,7 @@
                         }
                       ]
                     },
-                    "displayName": "Avg Memory Utilization"
+                    "displayName": "Utilización Memoria Promedio"
                   },
                   {
                     "fieldName": "Max Memory Utilization",
@@ -6447,7 +6447,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 12,
-                    "title": "Max Memory Utilization",
+                    "title": "Utilización Memoria Máxima",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -6471,7 +6471,7 @@
                         }
                       ]
                     },
-                    "displayName": "Max Memory Utilization"
+                    "displayName": "Utilización Memoria Máxima"
                   }
                 ]
               },
@@ -6493,7 +6493,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -6519,7 +6519,7 @@
                   "type": "float",
                   "displayAs": "number",
                   "order": 7,
-                  "title": "Avg Unutilized CPU",
+                  "title": "CPU No Utilizado Promedio",
                   "allowSearch": false,
                   "alignContent": "right",
                   "allowHTML": false,
@@ -6562,7 +6562,7 @@
                   "type": "float",
                   "displayAs": "number",
                   "order": 9,
-                  "title": "Avg CPU Disk Wait",
+                  "title": "Espera Disco CPU Promedio",
                   "allowSearch": false,
                   "alignContent": "right",
                   "allowHTML": false,
@@ -6588,7 +6588,7 @@
                   "type": "float",
                   "displayAs": "number",
                   "order": 10,
-                  "title": "Max CPU Disk Wait",
+                  "title": "Espera Disco CPU Máxima",
                   "allowSearch": false,
                   "alignContent": "right",
                   "allowHTML": false,
@@ -6604,9 +6604,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "CPU and Memory Utilization per Job",
+                "title": "Utilización de CPU y Memoria por Job",
                 "showDescription": true,
-                "description": "Tablular level details of the above chart showing  CPU and Memory for jobs. This, by default, is sorted on the lowest average memory, but can be sorted by other columns by clicking on the corresponding column name."
+                "description": "Detalles tabulares mostrando utilización de CPU y memoria para cada job. Por defecto ordenado por menor memoria promedio, pero puede ordenarse por otras columnas haciendo clic en el nombre de columna correspondiente."
               }
             }
           },
@@ -6664,11 +6664,11 @@
                   "fields": [
                     {
                       "fieldName": "avg(Avg Memory Utilization)",
-                      "displayName": "Avg Memory Utilization"
+                      "displayName": "Utilización Memoria Promedio"
                     },
                     {
                       "fieldName": "avg(Avg CPU Utilization)",
-                      "displayName": "Avg CPU Utilization"
+                      "displayName": "Utilización CPU Promedio"
                     }
                   ]
                 }
@@ -6676,8 +6676,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Average CPU and Memory Utilization across jobs",
-                "description": "Average Utilization of Memory and CPU (y-axis) across different jobs (x-axis). X-axis is job_name (not time) and hovering over it will show the name of the job.\n- Jobs with low CPU and memory are not close to fully leveraging the hardware potential; consider reducing hardware.\n- Jobs with very high memory utilization could experience bottlenecks; consider increasing memory allocation. "
+                "title": "Utilización Promedio de CPU y Memoria en Jobs",
+                "description": "Utilización promedio de memoria y CPU a través de diferentes jobs. El eje X representa jobs (no tiempo) y al pasar el cursor mostrará el nombre del job.\n- Jobs con baja CPU y memoria no están aprovechando completamente el potencial del hardware; considera reducir recursos.\n- Jobs con muy alta utilización de memoria podrían experimentar cuellos de botella; considera aumentar asignación de memoria. "
               }
             }
           },
@@ -6753,14 +6753,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -6780,14 +6780,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -6807,14 +6807,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "run_as",
@@ -6834,14 +6834,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "team_name",
@@ -6861,14 +6861,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "list_cost",
@@ -6889,14 +6889,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "list_cost",
+                    "title": "Costo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "list_cost"
+                    "displayName": "Costo"
                   },
                   {
                     "fieldName": "worker_count",
@@ -6917,14 +6917,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "worker_count",
+                    "title": "Núm. Workers",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "worker_count"
+                    "displayName": "Número de Workers"
                   }
                 ]
               },
@@ -6946,7 +6946,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -6997,7 +6997,7 @@
                   "type": "integer",
                   "displayAs": "number",
                   "order": 9,
-                  "title": "min_autoscale_workers",
+                  "title": "Mín Workers Autoscale",
                   "allowSearch": false,
                   "alignContent": "right",
                   "allowHTML": false,
@@ -7023,7 +7023,7 @@
                   "type": "integer",
                   "displayAs": "number",
                   "order": 10,
-                  "title": "max_autoscale_workers",
+                    "title": "Máx Workers Autoscale",
                   "allowSearch": false,
                   "alignContent": "right",
                   "allowHTML": false,
@@ -7040,8 +7040,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Jobs with Fixed Number of Workers Last 30 Days",
-                "description": "These jobs do not leverage autoscaling, consider adding it to optimise the resources utilisation."
+                "title": "Jobs con Número Fijo de Workers Últimos 30 Días",
+                "description": "Estos jobs no aprovechan autoscaling, considera agregarlo para optimizar la utilización de recursos."
               }
             }
           },
@@ -7121,14 +7121,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100001,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -7148,14 +7148,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100002,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -7175,14 +7175,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100003,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "run_as",
@@ -7202,14 +7202,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100004,
-                    "title": "run_as",
+                    "title": "Usuario Ejecución",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "team_name",
@@ -7229,14 +7229,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100005,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -7256,14 +7256,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100006,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "sum(list_cost)",
@@ -7284,7 +7284,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 100007,
-                    "title": "list_cost",
+                    "title": "Costo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -7311,7 +7311,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100008,
-                    "title": "dbr_Version",
+                    "title": "Versión DBR",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -7340,7 +7340,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 100000,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -7357,8 +7357,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Jobs Running on Outdated DBR Version Last 30 Days",
-                "description": "These jobs are on old runtimes; consider upgrading to ensure optimal performance and ability to use new features"
+                "title": "Jobs con Versión DBR Desactualizada Últimos 30 Días",
+                "description": "Estos jobs usan versiones antiguas de runtime; considera actualizar para asegurar rendimiento óptimo y capacidad de usar nuevas funcionalidades"
               }
             }
           },
@@ -7430,14 +7430,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100001,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_id",
@@ -7457,14 +7457,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100002,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "job_name",
@@ -7484,14 +7484,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100003,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "team_name",
@@ -7511,14 +7511,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 100004,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "task_runs",
@@ -7539,14 +7539,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 100006,
-                    "title": "task_runs",
+                    "title": "Ejecuciones de Tareas",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "task_runs"
+                    "displayName": "Ejecuciones de Tareas"
                   },
                   {
                     "fieldName": "clusters_list",
@@ -7566,14 +7566,14 @@
                     "displayAs": "json",
                     "visible": true,
                     "order": 100007,
-                    "title": "clusters_list",
+                    "title": "Lista de Clusters",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "clusters_list"
+                    "displayName": "Lista de Clusters"
                   }
                 ]
               },
@@ -7595,7 +7595,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 100000,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -7637,8 +7637,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Most Frequent Jobs on All Purpose Clusters Last 30 Days",
-                "description": "High frequency jobs executed on all purpose clusters might prevent them from shutting down."
+                "title": "Jobs Más Frecuentes en Clusters de Propósito General Últimos 30 Días",
+                "description": "Jobs de alta frecuencia ejecutados en clusters de propósito general podrían prevenir que se apaguen. Considera migrar a clusters específicos de job para mejor eficiencia de costos."
               }
             }
           },
@@ -7726,14 +7726,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "workspace_name",
+                    "title": "Workspace",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "job_name",
@@ -7753,14 +7753,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "job_name",
+                    "title": "Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_name"
+                    "displayName": "Job"
                   },
                   {
                     "fieldName": "job_id",
@@ -7780,14 +7780,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "job_id",
+                    "title": "ID Job",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_id"
+                    "displayName": "ID Job"
                   },
                   {
                     "fieldName": "unused_datasets",
@@ -7807,14 +7807,14 @@
                     "displayAs": "json",
                     "visible": true,
                     "order": 4,
-                    "title": "unused_datasets",
+                    "title": "Datasets Sin Uso",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "unused_datasets"
+                    "displayName": "Datasets Sin Uso"
                   },
                   {
                     "fieldName": "used_datasets",
@@ -7834,14 +7834,14 @@
                     "displayAs": "json",
                     "visible": true,
                     "order": 5,
-                    "title": "used_datasets",
+                    "title": "Datasets en Uso",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "used_datasets"
+                    "displayName": "Datasets en Uso"
                   },
                   {
                     "fieldName": "team_name",
@@ -7861,14 +7861,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 6,
-                    "title": "team_name",
+                    "title": "Equipo",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "job_type_from_sku",
@@ -7888,14 +7888,14 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 7,
-                    "title": "job_type_from_sku",
+                    "title": "Tipo Job",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "job_type_from_sku"
+                    "displayName": "Tipo Job"
                   },
                   {
                     "fieldName": "list_cost",
@@ -7915,14 +7915,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "list_cost",
+                    "title": "Costo",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "list_cost"
+                    "displayName": "Costo"
                   },
                   {
                     "fieldName": "no_of_unused_datasets",
@@ -7943,14 +7943,14 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 9,
-                    "title": "no_of_unused_datasets",
+                    "title": "Núm. Datasets Sin Uso",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "no_of_unused_datasets"
+                    "displayName": "Núm. Datasets Sin Uso"
                   },
                   {
                     "fieldName": "created_by",
@@ -7977,7 +7977,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "created_by"
+                    "displayName": "Creado Por"
                   }
                 ]
               },
@@ -7999,7 +7999,7 @@
                   "type": "string",
                   "displayAs": "string",
                   "order": 0,
-                  "title": "workspace_id",
+                  "title": "ID Workspace",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -8016,8 +8016,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Stale Datasets Produced Last 30 Days",
-                "description": "Shows unused datasets created by jobs which are not getting consumed anywhere"
+                "title": "Datasets Sin Uso Producidos Últimos 30 Días",
+                "description": "Muestra datasets sin uso creados por jobs que no están siendo consumidos en ningún lugar. Útil para identificar datos obsoletos que pueden eliminarse para reducir costos de almacenamiento"
               }
             }
           },
