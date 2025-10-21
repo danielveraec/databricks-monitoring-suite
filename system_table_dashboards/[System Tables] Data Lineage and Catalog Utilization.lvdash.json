@@ -826,7 +826,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Patrones de Lectura por Tipo de Entidad",
-                "description": "Muestra qué tipos de fuentes de datos lee cada tipo de entidad. Colores más intensos indican mayor frecuencia de acceso. Ayuda a identificar qué entidades prefieren ciertos tipos de datos (ej. jobs leyendo más tablas, dashboards accediendo más vistas)."
+                "description": "Muestra qué tipos de fuentes de datos lee cada tipo de entidad. Colores más intensos indican mayor frecuencia de acceso. 'Sin Origen' indica operaciones de solo escritura (crear tablas sin leer datos). Ayuda a identificar qué entidades prefieren ciertos tipos de datos."
               }
             }
           },
@@ -897,7 +897,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Patrones de Escritura por Tipo de Entidad",
-                "description": "Muestra qué tipos de objetos crea cada tipo de entidad. Colores más intensos indican mayor frecuencia de creación. Ayuda a entender los patrones de generación de datos (ej. jobs creando más tablas, dashboards generando vistas)."
+                "description": "Muestra qué tipos de objetos crea cada tipo de entidad. Colores más intensos indican mayor frecuencia de creación. 'Sin Destino' indica operaciones de solo lectura (consultas que no generan tablas). Ayuda a entender los patrones de generación de datos."
               }
             }
           },
@@ -1808,7 +1808,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Tendencias de Uso por Tipo de Entidad",
-                "description": "Muestra la evolución temporal de la actividad de diferentes tipos de entidades (jobs, dashboards, etc.). Permite identificar patrones estacionales, picos de actividad y tendencias de uso. Útil para planificación de recursos y optimización."
+                "description": "Muestra la evolución temporal de la actividad de diferentes tipos de entidades (jobs, dashboards, notebooks, etc.). 'Acceso Externo' representa accesos desde fuentes externas como JDBC o API. Permite identificar patrones estacionales, picos de actividad y tendencias de uso para planificación de recursos."
               }
             }
           },
