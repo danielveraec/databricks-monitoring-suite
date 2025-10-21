@@ -604,21 +604,20 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "showDescription": true,
-                "title": "Costo por Workspace (Últimos 30d)",
-                "description": "Distribución de costos entre diferentes workspaces en los últimos 30 días"
+                "showDescription": false,
+                "title": "Costo por Workspace (Últimos 30d)"
               }
             }
           },
