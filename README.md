@@ -110,8 +110,8 @@ En tu workspace, abre el notebook `create_dashboards`. Este notebook está dise�
 **Nota**: Para el primer despliegue, selecciona **All** para asegurar que todos los pasos de configuración, incluyendo despliegue de dashboards, creación de funciones y refrescos de tablas, sean completados.  
 * **`warehouse` (Dropdown)**:   
   Este parámetro lista todos los SQL warehouses disponibles en el workspace. Selecciona uno del dropdown para ser usado por los dashboards para ejecutar queries y procesar datos. **Serverless warehouses** son preferidos ya que ofrecen rendimiento optimizado y están denotados por \*\* al final de su nombre. Elegir un warehouse apropiado ayuda a asegurar manejo eficiente de datos a través de todos los dashboards.  
-* **`catalog` (Entrada de Texto)**:  
-  Especifica un catálogo UC donde el usuario tenga **permisos de lectura y escritura**. Este catálogo alojará las [tablas y funciones requeridas](#tablas-y-funciones-creadas-durante-el-despliegue) por los dashboards. Si el catálogo especificado no existe todavía, será creado automáticamente durante el despliegue.  
+* **`catalog` (Dropdown)**:  
+  Lista todos los catálogos UC a los que tienes acceso. Selecciona el catálogo donde deseas que se creen las [tablas y funciones requeridas](#tablas-y-funciones-creadas-durante-el-despliegue) por los dashboards. Asegúrate de tener **permisos de lectura y escritura** en el catálogo seleccionado. Si el catálogo especificado no existe todavía, será creado automáticamente durante el despliegue.  
 * **`schema` (Entrada de Texto)**:  
   Proporciona el nombre del schema dentro del catálogo seleccionado. Este schema almacenará todas las tablas y funciones necesarias. Como el catálogo, si el schema no existe, será creado como parte de la configuración.  
 * **`workspace_name` (Entrada de Texto)**:  
