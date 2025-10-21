@@ -97,9 +97,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Previous 30 Day $list Spend",
+                "title": "Gasto 30 Días Anteriores",
                 "showDescription": true,
-                "description": "Spend in the prior 30 days (i.e., days 31\u201360 before the current date)"
+                "description": "Gasto en los 30 días previos (es decir, días 31-60 antes de la fecha actual)"
               }
             }
           },
@@ -203,7 +203,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Date Range"
+                "title": "Rango de Fechas"
               }
             }
           },
@@ -271,9 +271,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Daily $list by SKU",
+                "title": "Gasto Diario por SKU",
                 "showDescription": true,
-                "description": "Daily spend per SKU (y-axis) over time (x-axis)"
+                "description": "Gasto diario por SKU (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -341,9 +341,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Daily $list by Workspace",
+                "title": "Gasto Diario por Workspace",
                 "showDescription": true,
-                "description": "Daily spend per workspace (y-axis) over time (x-axis)"
+                "description": "Gasto diario por workspace (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -522,7 +522,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Workspace Name"
+                "title": "Nombre del Workspace"
               }
             }
           },
@@ -562,9 +562,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "30 Day $list Spend",
+                "title": "Gasto Últimos 30 Días",
                 "showDescription": true,
-                "description": "Spend in the last 30 days"
+                "description": "Gasto en los últimos 30 días"
               }
             }
           },
@@ -636,9 +636,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "WoW $list %change",
+                "title": "Cambio % Semanal de Costo SQL",
                 "showDescription": true,
-                "description": "Week over Week change in query cost percentage (y-axis) with time (x-axis)"
+                "description": "Cambio porcentual de costo de queries semana tras semana (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -652,7 +652,7 @@
         {
           "widget": {
             "name": "e8fc41c4",
-            "textbox_spec": "### DBSQL Comprehensive Cost and Performance Analysis Dashboard\n----\nThis dashboard offers a unified view of cost, query, and warehouse performance metrics, enabling data teams to efficiently monitor, analyze, and optimize resource usage for DBSQL. The dashboard consists of four primary sections, each enhanced by global filters that allow users to customize views across all sections.\n\n#### Dashboard Filters\n\n- **Date Range**: Select a specific date range to analyze historical data, allowing for flexible time-based insights across costs, queries, and warehouse performance.\n  \n- **Workspace Name**: Filter by workspace to view costs, query activities, and warehouse metrics specific to individual workspaces, providing a focused view of workspace-level performance and spending.\n\n- **SQL Type**: Apply filters based on SQL Warehouse SKU types (e.g., Classic, Pro, or Serverless), making it easy to assess performance and cost impacts by SKU type across the data environment.\n\n- **Warehouse ID and Warehouse Name**: These filters allow users to drill down into specific warehouses, viewing metrics such as resource utilization, costs, and performance changes related to selected warehouses.\n\n- **Team Name**: Filter by team to see resource usage and costs attributed to specific teams, facilitating team-based analysis and accountability for resource consumption. The team name is based on the tags added to the warehouses.\n\n#### Dashboard Sections\n\n1. **Cost Breakdown and Usage Analysis**: Visual and tabular insights into daily costs by workspace, SKU, team, and individual users, along with details on high-cost queries. This section provides visibility into cost distribution and spending trends.\n\n2. **Cost Comparison and Change Analysis**: A comparison of costs over user-defined timeframes, allowing teams to track spending changes and analyze warehouse-level cost fluctuations, facilitating targeted cost control.\n\n3. **Query Analysis**: Detailed views of query counts, statuses, run times, and sources, helping identify performance bottlenecks and optimize query efficiency across workspaces and applications.\n\n4. **Warehouse Analysis**: Insights into warehouse usage, including uptime, spill occurrences, and untagged resources, providing data to support efficient scaling and resource management.\n\nTogether, these sections and filters provide a holistic view of resource consumption, cost patterns, and performance trends, empowering teams to make data-driven decisions to optimize data environment usage and reduce operational costs.\n\n#### System Tables Used\n- system.billing.usage\n- system.billing.list_prices\n- system.query.history\n- system.compute.warehouse_events\n\n"
+            "textbox_spec": "### Dashboard de Análisis Integral de Costos y Rendimiento DBSQL\n----\nEste dashboard ofrece una vista unificada de métricas de costo, queries y rendimiento de warehouse, permitiendo a los equipos de datos monitorear, analizar y optimizar eficientemente el uso de recursos para DBSQL. El dashboard consiste en cuatro secciones principales, cada una mejorada por filtros globales que permiten a los usuarios personalizar vistas a través de todas las secciones.\n\n#### Filtros del Dashboard\n\n- **Rango de Fechas**: Selecciona un rango de fechas específico para analizar datos históricos, permitiendo información flexible basada en tiempo a través de costos, queries y rendimiento de warehouse.\n  \n- **Nombre del Workspace**: Filtra por workspace para ver costos, actividades de queries y métricas de warehouse específicas de workspaces individuales, proporcionando una vista enfocada de rendimiento y gasto a nivel de workspace.\n\n- **Tipo SQL**: Aplica filtros basados en tipos SKU de SQL Warehouse (ej., Classic, Pro o Serverless), facilitando evaluar impactos de rendimiento y costo por tipo SKU a través del entorno de datos.\n\n- **ID del Warehouse y Nombre del Warehouse**: Estos filtros permiten a los usuarios profundizar en warehouses específicos, viendo métricas como utilización de recursos, costos y cambios de rendimiento relacionados con warehouses seleccionados.\n\n- **Nombre del Equipo**: Filtra por equipo para ver uso de recursos y costos atribuidos a equipos específicos, facilitando análisis basado en equipo y responsabilidad por consumo de recursos. El nombre del equipo se basa en los tags agregados a los warehouses.\n\n#### Secciones del Dashboard\n\n1. **Desglose de Costos y Análisis de Uso**: Información visual y tabular sobre costos diarios por workspace, SKU, equipo y usuarios individuales, junto con detalles sobre queries de alto costo. Esta sección proporciona visibilidad sobre distribución de costos y tendencias de gasto.\n\n2. **Comparación de Costos y Análisis de Cambios**: Una comparación de costos a través de períodos de tiempo definidos por el usuario, permitiendo a los equipos rastrear cambios de gasto y analizar fluctuaciones de costo a nivel de warehouse, facilitando control de costos dirigido.\n\n3. **Análisis de Queries**: Vistas detalladas de conteos de queries, estados, tiempos de ejecución y orígenes, ayudando a identificar cuellos de botella de rendimiento y optimizar eficiencia de queries a través de workspaces y aplicaciones.\n\n4. **Análisis de Warehouse**: Información sobre uso de warehouse, incluyendo tiempo de actividad, ocurrencias de spill y recursos sin tags, proporcionando datos para soportar escalado eficiente y gestión de recursos.\n\nEn conjunto, estas secciones y filtros proporcionan una vista holística de consumo de recursos, patrones de costos y tendencias de rendimiento, empoderando a los equipos para tomar decisiones basadas en datos para optimizar el uso del entorno de datos y reducir costos operacionales.\n\n#### System Tables Utilizadas\n- system.billing.usage\n- system.billing.list_prices\n- system.query.history\n- system.compute.warehouse_events\n\n"
           },
           "position": {
             "x": 0,
@@ -713,9 +713,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Rolling 30 $list by Team",
+                "title": "Costo 30d por Equipo",
                 "showDescription": true,
-                "description": "Cost per team name tag attributed by queries"
+                "description": "Costo por tag de nombre de equipo atribuido por queries"
               }
             }
           },
@@ -894,7 +894,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "SQL Type"
+                "title": "Tipo SQL"
               }
             }
           },
@@ -1029,7 +1029,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Team Name"
+                "title": "Nombre del Equipo"
               }
             }
           },
@@ -1095,8 +1095,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Weekly $list by Tag",
-                "description": "Daily spend per team (y-axis) over time (x-axis)"
+                "title": "Gasto Semanal por Tag",
+                "description": "Gasto diario por equipo (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -1275,7 +1275,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Warehouse Id"
+                "title": "ID del Warehouse"
               }
             }
           },
@@ -1454,7 +1454,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Warehouse Name"
+                "title": "Nombre del Warehouse"
               }
             }
           },
@@ -1509,8 +1509,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Warehouse count",
-                "description": "Warehouse count comparison in workspaces"
+                "title": "Conteo de Warehouses",
+                "description": "Comparación de conteo de warehouses en workspaces"
               }
             }
           },
@@ -1565,8 +1565,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query count",
-                "description": "Query count comparison in workspaces"
+                "title": "Conteo de Queries",
+                "description": "Comparación de conteo de queries en workspaces"
               }
             }
           },
@@ -1638,8 +1638,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query runtime percentile",
-                "description": "Percentile runtime comparison of queries"
+                "title": "Percentil de Tiempo de Ejecución de Query",
+                "description": "Comparación de percentil de tiempo de ejecución de queries"
               },
               "mark": {
                 "layout": "group"
@@ -1707,9 +1707,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Queries By Source App",
+                "title": "Queries por Aplicación de Origen",
                 "showDescription": true,
-                "description": "Count of queries per client application"
+                "description": "Conteo de queries por aplicación cliente"
               }
             }
           },
@@ -1775,8 +1775,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Hourly Run Status Distribution",
-                "description": "Breakup of query status as percentage (y-axis) over time (x-axis)"
+                "title": "Distribución Horaria de Estado de Ejecución",
+                "description": "Desglose del estado de queries como porcentaje (eje Y) a lo largo del tiempo (eje X)"
               },
               "mark": {
                 "layout": "percent-stack"
@@ -1845,8 +1845,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "description": "Breakup of runtime in seconds (y-axis) over time (x-axis)",
-                "title": "Query Runtime per Day"
+                "description": "Desglose de tiempo de ejecución en segundos (eje Y) a lo largo del tiempo (eje X)",
+                "title": "Tiempo de Ejecución de Query por Día"
               }
             }
           },
@@ -1912,8 +1912,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query run count with time",
-                "description": "Number of queries runs (y-axis) over time (x-axis)"
+                "title": "Conteo de Ejecuciones de Query a lo Largo del Tiempo",
+                "description": "Número de ejecuciones de queries (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -1979,8 +1979,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query Run Time Trend",
-                "description": "Average query run time (y-axis) over time (x-axis)"
+                "title": "Tendencia de Tiempo de Ejecución de Query",
+                "description": "Tiempo promedio de ejecución de query (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -2046,8 +2046,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query Queue Time Trend",
-                "description": "Average query queue time (y-axis) over time (x-axis)"
+                "title": "Tendencia de Tiempo de Cola de Query",
+                "description": "Tiempo promedio de cola de query (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -2117,8 +2117,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Query Runtime By Statement Type and Status",
-                "description": "Query runtime distribution with statement type (y-axis) and execution status (x-axis)"
+                "title": "Tiempo de Ejecución de Query por Tipo de Statement y Estado",
+                "description": "Distribución de tiempo de ejecución de query con tipo de statement (eje Y) y estado de ejecución (eje X)"
               }
             }
           },
@@ -2173,8 +2173,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Allocated Query Cost By User",
-                "description": "Query run cost per user"
+                "title": "Costo de Query Asignado por Usuario",
+                "description": "Costo de ejecución de query por usuario"
               }
             }
           },
@@ -2240,8 +2240,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Queries With Spill",
-                "description": "Number of queries with and without spill (y-axis) with time (x-axis)"
+                "title": "Queries con Spill",
+                "description": "Número de queries con y sin spill (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -2255,7 +2255,7 @@
         {
           "widget": {
             "name": "88433c9b",
-            "textbox_spec": "### Cost Breakdown and Usage Analysis Section\n----\nThis section provides a visual and tabular breakdown of daily costs across various dimensions, offering insights into cost drivers and usage patterns. Key elements include:\n\n1. **Daily Cost by Workspace and SKU**: Charts that display daily cost trends, organized by workspace and SKU, to help identify the primary sources of daily expenditures.\n\n2. **Cost by Team**: A breakdown of costs by team, enabling teams to understand their individual contributions to overall spending.\n\n3. **Cost Allocated by Users**: Chart showing costs attributed to specific users, providing clarity on user-level resource utilization and potential areas for optimization.\n\n4. **Week-over-Week Cost Change**: A visual comparison of weekly cost fluctuations, allowing users to quickly assess spending changes and track efforts to control costs.\n\n5. **Expensive Queries Table**: A table listing the most expensive queries, detailing execution times, costs, and query sources, enabling targeted optimization of high-cost operations.\n\nThis section provides essential insights into cost distribution and utilization, supporting efficient resource management and cost control efforts across the organization.\n"
+            "textbox_spec": "### Sección de Desglose de Costos y Análisis de Uso\n----\nEsta sección proporciona un desglose visual y tabular de costos diarios a través de varias dimensiones, ofreciendo información sobre impulsores de costos y patrones de uso. Los elementos clave incluyen:\n\n1. **Costo Diario por Workspace y SKU**: Gráficos que muestran tendencias de costos diarios, organizados por workspace y SKU, para ayudar a identificar las fuentes principales de gastos diarios.\n\n2. **Costo por Equipo**: Un desglose de costos por equipo, permitiendo a los equipos entender sus contribuciones individuales al gasto general.\n\n3. **Costo Asignado por Usuarios**: Gráfico mostrando costos atribuidos a usuarios específicos, proporcionando claridad sobre utilización de recursos a nivel de usuario y áreas potenciales de optimización.\n\n4. **Cambio de Costo Semana tras Semana**: Una comparación visual de fluctuaciones de costos semanales, permitiendo a los usuarios evaluar rápidamente cambios de gasto y rastrear esfuerzos para controlar costos.\n\n5. **Tabla de Queries Costosas**: Una tabla listando las queries más costosas, detallando tiempos de ejecución, costos y orígenes de queries, habilitando optimización dirigida de operaciones de alto costo.\n\nEsta sección proporciona información esencial sobre distribución y utilización de costos, soportando esfuerzos eficientes de gestión de recursos y control de costos a través de la organización.\n"
           },
           "position": {
             "x": 0,
@@ -2267,7 +2267,7 @@
         {
           "widget": {
             "name": "3ce0d928",
-            "textbox_spec": "### Query Analysis Section\n----\nThis section offers a comprehensive view of query activity and performance across workspaces, helping teams analyze and optimize query behavior. Key visualizations include:\n\n1. **Query Count per Workspace**: A breakdown of the number of queries executed per workspace, offering insights into query distribution and activity levels.\n\n2. **Query Status Overview**: Charts summarizing query statuses (e.g., completed, failed, in progress) to help monitor operational reliability and troubleshoot query issues.\n\n3. **Query Run Time and Queue Time**: Visuals showing the average and total time queries spend running and in queue, helping identify bottlenecks and optimize processing times.\n\n4. **Query Time by Statement Type and Status**: A breakdown of query times by statement type (e.g., SELECT, INSERT) and execution status, providing granular insights into which types of queries consume the most resources.\n\n5. **Queries by Source Application**: A view of query counts by source application, revealing which applications drive the highest query volumes and potentially require further resource allocation.\n\nThis section aids in understanding and managing query performance, supporting optimizations to enhance overall data processing efficiency and reduce resource strain.\n"
+            "textbox_spec": "### Sección de Análisis de Queries\n----\nEsta sección ofrece una vista integral de actividad y rendimiento de queries a través de workspaces, ayudando a los equipos a analizar y optimizar el comportamiento de queries. Las visualizaciones clave incluyen:\n\n1. **Conteo de Queries por Workspace**: Un desglose del número de queries ejecutadas por workspace, ofreciendo información sobre distribución de queries y niveles de actividad.\n\n2. **Resumen de Estado de Queries**: Gráficos que resumen estados de queries (ej., completadas, fallidas, en progreso) para ayudar a monitorear confiabilidad operacional y solucionar problemas de queries.\n\n3. **Tiempo de Ejecución y Tiempo de Cola de Query**: Visuales mostrando el tiempo promedio y total que las queries pasan ejecutándose y en cola, ayudando a identificar cuellos de botella y optimizar tiempos de procesamiento.\n\n4. **Tiempo de Query por Tipo de Statement y Estado**: Un desglose de tiempos de query por tipo de statement (ej., SELECT, INSERT) y estado de ejecución, proporcionando información granular sobre qué tipos de queries consumen más recursos.\n\n5. **Queries por Aplicación de Origen**: Una vista de conteos de queries por aplicación de origen, revelando qué aplicaciones generan los mayores volúmenes de queries y potencialmente requieren mayor asignación de recursos.\n\nEsta sección ayuda en la comprensión y gestión del rendimiento de queries, soportando optimizaciones para mejorar la eficiencia general de procesamiento de datos y reducir la carga de recursos.\n"
           },
           "position": {
             "x": 0,
@@ -2279,7 +2279,7 @@
         {
           "widget": {
             "name": "71ccb23c",
-            "textbox_spec": "### Warehouse Analysis Section\n----\nThis section provides insights into warehouse usage and efficiency, helping teams optimize resource allocation and performance. Key components include:\n\n1. **Warehouse Count per Workspace**: Charts displaying the number of warehouses used across workspaces, offering visibility into workspace-specific warehouse demands.\n\n2. **Cluster Uptime Percentage**: A breakdown of the percentage of time clusters remained active, highlighting resource utilization levels and potential optimization opportunities.\n\n3. **Query Spill Over Time**: Visuals tracking query spill occurrences over time, helping identify performance issues caused by insufficient memory and guiding resource adjustments.\n\n4. **Cluster Count per Warehouse**: Data showing the number of clusters allocated per warehouse, assisting in analyzing load distribution and identifying areas for scaling.\n\n5. **Untagged Warehouses**: A listing of warehouses without tags, encouraging proper tagging practices to improve tracking, billing accuracy, and resource allocation.\n\nThis section supports effective warehouse management, allowing for better scaling, cost-efficiency, and streamlined operations across the data environment.\n"
+            "textbox_spec": "### Sección de Análisis de Warehouse\n----\nEsta sección proporciona información sobre uso y eficiencia de warehouse, ayudando a los equipos a optimizar asignación de recursos y rendimiento. Los componentes clave incluyen:\n\n1. **Conteo de Warehouses por Workspace**: Gráficos mostrando el número de warehouses usados a través de workspaces, ofreciendo visibilidad sobre demandas de warehouse específicas por workspace.\n\n2. **Porcentaje de Tiempo de Actividad de Cluster**: Un desglose del porcentaje de tiempo que los clusters permanecieron activos, destacando niveles de utilización de recursos y oportunidades potenciales de optimización.\n\n3. **Spill de Queries a lo Largo del Tiempo**: Visuales rastreando ocurrencias de spill de queries a lo largo del tiempo, ayudando a identificar problemas de rendimiento causados por memoria insuficiente y guiando ajustes de recursos.\n\n4. **Conteo de Clusters por Warehouse**: Datos mostrando el número de clusters asignados por warehouse, asistiendo en analizar distribución de carga e identificar áreas para escalado.\n\n5. **Warehouses Sin Tags**: Un listado de warehouses sin tags, fomentando prácticas apropiadas de etiquetado para mejorar rastreo, precisión de facturación y asignación de recursos.\n\nEsta sección soporta gestión efectiva de warehouse, permitiendo mejor escalado, eficiencia de costos y operaciones optimizadas a través del entorno de datos.\n"
           },
           "position": {
             "x": 0,
@@ -2318,8 +2318,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Last Period $list Spend",
-                "description": "Spend in the above period"
+                "title": "Gasto del Último Período",
+                "description": "Gasto en el período especificado arriba"
               }
             }
           },
@@ -2361,7 +2361,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Number of days to compare in the next table"
+                "title": "Número de días para comparar en la siguiente tabla"
               }
             }
           },
@@ -2402,8 +2402,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Older Period $list Spend",
-                "description": "Spend in the previous period"
+                "title": "Gasto del Período Anterior",
+                "description": "Gasto en el período previo"
               }
             }
           },
@@ -2822,8 +2822,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Highest change in monthly $list",
-                "description": "Tabular details of what has changed per warehouse in the given period"
+                "title": "Mayor Cambio en Costo Mensual",
+                "description": "Detalles tabulares de lo que ha cambiado por warehouse en el período dado"
               }
             }
           },
@@ -4129,7 +4129,7 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Most Expensive Queries"
+                "title": "Queries Más Costosas"
               }
             }
           },
@@ -4401,8 +4401,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Untagged Warehouses Last 30 Days",
-                "description": "These warehouses are not tagged and have been used in last 30 days; consider tagging them for cost attribution"
+                "title": "Warehouses Sin Tags Últimos 30 Días",
+                "description": "Estos warehouses no tienen tags y han sido usados en los últimos 30 días; considera etiquetarlos para atribución de costos"
               }
             }
           },
@@ -4461,9 +4461,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "% of Time Warehouse Scaled at Cluster N",
+                "title": "% de Tiempo que Warehouse Escaló a Cluster N",
                 "showDescription": true,
-                "description": "Number of minutues as percentage (y-axis) the specified number of clusters were up"
+                "description": "Número de minutos como porcentaje (eje Y) en que el número especificado de clusters estuvo activo"
               },
               "mark": {
                 "layout": "percent-stack"
@@ -4532,8 +4532,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Cluster count per warehouse",
-                "description": "Cluster count (y-axis) change with time (x-axis)"
+                "title": "Conteo de Clusters por Warehouse",
+                "description": "Cambio del conteo de clusters (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -4547,7 +4547,7 @@
         {
           "widget": {
             "name": "7519e499",
-            "textbox_spec": "### Cost Comparison and Change Analysis Section\n----\nThis section provides a targeted cost comparison for a user-defined time frame, enabling quick insights into spending trends and recent changes at a granular level. By entering a specific number of days (e.g., 7 days), users can view:\n\n1. **Comparative Cost Overview**: Displays the cost of the selected time period (e.g., last 7 days) alongside the preceding period, helping to track spending fluctuations over time and spot potential anomalies.\n\n2. **Detailed Change Analysis**: A breakdown of warehouse-level costs, showing exactly which warehouses have experienced cost increases or decreases during the specified timeframe. This detail helps users quickly pinpoint areas with significant changes, facilitating focused optimization efforts.\n\nThis feature provides a comprehensive snapshot of cost evolution, making it easy to track, compare, and act on changes in data usage and costs over time.\n"
+            "textbox_spec": "### Sección de Comparación de Costos y Análisis de Cambios\n----\nEsta sección proporciona una comparación de costos dirigida para un marco de tiempo definido por el usuario, habilitando información rápida sobre tendencias de gasto y cambios recientes a nivel granular. Al ingresar un número específico de días (ej., 7 días), los usuarios pueden ver:\n\n1. **Resumen Comparativo de Costos**: Muestra el costo del período de tiempo seleccionado (ej., últimos 7 días) junto con el período precedente, ayudando a rastrear fluctuaciones de gasto a lo largo del tiempo y detectar anomalías potenciales.\n\n2. **Análisis Detallado de Cambios**: Un desglose de costos a nivel de warehouse, mostrando exactamente qué warehouses han experimentado aumentos o disminuciones de costos durante el período de tiempo especificado. Este detalle ayuda a los usuarios a identificar rápidamente áreas con cambios significativos, facilitando esfuerzos de optimización enfocados.\n\nEsta funcionalidad proporciona una instantánea integral de evolución de costos, facilitando rastrear, comparar y actuar sobre cambios en uso de datos y costos a lo largo del tiempo.\n"
           },
           "position": {
             "x": 0,

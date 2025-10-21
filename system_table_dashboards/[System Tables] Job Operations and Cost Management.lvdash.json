@@ -157,9 +157,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Previous 30 Day $list Spend",
+                "title": "Gasto 30 Días Anteriores",
                 "showDescription": true,
-                "description": "Spend in the prior 30 days (i.e., days 31\u201360 before the current date)"
+                "description": "Gasto en los 30 días previos (es decir, días 31-60 antes de la fecha actual)"
               }
             }
           },
@@ -307,7 +307,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Date Range",
+                "title": "Rango de Fechas",
                 "showDescription": false
               }
             }
@@ -891,7 +891,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Workspace Name"
+                "title": "Nombre del Workspace"
               }
             }
           },
@@ -931,9 +931,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "30 Day $list Spend",
+                "title": "Gasto Últimos 30 Días",
                 "showDescription": true,
-                "description": "Spend in the last 30 days"
+                "description": "Gasto en los últimos 30 días"
               }
             }
           },
@@ -1005,9 +1005,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "WoW $list %change",
+                "title": "Cambio % Semanal de Costo de Jobs",
                 "showDescription": true,
-                "description": "Week over Week change in job cost percentage (y-axis) with time (x-axis)"
+                "description": "Cambio porcentual de costo de jobs semana tras semana (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },
@@ -1531,7 +1531,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Job Type"
+                "title": "Tipo de Job"
               }
             }
           },
@@ -1930,7 +1930,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Team Name"
+                "title": "Nombre del Equipo"
               }
             }
           },
@@ -2440,7 +2440,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Job Id"
+                "title": "ID de Job"
               }
             }
           },
@@ -2883,7 +2883,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Job Name"
+                "title": "Nombre de Job"
               }
             }
           },
@@ -2958,8 +2958,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Job Run Time Trend",
-                "description": "Average job run time (y-axis) over time (x-axis)"
+                "title": "Tendencia de Tiempo de Ejecución de Job",
+                "description": "Tiempo promedio de ejecución de job (eje Y) a lo largo del tiempo (eje X)"
               }
             }
           },

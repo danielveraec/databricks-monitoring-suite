@@ -122,7 +122,7 @@
   "pages": [
     {
       "name": "3c10256d",
-      "displayName": "New Page",
+      "displayName": "Nueva Página",
       "layout": [
         {
           "widget": {
@@ -315,7 +315,7 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": false,
-                "title": "Entity Type"
+                "title": "Tipo de Entidad"
               }
             }
           },
@@ -538,7 +538,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Workspace Name"
+                "title": "Nombre del Workspace"
               }
             }
           },
@@ -673,7 +673,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Entity Id"
+                "title": "ID de Entidad"
               }
             }
           },
@@ -687,7 +687,7 @@
         {
           "widget": {
             "name": "e8fc41c4",
-            "textbox_spec": "### Lineage Data and Usage Insights Dashboard\n----\nThis dashboard provides a comprehensive view of data lineage, usage patterns, and entity interactions across workspaces, allowing teams to analyze access patterns, catalog utilization, and specific table interactions in depth. It includes three key sections, each focused on a different aspect of lineage data analysis. Users can apply global filters to customize the analysis across all sections for specific timeframes, entities, or workspaces.\n\n#### Dashboard Filters\n\n- **Date Range**: Selects a specific date range to focus the analysis on recent or historical lineage events, helping users track trends or usage changes over time (applies only on charts showing trend over time).\n\n- **Workspace Name**: Filters the data by workspace, providing a focused view of lineage and access patterns within a specific workspace environment.\n\n- **Entity ID and Entity Type**: Filters by specific entity types (e.g., dashboard, job, notebook) and entity IDs (e.g., job IDs, query IDs). Note that `Entity Type = null` means no Databricks entity is involved in the event. For example, it could be the result of a JDBC query or from a user clicking into the Sample Data tab in the Databricks UI.*\n\n#### Dashboard Sections\n\n1. **Lineage Insights and Access Patterns**: Visualizations and tables display access patterns across entities, including access type (table or path), source-to-target relationships, user activity, and entity usage changes. This section provides a high-level view of data flows and user interactions.\n\n2. **Catalog Usage Analysis**: Focuses on catalog access patterns across entities and teams, especially for jobs, and includes a filter to select specific catalogs for refined insights into catalog popularity and usage trends.\n\n3. **Table-Specific Access and Lineage Analysis**: Allows users to drill down into access and lineage details for a specific table. Users can view entity-type-based access timelines, column access frequencies, user interactions, and lineage connections (upstream and downstream tables).\n\nThis dashboard offers a centralized view of lineage and usage data, enabling teams to make data-driven decisions on data governance, catalog utilization, and table-specific access optimization.\n\n\n#### System Tables Used\n- system.access.table_lineage\n- system.access.column_lineage\n- system.information_schema.tables\n- system.billing.usage\n- system.lakeflow.jobs"
+            "textbox_spec": "### Dashboard de Linaje de Datos e Información de Uso\n----\nEste dashboard proporciona una vista integral del linaje de datos, patrones de uso e interacciones de entidades a través de workspaces, permitiendo a los equipos analizar patrones de acceso, utilización de catálogos e interacciones específicas de tablas en profundidad. Incluye tres secciones clave, cada una enfocada en un aspecto diferente del análisis de datos de linaje. Los usuarios pueden aplicar filtros globales para personalizar el análisis a través de todas las secciones para períodos de tiempo, entidades o workspaces específicos.\n\n#### Filtros del Dashboard\n\n- **Rango de Fechas**: Selecciona un rango de fechas específico para enfocar el análisis en eventos de linaje recientes o históricos, ayudando a los usuarios a rastrear tendencias o cambios de uso a lo largo del tiempo (aplica solo en gráficos que muestran tendencia a lo largo del tiempo).\n\n- **Nombre del Workspace**: Filtra los datos por workspace, proporcionando una vista enfocada de linaje y patrones de acceso dentro de un entorno de workspace específico.\n\n- **ID de Entidad y Tipo de Entidad**: Filtra por tipos de entidad específicos (ej., dashboard, job, notebook) e IDs de entidad (ej., IDs de job, IDs de query). Nótese que `Entity Type = null` significa que ninguna entidad de Databricks está involucrada en el evento. Por ejemplo, podría ser el resultado de una query JDBC o de un usuario haciendo clic en la pestaña Sample Data en la UI de Databricks.*\n\n#### Secciones del Dashboard\n\n1. **Información de Linaje y Patrones de Acceso**: Visualizaciones y tablas muestran patrones de acceso a través de entidades, incluyendo tipo de acceso (tabla o path), relaciones origen-destino, actividad de usuarios y cambios de uso de entidades. Esta sección proporciona una vista de alto nivel de flujos de datos e interacciones de usuarios.\n\n2. **Análisis de Uso de Catálogo**: Se enfoca en patrones de acceso a catálogos a través de entidades y equipos, especialmente para jobs, e incluye un filtro para seleccionar catálogos específicos para información refinada sobre popularidad de catálogos y tendencias de uso.\n\n3. **Análisis de Acceso y Linaje Específico de Tabla**: Permite a los usuarios profundizar en detalles de acceso y linaje para una tabla específica. Los usuarios pueden ver líneas de tiempo de acceso basadas en tipo de entidad, frecuencias de acceso a columnas, interacciones de usuarios y conexiones de linaje (tablas upstream y downstream).\n\nEste dashboard ofrece una vista centralizada de datos de linaje y uso, habilitando a los equipos tomar decisiones basadas en datos sobre gobernanza de datos, utilización de catálogos y optimización de acceso específico de tablas.\n\n\n#### System Tables Utilizadas\n- system.access.table_lineage\n- system.access.column_lineage\n- system.information_schema.tables\n- system.billing.usage\n- system.lakeflow.jobs"
           },
           "position": {
             "x": 0,
@@ -750,9 +750,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Catalog usage per team wrt jobs",
+                "title": "Uso de Catálogo por Equipo con respecto a Jobs",
                 "showDescription": true,
-                "description": "Number of jobs (y-axis) using a catalog per team (x-axis)"
+                "description": "Número de jobs (eje Y) usando un catálogo por equipo (eje X)"
               },
               "mark": {
                 "layout": "percent-stack"
@@ -825,8 +825,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Entity Type to Source Type mapping",
-                "description": "Shows how entities (y-axis) are reading from different input types (x-axis) colored by event count"
+                "title": "Mapeo de Tipo de Entidad a Tipo de Origen",
+                "description": "Muestra cómo las entidades (eje Y) están leyendo desde diferentes tipos de entrada (eje X) coloreado por conteo de eventos"
               }
             }
           },
@@ -896,8 +896,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Entity Type to Target Type mapping",
-                "description": "Shows how entities (y-axis) are writing to different output types (x-axis) colored by event count"
+                "title": "Mapeo de Tipo de Entidad a Tipo de Destino",
+                "description": "Muestra cómo las entidades (eje Y) están escribiendo hacia diferentes tipos de salida (eje X) coloreado por conteo de eventos"
               }
             }
           },
@@ -967,8 +967,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Source to Target Distribution",
-                "description": "Shows the input type (x-axis) and output type (y-axis) of events by count. Eg. a job reading from a table and writing to a view.\n- null source type means that the event has not input, just an output, and vice versa for null target type."
+                "title": "Distribución de Origen a Destino",
+                "description": "Muestra el tipo de entrada (eje X) y tipo de salida (eje Y) de eventos por conteo. Ej. un job leyendo de una tabla y escribiendo a una vista.\n- null source type significa que el evento no tiene entrada, solo salida, y viceversa para null target type."
               }
             }
           },
@@ -1684,8 +1684,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Lineage Data",
-                "description": "Tablular level details of all lineage data"
+                "title": "Datos de Linaje",
+                "description": "Detalles a nivel tabular de todos los datos de linaje"
               }
             }
           },
@@ -1740,8 +1740,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Active Users",
-                "description": "Most active users by count of events"
+                "title": "Usuarios Activos",
+                "description": "Usuarios más activos por conteo de eventos"
               }
             }
           },
@@ -1807,8 +1807,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Entity usage with time",
-                "description": "Count of events (y-axis) over time (x-axis) grouped by entity type. Null entity type* is explained above."
+                "title": "Uso de Entidades a lo Largo del Tiempo",
+                "description": "Conteo de eventos (eje Y) a lo largo del tiempo (eje X) agrupado por tipo de entidad. Null entity type* se explica arriba."
               }
             }
           },
@@ -1822,7 +1822,7 @@
         {
           "widget": {
             "name": "6517c1ff",
-            "textbox_spec": "### Catalog Usage Analysis Section\n----\nThis section focuses on catalog usage across different entities and teams, specifically for jobs, providing insights into catalog popularity and usage patterns. Users can apply a **Catalog Filter** to select specific catalogs of interest, refining the analysis to focus on relevant data sources and enhancing the precision of catalog-based insights. Key components include:\n\n1. **Most Used Catalogs**: Displays the most frequently accessed catalogs, giving an overview of catalog popularity and highlighting key data sources.\n\n2. **Catalog Usage per Entity**: Breaks down catalog usage across different entities, showing which catalogs are accessed by various entity types, such as jobs, queries, or dashboards, helping identify catalog relevance across different functionalities.\n\n3. **Catalog Usage per Team (Jobs Only)**: Visualizes catalog access patterns across teams for job-related activities, helping identify team-specific catalog usage trends and supporting cross-team data alignment.\n\nThis section enables teams to understand catalog usage, optimize data source access patterns, and ensure catalog alignment with organizational needs.\n"
+            "textbox_spec": "### Sección de Análisis de Uso de Catálogo\n----\nEsta sección se enfoca en el uso de catálogos a través de diferentes entidades y equipos, específicamente para jobs, proporcionando información sobre popularidad de catálogos y patrones de uso. Los usuarios pueden aplicar un **Filtro de Catálogo** para seleccionar catálogos específicos de interés, refinando el análisis para enfocarse en fuentes de datos relevantes y mejorando la precisión de información basada en catálogos. Los componentes clave incluyen:\n\n1. **Catálogos Más Usados**: Muestra los catálogos accedidos con mayor frecuencia, dando una visión general de popularidad de catálogos y destacando fuentes de datos clave.\n\n2. **Uso de Catálogo por Entidad**: Desglosa el uso de catálogos a través de diferentes entidades, mostrando qué catálogos son accedidos por varios tipos de entidades, tales como jobs, queries o dashboards, ayudando a identificar relevancia de catálogos a través de diferentes funcionalidades.\n\n3. **Uso de Catálogo por Equipo (Solo Jobs)**: Visualiza patrones de acceso a catálogos a través de equipos para actividades relacionadas con jobs, ayudando a identificar tendencias de uso de catálogos específicas por equipo y soportando alineación de datos entre equipos.\n\nEsta sección habilita a los equipos a entender el uso de catálogos, optimizar patrones de acceso a fuentes de datos y asegurar alineación de catálogos con necesidades organizacionales.\n"
           },
           "position": {
             "x": 0,
@@ -2181,8 +2181,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Unused Datasets",
-                "description": "These datasets are created but not getting consumed anywhere; also checks if the datasets have been deleted or still exists."
+                "title": "Datasets No Usados",
+                "description": "Estos datasets están creados pero no están siendo consumidos en ningún lugar; también verifica si los datasets han sido eliminados o aún existen."
               }
             }
           },
@@ -2237,8 +2237,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Most used catalogs",
-                "description": "Most used catalogs by count of events"
+                "title": "Catálogos Más Usados",
+                "description": "Catálogos más usados por conteo de eventos"
               }
             }
           },
@@ -2304,8 +2304,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Catalog usage per entity",
-                "description": "Count of events (x-axis) per entity (y-axis) grouped by catalog. Null entity type* is explained above."
+                "title": "Uso de Catálogo por Entidad",
+                "description": "Conteo de eventos (eje X) por entidad (eje Y) agrupado por catálogo. Null entity type* se explica arriba."
               }
             }
           },
@@ -2319,7 +2319,7 @@
         {
           "widget": {
             "name": "61e58454",
-            "textbox_spec": "### Table-Specific Access and Lineage Analysis Section\n----\nThis section provides a detailed analysis of access patterns for a specific table, as well as its lineage connections, allowing users to investigate table usage, column-level access, and related entities. A **Table Name Filter** allows users to input one table name, focusing the analysis on that table alone. Key components include:\n\n1. **Table Access Over Time by Entity Type**: A timeline of accesses to the specified table, segmented by entity type (e.g., job, dashboard, query). This chart helps identify how different entities interact with the table over time, supporting trend analysis and access patterns.\n\n2. **Column Access Frequency and Last Access Date**: A table listing each column in the specified table, showing the number of times each column was accessed and the most recent access date. This detailed view assists in understanding which columns are most utilized and may indicate columns of high relevance.\n\n3. **Table Access by User and Entity Type**: A table displaying access counts by user and entity type, providing insights into individual user interactions with the specified table and the specific entities used.\n\n4. **Upstream and Downstream Tables**: A list of all upstream and downstream tables connected to the specified table, helping users understand data lineage and dependencies, which can be crucial for data impact assessments and change management.\n\nThis section provides a focused view of a table\u2019s access patterns, lineage, and user interactions, equipping teams with granular insights to manage data access, optimize usage, and maintain robust data governance practices.\n"
+            "textbox_spec": "### Sección de Análisis de Acceso y Linaje Específico de Tabla\n----\nEsta sección proporciona un análisis detallado de patrones de acceso para una tabla específica, así como sus conexiones de linaje, permitiendo a los usuarios investigar uso de tabla, acceso a nivel de columna y entidades relacionadas. Un **Filtro de Nombre de Tabla** permite a los usuarios ingresar un nombre de tabla, enfocando el análisis en esa tabla únicamente. Los componentes clave incluyen:\n\n1. **Acceso a Tabla a lo Largo del Tiempo por Tipo de Entidad**: Una línea de tiempo de accesos a la tabla especificada, segmentada por tipo de entidad (ej., job, dashboard, query). Este gráfico ayuda a identificar cómo diferentes entidades interactúan con la tabla a lo largo del tiempo, soportando análisis de tendencias y patrones de acceso.\n\n2. **Frecuencia de Acceso a Columna y Fecha de Último Acceso**: Una tabla listando cada columna en la tabla especificada, mostrando el número de veces que cada columna fue accedida y la fecha de acceso más reciente. Esta vista detallada asiste en entender qué columnas son más utilizadas y puede indicar columnas de alta relevancia.\n\n3. **Acceso a Tabla por Usuario y Tipo de Entidad**: Una tabla mostrando conteos de acceso por usuario y tipo de entidad, proporcionando información sobre interacciones de usuarios individuales con la tabla especificada y las entidades específicas usadas.\n\n4. **Tablas Upstream y Downstream**: Una lista de todas las tablas upstream y downstream conectadas a la tabla especificada, ayudando a los usuarios a entender linaje de datos y dependencias, lo cual puede ser crucial para evaluaciones de impacto de datos y gestión de cambios.\n\nEsta sección proporciona una vista enfocada de patrones de acceso, linaje e interacciones de usuarios de una tabla, equipando a los equipos con información granular para gestionar acceso a datos, optimizar uso y mantener prácticas robustas de gobernanza de datos.\n"
           },
           "position": {
             "x": 0,
@@ -2388,9 +2388,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Table Access by Date",
+                "title": "Acceso a Tabla por Fecha",
                 "showDescription": true,
-                "description": "Table access count (y-axis) with time (y-axis). Null entity type* explained above."
+                "description": "Conteo de acceso a tabla (eje Y) a lo largo del tiempo (eje X). Null entity type* explicado arriba."
               }
             }
           },
@@ -2576,9 +2576,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Column usage",
+                "title": "Uso de Columnas",
                 "showDescription": true,
-                "description": "Usage of each column in the table"
+                "description": "Uso de cada columna en la tabla"
               }
             }
           },
@@ -2858,9 +2858,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Table access by Person and Type",
+                "title": "Acceso a Tabla por Persona y Tipo",
                 "showDescription": true,
-                "description": "Shows access pattern of the table by person and entity type"
+                "description": "Muestra el patrón de acceso de la tabla por persona y tipo de entidad"
               }
             }
           },
@@ -3055,9 +3055,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Upstream/Downstream Tables",
+                "title": "Tablas Upstream/Downstream",
                 "showDescription": true,
-                "description": "Lists upstream and downstream table relationships, buth current and deprecated (already deleted)"
+                "description": "Lista las relaciones de tablas upstream y downstream, tanto actuales como deprecadas (ya eliminadas)"
               }
             }
           },
@@ -3123,8 +3123,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Table vs Path access per entity type",
-                "description": "Count of records (x-axis) for each entity (y-axis) grouped by table or path access\n- Shows if assets are being access using table name or cloud path\n- Null entity type* explained above"
+                "title": "Acceso por Tabla vs Path por Tipo de Entidad",
+                "description": "Conteo de registros (eje X) para cada entidad (eje Y) agrupado por acceso a tabla o path\n- Muestra si los assets están siendo accedidos usando nombre de tabla o cloud path\n- Null entity type* explicado arriba"
               }
             }
           },
@@ -3193,7 +3193,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Catalog Name"
+                "title": "Nombre del Catálogo"
               }
             }
           },
@@ -3286,7 +3286,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Table Name"
+                "title": "Nombre de Tabla"
               }
             }
           },
@@ -3368,7 +3368,7 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Date Range"
+                "title": "Rango de Fechas"
               }
             }
           },
@@ -3382,7 +3382,7 @@
         {
           "widget": {
             "name": "da5aa2f4",
-            "textbox_spec": "### Lineage Insights and Access Patterns Section\n----\nThis section provides a comprehensive view of data access patterns, user activity, and entity relationships based on lineage events. Key elements include:\n\n1. **Table vs. Path Access per Entity**: A breakdown of access types by entity, showing how often tables and paths are accessed for each entity type (e.g., jobs, dashboards, queries), giving insights into data access preferences and usage patterns.\n\n2. **Active Users Pie Chart**: A snapshot of active users, helping identify user engagement and determine which users are most frequently interacting with the platform.\n\n3. **Entity Usage Change Over Time**: Tracks changes in entity usage across a specified timeframe, highlighting trends and shifts in data interactions.\n\n4. **Entity Type Heat Maps with Source and Target Types**: Heat maps showing interactions between various entity types (e.g., jobs, dashboards) and source/target types, providing an at-a-glance view of how entities interact with different data sources.\n\n5. **Unused Tables Table**: A table listing tables that are not accessed by any entities, highlighting data assets that may need further evaluation for relevance or maintenance.\n\nThis section supports a clear understanding of data lineage, usage patterns, and user activity, helping teams optimize data governance, identify redundant data, and improve data management practices.\n"
+            "textbox_spec": "### Sección de Información de Linaje y Patrones de Acceso\n----\nEsta sección proporciona una vista integral de patrones de acceso a datos, actividad de usuarios y relaciones de entidades basadas en eventos de linaje. Los elementos clave incluyen:\n\n1. **Acceso por Tabla vs. Path por Entidad**: Un desglose de tipos de acceso por entidad, mostrando con qué frecuencia se accede a tablas y paths para cada tipo de entidad (ej., jobs, dashboards, queries), dando información sobre preferencias de acceso a datos y patrones de uso.\n\n2. **Gráfico de Pastel de Usuarios Activos**: Una instantánea de usuarios activos, ayudando a identificar compromiso de usuarios y determinar qué usuarios están interactuando con más frecuencia con la plataforma.\n\n3. **Cambio de Uso de Entidad a lo Largo del Tiempo**: Rastrea cambios en uso de entidad a través de un período de tiempo especificado, destacando tendencias y cambios en interacciones de datos.\n\n4. **Mapas de Calor de Tipo de Entidad con Tipos de Origen y Destino**: Mapas de calor mostrando interacciones entre varios tipos de entidades (ej., jobs, dashboards) y tipos de origen/destino, proporcionando una vista rápida de cómo las entidades interactúan con diferentes fuentes de datos.\n\n5. **Tabla de Tablas No Usadas**: Una tabla listando tablas que no son accedidas por ninguna entidad, destacando assets de datos que pueden necesitar evaluación adicional para relevancia o mantenimiento.\n\nEsta sección soporta una comprensión clara de linaje de datos, patrones de uso y actividad de usuarios, ayudando a los equipos a optimizar gobernanza de datos, identificar datos redundantes y mejorar prácticas de gestión de datos.\n"
           },
           "position": {
             "x": 0,
