@@ -1550,21 +1550,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of query runs"
+                  "displayName": "Número de Queries"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Conteo de Queries",
-                "description": "Comparación de conteo de queries en workspaces"
+                "description": "Distribución del número total de queries ejecutadas por workspace. Útil para identificar qué workspaces tienen mayor actividad SQL."
               }
             }
           },
@@ -1636,8 +1636,8 @@
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Percentil de Tiempo de Ejecución de Query",
-                "description": "Comparación de percentil de tiempo de ejecución de queries"
+                "title": "Percentiles de Tiempo de Ejecución",
+                "description": "Muestra los percentiles del tiempo de ejecución de queries (P50, P90, P95, P99). P50 = mediana (50% de queries), P90 = 90% de queries, etc. Útil para identificar queries lentas y establecer SLAs de rendimiento."
               },
               "mark": {
                 "layout": "group"
@@ -1686,28 +1686,28 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Unique statement_id"
+                  "displayName": "Número de Queries"
                 },
                 "y": {
                   "fieldName": "client_application",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "client_application"
+                  "displayName": "Aplicación Cliente"
                 },
                 "color": {
                   "fieldName": "sku_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "title": "Queries por Aplicación de Origen",
                 "showDescription": true,
-                "description": "Conteo de queries por aplicación cliente"
+                "description": "Muestra qué aplicaciones generan más queries (Databricks UI, JDBC, Python, etc.). Cada color representa un tipo de SKU. Útil para identificar qué herramientas se usan más y optimizar recursos por aplicación."
               }
             }
           },
@@ -1753,28 +1753,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "end_time"
+                  "displayName": "Hora"
                 },
                 "y": {
                   "fieldName": "countdistinct(statement_id)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Unique statement_id"
+                  "displayName": "Porcentaje (%)"
                 },
                 "color": {
                   "fieldName": "execution_status",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "execution_status"
+                  "displayName": "Estado de Ejecución"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Distribución Horaria de Estado de Ejecución",
-                "description": "Desglose del estado de queries como porcentaje (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Muestra el porcentaje de queries por estado (exitoso, fallido, etc.) a lo largo del tiempo. Cada color representa un estado diferente. Útil para identificar horarios con mayor tasa de fallos y problemas de confiabilidad."
               },
               "mark": {
                 "layout": "percent-stack"
@@ -1823,27 +1823,27 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(QueryRuntimeSeconds)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of QueryRuntimeSeconds"
+                  "displayName": "Tiempo Total (seg)"
                 },
                 "color": {
                   "fieldName": "warehouse_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "warehouse_name"
+                  "displayName": "Warehouse"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "description": "Desglose de tiempo de ejecución en segundos (eje Y) a lo largo del tiempo (eje X)",
+                "description": "Evolución del tiempo total de ejecución de queries por warehouse. Cada color representa un warehouse diferente. Útil para identificar warehouses con mayor carga de procesamiento y optimizar distribución de trabajo.",
                 "title": "Tiempo de Ejecución de Query por Día"
               }
             }
@@ -1890,28 +1890,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "countdistinct(statement_id)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Unique statement_id"
+                  "displayName": "Número de Queries"
                 },
                 "color": {
                   "fieldName": "team_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "team_name"
+                  "displayName": "Equipo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Conteo de Ejecuciones de Query a lo Largo del Tiempo",
-                "description": "Número de ejecuciones de queries (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución diaria del número de queries ejecutadas por equipo. Cada línea representa un equipo diferente. Útil para rastrear actividad por equipo e identificar picos de uso."
               }
             }
           },
@@ -1957,28 +1957,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "avg(QueryRuntimeSeconds)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Average QueryRuntimeSeconds"
+                  "displayName": "Tiempo Promedio (seg)"
                 },
                 "color": {
                   "fieldName": "sku_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Tendencia de Tiempo de Ejecución de Query",
-                "description": "Tiempo promedio de ejecución de query (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución del tiempo promedio de ejecución de queries por tipo de SKU. Cada color representa un SKU diferente (Classic, Pro, Serverless). Útil para detectar degradación de rendimiento y comparar eficiencia entre tipos de warehouse."
               }
             }
           },
@@ -2024,28 +2024,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "end_time"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "avg(QueueQueryTime)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Average QueueQueryTime"
+                  "displayName": "Tiempo Promedio en Cola (seg)"
                 },
                 "color": {
                   "fieldName": "sku_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Tendencia de Tiempo de Cola de Query",
-                "description": "Tiempo promedio de cola de query (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución del tiempo promedio que las queries esperan en cola antes de ejecutarse, por tipo de SKU. Tiempos altos indican saturación del warehouse. Útil para identificar necesidad de escalado o cambio a Serverless."
               }
             }
           },
@@ -2091,14 +2091,14 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "execution_status"
+                  "displayName": "Estado de Ejecución"
                 },
                 "y": {
                   "fieldName": "statement_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "statement_type"
+                  "displayName": "Tipo de Statement"
                 },
                 "color": {
                   "fieldName": "avg(QueryRuntimeSeconds)",
@@ -2109,14 +2109,14 @@
                       "scheme": "greenblue"
                     }
                   },
-                  "displayName": "Avg Time sec"
+                  "displayName": "Tiempo Promedio (seg)"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Tiempo de Ejecución de Query por Tipo de Statement y Estado",
-                "description": "Distribución de tiempo de ejecución de query con tipo de statement (eje Y) y estado de ejecución (eje X)"
+                "description": "Mapa de calor que muestra el tiempo promedio de ejecución por tipo de statement (SELECT, INSERT, etc.) y estado (exitoso, fallido). Colores más intensos indican mayor tiempo. Útil para identificar qué tipos de queries son más lentas y si los fallos afectan el rendimiento."
               }
             }
           },
