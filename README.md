@@ -2,191 +2,191 @@
 
 <!-- TOC -->
 * [Databricks Dashboard Suite](#databricks-dashboard-suite)
-  * [Overview](#overview)
-  * [Dashboards Included](#dashboards-included)
-  * [Repository Structure](#repository-structure)
-  * [Setup and Usage](#setup-and-usage)
-    * [[Option 1] Using Databricks Git folders (Repos)](#option-1-using-databricks-git-folders-repos)
-    * [[Option 2] Manually downloading and importing files into the workspace](#option-2-manually-downloading-and-importing-files-into-the-workspace)
-    * [Run the `create_dashboards` Notebook](#run-the-create_dashboards-notebook)
-    * [Complete Deployment](#complete-deployment)
-  * [Updating Dashboards](#updating-dashboards)
-  * [Tables and Functions Created During Deployment](#tables-and-functions-created-during-deployment)
-      * [**Tables**](#tables)
-      * [**SQL Functions**](#sql-functions)
-  * [Conclusion](#conclusion)
-    * [Disclaimer](#disclaimer)
+  * [Descripción General](#descripción-general)
+  * [Dashboards Incluidos](#dashboards-incluidos)
+  * [Estructura del Repositorio](#estructura-del-repositorio)
+  * [Configuración y Uso](#configuración-y-uso)
+    * [[Opción 1] Usando Databricks Git folders (Repos)](#opción-1-usando-databricks-git-folders-repos)
+    * [[Opción 2] Descargando e importando archivos manualmente al workspace](#opción-2-descargando-e-importando-archivos-manualmente-al-workspace)
+    * [Ejecutar el Notebook `create_dashboards`](#ejecutar-el-notebook-create_dashboards)
+    * [Completar el Despliegue](#completar-el-despliegue)
+  * [Actualización de Dashboards](#actualización-de-dashboards)
+  * [Tablas y Funciones Creadas Durante el Despliegue](#tablas-y-funciones-creadas-durante-el-despliegue)
+      * [**Tablas**](#tablas)
+      * [**Funciones SQL**](#funciones-sql)
+  * [Conclusión](#conclusión)
+    * [Descargo de Responsabilidad](#descargo-de-responsabilidad)
 <!-- TOC -->
 
-## Overview
+## Descripción General
 
-This repository contains a suite of analytics dashboards for Databricks environments, designed to provide detailed insights into cost allocation, performance metrics, data lineage, and compute efficiency. These dashboards, built using the [Databricks System Tables](https://docs.databricks.com/en/admin/system-tables/index.html), support efficient management of resources across workspaces, entities, and teams within Databricks, offering both high-level overviews and in-depth analysis tools.
+Este repositorio contiene una suite de dashboards analíticos para entornos Databricks, diseñados para proporcionar información detallada sobre la asignación de costos, métricas de rendimiento, linaje de datos y eficiencia de cómputo. Estos dashboards, construidos utilizando las [Databricks System Tables](https://docs.databricks.com/en/admin/system-tables/index.html), soportan la gestión eficiente de recursos a través de workspaces, entidades y equipos dentro de Databricks, ofreciendo tanto vistas generales de alto nivel como herramientas de análisis en profundidad.
 
 
-## Dashboards Included
+## Dashboards Incluidos
 
 1. **[Databricks Unified Cost Analysis Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Databricks%20Unified%20Cost%20Analysis.lvdash.json)**  
-   Focuses on overall cost distribution across various compute types, such as all-purpose clusters, Delta Live Tables (DLT), jobs, model inference, and SQL. Ideal for quick cost insights, it includes:  
-   * **Daily Spend per Compute Type Over Time** – Visualizes cost trends for each compute type (e.g., SQL, Jobs, DLT, model inference).
-   * **Spend Comparison** – Shows spend in the last 30 days vs. the previous 30 days.
-   * **Weekly Cost Change Percentage** – Displays week-over-week cost fluctuations.
-   * **Daily Spend by Workspace** – Breaks down costs per workspace.
-   * **Cost by Compute Type and Workspace** – Analyzes the most recent 30-day spend by each compute type and workspace.  
-   For in-depth, segmented analysis, check the specific dashboards below.
+   Se enfoca en la distribución general de costos a través de varios tipos de compute, como clusters de propósito general, Delta Live Tables (DLT), jobs, inferencia de modelos y SQL. Ideal para obtener información rápida de costos, incluye:  
+   * **Gasto Diario por Tipo de Compute a lo Largo del Tiempo** – Visualiza tendencias de costos para cada tipo de compute (ej., SQL, Jobs, DLT, inferencia de modelos).
+   * **Comparación de Gastos** – Muestra el gasto en los últimos 30 días vs. los 30 días anteriores.
+   * **Porcentaje de Cambio de Costo Semanal** – Muestra fluctuaciones de costos semana tras semana.
+   * **Gasto Diario por Workspace** – Desglosa los costos por workspace.
+   * **Costo por Tipo de Compute y Workspace** – Analiza el gasto más reciente de 30 días por cada tipo de compute y workspace.  
+   Para análisis en profundidad y segmentado, consulte los dashboards específicos a continuación.
 
 2. **[Job Operations and Cost Management Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Job%20Operations%20and%20Cost%20Management.lvdash.json)**  
-   Analyzes job-related costs, operational efficiency, and cluster resource utilization. This dashboard helps monitor job performance, manage cluster costs, and identify high-cost jobs:
-   * **Daily Cost by Workspace and SKU** – Monitors daily job-related costs across workspaces.
-   * **Cost by Team and User Allocation** – Allocates costs by team and user.
-   * **Job Run Time Analysis** – Tracks job count, run count trends, and run times grouped by job name, SKU, and trigger type.
-   * **Most expensive and Failing Jobs** – Identifies expensive, highest-failure, and most retried jobs over time.
-   * **Cluster Performance Analysis** – Shows memory and CPU utilization, outdated DBR usage, and job counts with fixed workers or all-purpose compute.
+   Analiza costos relacionados con jobs, eficiencia operacional y utilización de recursos del cluster. Este dashboard ayuda a monitorear el rendimiento de jobs, gestionar costos de cluster e identificar jobs de alto costo:
+   * **Costo Diario por Workspace y SKU** – Monitorea costos diarios relacionados con jobs a través de workspaces.
+   * **Costo por Equipo y Asignación de Usuario** – Asigna costos por equipo y usuario.
+   * **Análisis de Tiempo de Ejecución de Jobs** – Rastrea el conteo de jobs, tendencias de ejecución y tiempos de ejecución agrupados por nombre de job, SKU y tipo de trigger.
+   * **Jobs Más Costosos y con Fallos** – Identifica jobs costosos, con mayor cantidad de fallos y con más reintentos a lo largo del tiempo.
+   * **Análisis de Rendimiento de Cluster** – Muestra utilización de memoria y CPU, uso de DBR desactualizado y conteo de jobs con workers fijos o compute de propósito general.
 
 3. **[DBSQL Cost & Query Performance Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20DBSQL%20Cost%20&%20Query%20Performance.lvdash.json)**  
-   Designed for SQL workloads, this dashboard provides in-depth analysis of SQL costs, query performance, and warehouse efficiency. It helps in tracking SQL usage by team and workspace:
-   * **Daily Cost by Workspace and SKU** – Tracks daily SQL costs per workspace.
-   * **Cost by Team and User Allocation** – Attributes costs by teams and users.
-   * **Cost Change Over Time** – Week-over-week change in SQL costs.
-   * **Expensive Query Details** – Table listing costly queries for performance improvements.
-   * **Query Count and Run Time Analysis** – Analysis of query counts, run times, queue times, and breakdowns by statement type and source app.
-   * **Warehouse Utilization** – Insights on warehouse counts, cluster activity times, and query spills.
+   Diseñado para cargas de trabajo SQL, este dashboard proporciona análisis en profundidad de costos SQL, rendimiento de queries y eficiencia de warehouses. Ayuda a rastrear el uso de SQL por equipo y workspace:
+   * **Costo Diario por Workspace y SKU** – Rastrea costos SQL diarios por workspace.
+   * **Costo por Equipo y Asignación de Usuario** – Atribuye costos por equipos y usuarios.
+   * **Cambio de Costo a lo Largo del Tiempo** – Cambio semana tras semana en costos SQL.
+   * **Detalles de Queries Costosas** – Tabla que lista queries costosas para mejoras de rendimiento.
+   * **Análisis de Conteo y Tiempo de Ejecución de Queries** – Análisis de conteos de queries, tiempos de ejecución, tiempos de cola y desgloses por tipo de statement y aplicación de origen.
+   * **Utilización de Warehouse** – Información sobre conteos de warehouse, tiempos de actividad de cluster y derrames de queries.
 
 4. **[Data Lineage and Catalog Utilization Dashboard](system_table_dashboards/%5BSystem%20Tables%5D%20Data%20Lineage%20and%20Catalog%20Utilization.lvdash.json)**
-   Provides insights into data lineage, usage patterns, and catalog utilization. It supports data governance efforts by showing entity access, catalog trends, and table-specific access and lineage:
-   * **Table vs. Path Access** – Access patterns across various entities.
-   * **Active User Distribution** – Pie chart showing active users.
-   * **Entity Type Usage Over Time** – Changes in entity usage patterns.
-   * **Catalog and Team Usage** – Catalog usage by teams and entity types.
-   * **Table Access Details** – Includes access frequency by entity, user-level access, and upstream/downstream table lineage.
+   Proporciona información sobre el linaje de datos, patrones de uso y utilización de catálogos. Soporta esfuerzos de gobernanza de datos mostrando acceso a entidades, tendencias de catálogos y acceso y linaje específico de tablas:
+   * **Acceso a Tablas vs. Path** – Patrones de acceso a través de varias entidades.
+   * **Distribución de Usuarios Activos** – Gráfico circular mostrando usuarios activos.
+   * **Uso de Tipo de Entidad a lo Largo del Tiempo** – Cambios en patrones de uso de entidades.
+   * **Uso de Catálogo y Equipo** – Uso de catálogos por equipos y tipos de entidades.
+   * **Detalles de Acceso a Tablas** – Incluye frecuencia de acceso por entidad, acceso a nivel de usuario y linaje de tablas upstream/downstream.
 
 ![Sample Dashboard](sample_screenshot_1.png)
 
-## Repository Structure
+## Estructura del Repositorio
 
 ```plaintext  
-├── README.md                                                               # Project overview and documentation  
-├── system_table_dashboards                                                 # Folder containing all dashboards and code  
-│   ├── [System Tables] Databricks Unified Cost Analysis.lvdash.json        # Code for Databricks Unified Cost Analysis Dashboard  
-│   ├── [System Tables] Job Operations and Cost Management.lvdash.json      # Code for Job Operations and Cost Management Dashboard  
-│   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Code for DBSQL Cost & Query Performance Dashboard  
-│   ├── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Code for Data Lineage and Catalog Utilization Dashboard  
-│   ├── create_dashboards.ipynb                                             # Python code to deploy the dashboards to your Databricks  
-└── └── extract_dashboard  .ipynb                                           # Python code to extract a specific dashboard
+├── README.md                                                               # Descripción del proyecto y documentación  
+├── system_table_dashboards                                                 # Carpeta conteniendo todos los dashboards y código  
+│   ├── [System Tables] Databricks Unified Cost Analysis.lvdash.json        # Código para Databricks Unified Cost Analysis Dashboard  
+│   ├── [System Tables] Job Operations and Cost Management.lvdash.json      # Código para Job Operations and Cost Management Dashboard  
+│   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Código para DBSQL Cost & Query Performance Dashboard  
+│   ├── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Código para Data Lineage and Catalog Utilization Dashboard  
+│   ├── create_dashboards.ipynb                                             # Código Python para desplegar los dashboards a tu Databricks  
+└── └── extract_dashboard  .ipynb                                           # Código Python para extraer un dashboard específico
 ```
-## Setup and Usage
+## Configuración y Uso
 
-The project must be imported to a Databricks workspace by either of these 2 options:
-- Using Databricks Git folders (Repos)
-- Manually downloading and importing files into the workspace
+El proyecto debe ser importado a un workspace de Databricks mediante alguna de estas 2 opciones:
+- Usando Databricks Git folders (Repos)
+- Descargando e importando archivos manualmente al workspace
 
-### [Option 1] Using Databricks Git folders (Repos)
-* **Configure Git folders** - Use [Git folders](https://docs.databricks.com/en/repos/repos-setup.html) in Databricks to check out this project and run notebooks. Steps to be done:
-  * Open your Databricks workspace.
-  * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then click on the **Create** button. 
-  * Select **Git folder**.
-  * Add this in Git repository URL to clone it into your Databricks environment: https://github.com/mohanab89/databricks-dashboard-suite
-  * Click on **Create Git folder**.  
-    Once cloned, you’ll see all repository files in your Workspace. Click on the **system_table_dashboards** folder.
+### [Opción 1] Usando Databricks Git folders (Repos)
+* **Configurar Git folders** - Usa [Git folders](https://docs.databricks.com/en/repos/repos-setup.html) en Databricks para clonar este proyecto y ejecutar notebooks. Pasos a seguir:
+  * Abre tu workspace de Databricks.
+  * Navega a **Workspace** en la barra lateral, (opcional \- selecciona cualquier carpeta) luego haz clic en el botón **Create**. 
+  * Selecciona **Git folder**.
+  * Agrega esto en Git repository URL para clonarlo en tu entorno Databricks: https://github.com/danielveraec/databricks-monitoring-suite
+  * Haz clic en **Create Git folder**.  
+    Una vez clonado, verás todos los archivos del repositorio en tu Workspace. Haz clic en la carpeta **system_table_dashboards**.
 
-### [Option 2] Manually downloading and importing files into the workspace
+### [Opción 2] Descargando e importando archivos manualmente al workspace
 
-* **Download Required Files** - To get started, download each of the files [located](system_table_dashboards) in the `system_table_dashboards` folder of this repository. These files contain all the necessary resources and dependencies required to enable the dashboards.
-* **Import into Databricks Workspace** - After downloading, [import](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) each of the files into your Databricks workspace to ensure all files become available for immediate use. To do this:
+* **Descargar Archivos Requeridos** - Para comenzar, descarga cada uno de los archivos [ubicados](system_table_dashboards) en la carpeta `system_table_dashboards` de este repositorio. Estos archivos contienen todos los recursos y dependencias necesarias para habilitar los dashboards.
+* **Importar al Workspace de Databricks** - Después de descargar, [importa](https://docs.databricks.com/en/notebooks/notebook-export-import.html#import-a-notebook) cada uno de los archivos a tu workspace de Databricks para asegurar que todos los archivos estén disponibles para uso inmediato. Para hacer esto:
 
-  * Open your Databricks workspace.  
-  * Navigate to **Workspace** in the sidebar, (optional \- select any folder) then create a folder named **system_table_dashboards** (or similar).
-  * Get inside the folder and click on the kebab menu (three vertical dots) and select the **Import** button.  
-  * Choose each of the files you downloaded and upload it to your workspace.
+  * Abre tu workspace de Databricks.  
+  * Navega a **Workspace** en la barra lateral, (opcional \- selecciona cualquier carpeta) luego crea una carpeta llamada **system_table_dashboards** (o similar).
+  * Entra en la carpeta y haz clic en el menú kebab (tres puntos verticales) y selecciona el botón **Import**.  
+  * Elige cada uno de los archivos que descargaste y súbelos a tu workspace.
 
-### Run the `create_dashboards` Notebook
-In your workspace, open the `create_dashboards` notebook. This notebook is designed to deploy the dashboards and set up required resources. It includes several parameters, starting with **`actions`**:
+### Ejecutar el Notebook `create_dashboards`
+En tu workspace, abre el notebook `create_dashboards`. Este notebook está diseñado para desplegar los dashboards y configurar los recursos requeridos. Incluye varios parámetros, comenzando con **`actions`**:
 
-* **`actions` (Multi-Select Dropdown)**: This parameter allows you to select specific tasks to perform during deployment, with the following options:  
-  * **All**: Runs all available actions, suitable for first-time deployment as it initializes all components required for the dashboards.  
-  * **Deploy Dashboards**: Deploys only the dashboards without publishing or other setup actions.  
-  * **Publish Dashboards**: Publishes the dashboards, making them available for use in the workspace.  
-  * **Create Functions**: Sets up custom SQL functions needed within the dashboards.  
-  * **Create/Refresh Tables**: Updates or refreshes tables that provide essential data to the dashboards.  
-**Note**: For the first deployment, select **All** to ensure all setup steps, including dashboard deployment, function creation, and table refreshes, are completed.  
+* **`actions` (Dropdown Multi-Selección)**: Este parámetro te permite seleccionar tareas específicas a realizar durante el despliegue, con las siguientes opciones:  
+  * **All**: Ejecuta todas las acciones disponibles, adecuado para el primer despliegue ya que inicializa todos los componentes requeridos para los dashboards.  
+  * **Deploy Dashboards**: Despliega solo los dashboards sin publicar u otras acciones de configuración.  
+  * **Publish Dashboards**: Publica los dashboards, haciéndolos disponibles para uso en el workspace.  
+  * **Create Functions**: Configura funciones SQL personalizadas necesarias dentro de los dashboards.  
+  * **Create/Refresh Tables**: Actualiza o refresca las tablas que proporcionan datos esenciales a los dashboards.  
+**Nota**: Para el primer despliegue, selecciona **All** para asegurar que todos los pasos de configuración, incluyendo despliegue de dashboards, creación de funciones y refrescos de tablas, sean completados.  
 * **`warehouse` (Dropdown)**:   
-  This parameter lists all available SQL warehouses in the workspace. Select one from the dropdown to be used by the dashboards for executing queries and processing data. **Serverless warehouses** are preferred as they offer optimized performance and are denoted by \*\* at the end of their name. Choosing an appropriate warehouse helps ensure efficient data handling across all dashboards.  
-* **`catalog` (Text Input)**:  
-  Specify a UC catalog where the user has **read and write permissions**. This catalog will house the [tables and functions required](#tables-and-functions-created-during-deployment) by the dashboards. If the specified catalog does not already exist, it will be created automatically during deployment.  
-* **`schema` (Text Input)**:  
-  Provide the schema name within the selected catalog. This schema will store all necessary tables and functions. Like the catalog, if the schema does not exist, it will be created as part of the setup.  
-* **`tags_to_consider_for_team_name` (Comma-Separated Text Input)**:  
-  This parameter defines which tag keys should be used to identify teams for charts displaying usage metrics by team. Provide a comma-separated list of tag keys, based on the organization’s tagging convention for clusters, warehouses, jobs, etc.  
-  * For example:  
-    * If clusters are tagged with `team_name:<name of team>`, enter `team_name`.  
-    * If multiple tag keys are used (e.g., `team_name` for some clusters and `group_name` for others), provide both keys, such as `team_name,group_name`. This setup ensures that all relevant teams are accurately captured in the dashboards.
+  Este parámetro lista todos los SQL warehouses disponibles en el workspace. Selecciona uno del dropdown para ser usado por los dashboards para ejecutar queries y procesar datos. **Serverless warehouses** son preferidos ya que ofrecen rendimiento optimizado y están denotados por \*\* al final de su nombre. Elegir un warehouse apropiado ayuda a asegurar manejo eficiente de datos a través de todos los dashboards.  
+* **`catalog` (Entrada de Texto)**:  
+  Especifica un catálogo UC donde el usuario tenga **permisos de lectura y escritura**. Este catálogo alojará las [tablas y funciones requeridas](#tablas-y-funciones-creadas-durante-el-despliegue) por los dashboards. Si el catálogo especificado no existe todavía, será creado automáticamente durante el despliegue.  
+* **`schema` (Entrada de Texto)**:  
+  Proporciona el nombre del schema dentro del catálogo seleccionado. Este schema almacenará todas las tablas y funciones necesarias. Como el catálogo, si el schema no existe, será creado como parte de la configuración.  
+* **`tags_to_consider_for_team_name` (Entrada de Texto Separada por Comas)**:  
+  Este parámetro define qué claves de tags deben ser usadas para identificar equipos en gráficos que muestran métricas de uso por equipo. Proporciona una lista de claves de tags separadas por comas, basada en la convención de etiquetado de la organización para clusters, warehouses, jobs, etc.  
+  * Por ejemplo:  
+    * Si los clusters están etiquetados con `team_name:<nombre del equipo>`, ingresa `team_name`.  
+    * Si múltiples claves de tags son usadas (ej., `team_name` para algunos clusters y `group_name` para otros), proporciona ambas claves, como `team_name,group_name`. Esta configuración asegura que todos los equipos relevantes sean capturados con precisión en los dashboards.
 
-**Account API [Optional] Parameters**  
-These parameters are only required if you want **workspace names** (instead of workspace IDs) to display within the dashboards. The dashboards are built using system tables, which currently store only workspace IDs. These parameters allow the dashboards to connect to the account console to retrieve workspace names via the Databricks Account API. Note that account-level access (using M2M OAuth) is required to populate the **workspace\_reference** table with workspace names. [How to get these?](https://docs.databricks.com/en/dev-tools/auth/index.html#how-do-i-use-oauth-to-authenticate-with-databricks)
+**Parámetros de Account API [Opcionales]**  
+Estos parámetros solo son requeridos si quieres que **nombres de workspace** (en lugar de IDs de workspace) se muestren dentro de los dashboards. Los dashboards están construidos usando system tables, que actualmente almacenan solo IDs de workspace. Estos parámetros permiten que los dashboards se conecten a la consola de cuenta para recuperar nombres de workspace mediante el Databricks Account API. Ten en cuenta que se requiere acceso a nivel de cuenta (usando M2M OAuth) para poblar la tabla **workspace\_reference** con nombres de workspace. [¿Cómo obtenerlos?](https://docs.databricks.com/en/dev-tools/auth/index.html#how-do-i-use-oauth-to-authenticate-with-databricks)
 
-* **`account_host`**: The URL of the Databricks account host.  
-* **`account_id`**: The identifier for the Databricks account.  
-* **`client_id`**: The client ID of the Databricks service principal, used for machine-to-machine (M2M) authentication.  
-* **`client_secret`**: The client secret for the Databricks service principal, required for M2M authentication.
+* **`account_host`**: La URL del host de cuenta de Databricks.  
+* **`account_id`**: El identificador para la cuenta de Databricks.  
+* **`client_id`**: El client ID del service principal de Databricks, usado para autenticación machine-to-machine (M2M).  
+* **`client_secret`**: El client secret para el service principal de Databricks, requerido para autenticación M2M.
 
-If these parameters are left blank, the **workspace\_reference** table will be created without workspace names, with workspace IDs populated in the `workspace_name` column instead. For those without account console access, workspace names can be manually added to the `workspace_reference` table later, allowing the dashboards to display workspace names where desired.
+Si estos parámetros se dejan en blanco, la tabla **workspace\_reference** será creada sin nombres de workspace, con IDs de workspace poblados en la columna `workspace_name` en su lugar. Para aquellos sin acceso a la consola de cuenta, los nombres de workspace pueden ser agregados manualmente a la tabla `workspace_reference` más tarde, permitiendo que los dashboards muestren nombres de workspace donde se desee.
 
-### Complete Deployment
+### Completar el Despliegue
 
-Once all parameters are configured, run the `create_dashboards` notebook on a **Unity Catalog (UC) supported cluster** (serverless is recommended). Running the notebook will deploy all dashboards, which will then be available for use under the **Dashboards** section in your workspace. Click on the `[System Tables] Databricks Unified Cost Analysis Dahsboard`. This will contain links to the other dashboards.
+Una vez que todos los parámetros estén configurados, ejecuta el notebook `create_dashboards` en un **cluster con soporte de Unity Catalog (UC)** (serverless es recomendado). Ejecutar el notebook desplegará todos los dashboards, que luego estarán disponibles para uso bajo la sección **Dashboards** en tu workspace. Haz clic en `[System Tables] Databricks Unified Cost Analysis Dashboard`. Este contendrá enlaces a los otros dashboards.
 
-## Updating Dashboards
+## Actualización de Dashboards
 
-The dashboards can be updated as data or configurations change over time. The `create_dashboards` notebook provides multiple actions that can be used on an ad-hoc basis to refresh or maintain your dashboards:
+Los dashboards pueden ser actualizados a medida que los datos o configuraciones cambian con el tiempo. El notebook `create_dashboards` proporciona múltiples acciones que pueden ser usadas de forma ad-hoc para refrescar o mantener tus dashboards:
 
-* **Publish Dashboards**: Re-publishes dashboards to the workspace to ensure any updates made to dashboard definitions are reflected. This can be used if manual changes are made and need to be re-deployed across the environment.
+* **Publish Dashboards**: Re-publica dashboards al workspace para asegurar que cualquier actualización hecha a las definiciones de dashboards sea reflejada. Esto puede ser usado si se hacen cambios manuales y necesitan ser re-desplegados a través del entorno.
 
-* **Refresh Tables**: Ensures that reference tables, such as workspace_reference and warehouse_reference, are current. Running this action periodically is essential to capture new or updated warehouse names and workspace details for accurate reporting.
+* **Refresh Tables**: Asegura que las tablas de referencia, como workspace_reference y warehouse_reference, estén actualizadas. Ejecutar esta acción periódicamente es esencial para capturar nombres nuevos o actualizados de warehouses y detalles de workspace para reportes precisos.
 
-In addition to the `create_dashboards` notebook, the `extract_dashboard` notebook is available to capture updates to any dashboards. Since `create_dashboards` deploys dashboards directly from JSON files in the repository, any manual changes made to dashboards in the workspace will be overwritten when `create_dashboards` is re-run.
+Además del notebook `create_dashboards`, el notebook `extract_dashboard` está disponible para capturar actualizaciones a cualquier dashboard. Dado que `create_dashboards` despliega dashboards directamente desde archivos JSON en el repositorio, cualquier cambio manual hecho a dashboards en el workspace será sobrescrito cuando `create_dashboards` se re-ejecute.
 
-Use the **`extract_dashboard`** notebook to capture these changes:
+Usa el notebook **`extract_dashboard`** para capturar estos cambios:
 
-* If any manual change is made in any of the dashboards, run the **`extract_dashboard`** notebook selecting that specific dashboard as a parameter.  
-* This notebook extracts the latest version of any dashboard in the workspace and saves it back to the corresponding JSON file.  
-* Running `extract_dashboard` ensures that future deployments with `create_dashboards` will include all manual modifications, preventing loss of updates. 
+* Si se hace cualquier cambio manual en cualquiera de los dashboards, ejecuta el notebook **`extract_dashboard`** seleccionando ese dashboard específico como parámetro.  
+* Este notebook extrae la última versión de cualquier dashboard en el workspace y la guarda de vuelta al archivo JSON correspondiente.  
+* Ejecutar `extract_dashboard` asegura que los despliegues futuros con `create_dashboards` incluirán todas las modificaciones manuales, previniendo la pérdida de actualizaciones. 
 
-These actions provide flexibility to maintain and refresh dashboards efficiently, helping keep visualizations aligned with the latest data and configurations.
+Estas acciones proporcionan flexibilidad para mantener y refrescar dashboards eficientemente, ayudando a mantener las visualizaciones alineadas con los datos y configuraciones más recientes.
 
 
-## Tables and Functions Created During Deployment
+## Tablas y Funciones Creadas Durante el Despliegue
 
-As part of the deployment, several tables and functions are created to support data analysis and visualization within the dashboards. These objects are stored in the specified catalog and schema defined during setup.
+Como parte del despliegue, varias tablas y funciones son creadas para soportar el análisis de datos y visualización dentro de los dashboards. Estos objetos se almacenan en el catálogo y schema especificados definidos durante la configuración.
 
-#### **Tables**
+#### **Tablas**
 
 1. **`workspace_reference`**  
-   * **Description**: Stores mappings between `workspace_id` and `workspace_name` to display readable names within the dashboards.  
-   * **Usage**: Enables use of workspace names instead of IDs. If account-level access parameters are provided, this table is populated automatically with workspace names. Otherwise, `workspace_id` will be used in place of `workspace_name`, with the option for users to manually update commonly used workspaces.  
+   * **Descripción**: Almacena mapeos entre `workspace_id` y `workspace_name` para mostrar nombres legibles dentro de los dashboards.  
+   * **Uso**: Habilita el uso de nombres de workspace en lugar de IDs. Si se proporcionan parámetros de acceso a nivel de cuenta, esta tabla es poblada automáticamente con nombres de workspace. De lo contrario, `workspace_id` será usado en lugar de `workspace_name`, con la opción para que los usuarios actualicen manualmente los workspaces comúnmente usados.  
 2. **`warehouse_reference`**  
-   * **Description**: Contains a mapping between `warehouse_id` and `warehouse_name` to make warehouse references more efficient in dashboard queries.  
-   * **Usage**: Improves dashboard performance by avoiding frequent joins with `system.access.audit` to retrieve warehouse names. The `audit` tables cover only the last year and track warehouses within the current workspace, potentially missing older warehouse names or those from other workspaces in the account. To keep this table updated with new warehouse names, users should frequently run the **Create/Refresh Tables** action in the `create_dashboards` notebook. Once system tables include warehouse names (future roadmap), this reference table will no longer be necessary.
+   * **Descripción**: Contiene un mapeo entre `warehouse_id` y `warehouse_name` para hacer referencias de warehouse más eficientes en queries de dashboard.  
+   * **Uso**: Mejora el rendimiento del dashboard evitando joins frecuentes con `system.access.audit` para recuperar nombres de warehouse. Las tablas `audit` cubren solo el último año y rastrean warehouses dentro del workspace actual, potencialmente perdiendo nombres de warehouse más antiguos o aquellos de otros workspaces en la cuenta. Para mantener esta tabla actualizada con nombres de warehouse nuevos, los usuarios deben ejecutar frecuentemente la acción **Create/Refresh Tables** en el notebook `create_dashboards`. Una vez que las system tables incluyan nombres de warehouse (roadmap futuro), esta tabla de referencia ya no será necesaria.
 
-#### **SQL Functions**
+#### **Funciones SQL**
 
 1. **`job_type_from_sku`**  
-   * **Description**: Identifies the job type (e.g., classic job, job with Photon, serverless job) from the SKU.  
-   * **Usage**: Provides granularity for job cost analysis by job type, helping in comparing performance and cost metrics across different job setups.  
+   * **Descripción**: Identifica el tipo de job (ej., classic job, job con Photon, serverless job) desde el SKU.  
+   * **Uso**: Proporciona granularidad para análisis de costo de job por tipo de job, ayudando en la comparación de métricas de rendimiento y costo a través de diferentes configuraciones de job.  
 2. **`sql_type_from_sku`**  
-   * **Description**: Determines the SQL warehouse type (e.g., Pro, Classic, Serverless) based on SKU.  
-   * **Usage**: Supports analysis and cost breakdowns for SQL warehouses, giving insights into cost and usage patterns across warehouse types.  
+   * **Descripción**: Determina el tipo de SQL warehouse (ej., Pro, Classic, Serverless) basado en SKU.  
+   * **Uso**: Soporta análisis y desgloses de costo para SQL warehouses, dando información sobre patrones de costo y uso a través de tipos de warehouse.  
 3. **`team_name_from_tags`**  
-   * **Description**: Extracts the team name based on tag keys provided in the `tags_to_consider_for_team_name` parameter.  
-   * **Usage**: Allows dashboards to segment costs and usage data by team, even if multiple tag keys (e.g., `team_name`, `group_name`) are used across clusters for team designation.
+   * **Descripción**: Extrae el nombre del equipo basado en claves de tags proporcionadas en el parámetro `tags_to_consider_for_team_name`.  
+   * **Uso**: Permite que los dashboards segmenten datos de costos y uso por equipo, incluso si múltiples claves de tags (ej., `team_name`, `group_name`) son usadas a través de clusters para designación de equipo.
 
 
-## Conclusion
+## Conclusión
 
-Thank you for exploring the **Databricks Dashboard Repository**\! This project aims to enhance your data analysis and visualization capabilities by providing comprehensive dashboards built on key system tables.
+¡Gracias por explorar el **Databricks Dashboard Repository**! Este proyecto tiene como objetivo mejorar tus capacidades de análisis de datos y visualización proporcionando dashboards completos construidos sobre system tables clave.
 
-We hope you find these dashboards useful for your analytical needs. If you have any questions, suggestions, or need assistance with the setup and usage, please feel free to reach out via the [Issues](https://github.com/mohanab89/databricks-dashboard-suite/issues) page.
+Esperamos que encuentres estos dashboards útiles para tus necesidades analíticas. Si tienes alguna pregunta, sugerencia, o necesitas asistencia con la configuración y uso, por favor siéntete libre de contactarnos a través de la página de [Issues](https://github.com/danielveraec/databricks-monitoring-suite/issues).
 
-Happy analyzing!
+¡Feliz análisis!
 
-### Disclaimer
+### Descargo de Responsabilidad
 
-This project and the accompanying dashboards are not official Databricks products. They are community-built resources provided as-is, with no dedicated ongoing support. Please review and test in your environment, as they are intended for use at your own risk.
+Este proyecto y los dashboards que lo acompañan no son productos oficiales de Databricks. Son recursos construidos por la comunidad proporcionados tal cual, sin soporte continuo dedicado. Por favor revisa y prueba en tu entorno, ya que están destinados para uso bajo tu propio riesgo.
