@@ -2936,7 +2936,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "warehouse_name",
@@ -2963,7 +2963,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "warehouse_name"
+                    "displayName": "Warehouse"
                   },
                   {
                     "fieldName": "statement_id",
@@ -2990,7 +2990,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "statement_id"
+                    "displayName": "ID Query"
                   },
                   {
                     "fieldName": "warehouse_id",
@@ -3017,7 +3017,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "warehouse_id"
+                    "displayName": "ID Warehouse"
                   },
                   {
                     "fieldName": "executed_by",
@@ -3044,7 +3044,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "executed_by"
+                    "displayName": "Usuario"
                   },
                   {
                     "fieldName": "team_name",
@@ -3071,7 +3071,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "statement_text",
@@ -3098,7 +3098,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "statement_text"
+                    "displayName": "Texto de la Query"
                   },
                   {
                     "fieldName": "execution_status",
@@ -3125,7 +3125,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "execution_status"
+                    "displayName": "Estado de Ejecución"
                   },
                   {
                     "fieldName": "sql_type_from_sku",
@@ -3152,7 +3152,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "sql_type_from_sku"
+                    "displayName": "Tipo SQL"
                   },
                   {
                     "fieldName": "QueryRuntimeSeconds",
@@ -3180,7 +3180,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "QueryRuntimeSeconds"
+                    "displayName": "Tiempo Ejecución (seg)"
                   },
                   {
                     "fieldName": "start_time",
@@ -3208,7 +3208,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "start_time"
+                    "displayName": "Hora Inicio"
                   },
                   {
                     "fieldName": "ReadDataAmountInGB",
@@ -3236,7 +3236,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "ReadDataAmountInGB"
+                    "displayName": "Datos Leídos (GB)"
                   },
                   {
                     "fieldName": "HasSpillFlag",
@@ -3263,7 +3263,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "HasSpillFlag"
+                    "displayName": "Spill a Disco"
                   },
                   {
                     "fieldName": "ProportionOfWarehouseTimeUsedByQuery",
@@ -3291,7 +3291,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "ProportionOfWarehouseTimeUsedByQuery"
+                    "displayName": "% Tiempo Warehouse"
                   },
                   {
                     "fieldName": "AllocatedQueryCostByTime",
@@ -3319,7 +3319,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "AllocatedQueryCostByTime"
+                    "displayName": "Costo Asignado"
                   }
                 ]
               },
@@ -4127,7 +4127,9 @@
               "withRowNumber": false,
               "frame": {
                 "showTitle": true,
-                "title": "Queries Más Costosas"
+                "title": "Queries Más Costosas",
+                "showDescription": true,
+                "description": "Listado de las queries SQL con mayor costo asignado. Muestra detalles como warehouse, usuario, tiempo de ejecución, datos leídos y costo. Útil para identificar queries que requieren optimización."
               }
             }
           },
