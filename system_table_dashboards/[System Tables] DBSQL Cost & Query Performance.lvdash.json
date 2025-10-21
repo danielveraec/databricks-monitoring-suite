@@ -608,14 +608,14 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "week_start"
+                  "displayName": "Semana"
                 },
                 "y": {
                   "primary": {
                     "fields": [
                       {
                         "fieldName": "weekly_growth",
-                        "displayName": "weekly %change"
+                        "displayName": "Cambio Semanal (%)"
                       }
                     ]
                   },
@@ -623,7 +623,7 @@
                     "fields": [
                       {
                         "fieldName": "3_months_growth_moving_avg",
-                        "displayName": "3_months_growth_moving_avg"
+                        "displayName": "Promedio Móvil 3 Meses (%)"
                       }
                     ]
                   },
@@ -634,9 +634,9 @@
               },
               "frame": {
                 "showTitle": true,
-                "title": "Cambio % Semanal de Costo SQL",
+                "title": "Tendencia de Crecimiento de Costos SQL",
                 "showDescription": true,
-                "description": "Cambio porcentual de costo de queries semana tras semana (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Muestra el cambio porcentual del costo SQL de cada semana respecto a la anterior (línea volátil) y su promedio móvil de 3 meses (línea suave). Valores positivos indican aumento de costos, negativos indican reducción. El promedio móvil revela la tendencia real filtrando variaciones puntuales. Útil para detectar si los costos SQL están acelerándose o estabilizándose."
               }
             }
           },
