@@ -1685,7 +1685,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Datos de Linaje",
-                "description": "Detalles a nivel tabular de todos los datos de linaje"
+                "description": "Tabla detallada con todos los eventos de acceso a datos. Cada fila representa un evento individual: quién (created_by), qué entidad (entity_type/entity_id), de dónde leyó (source_*) y hacia dónde escribió (target_*). Útil para auditoría y rastreo de dependencias."
               }
             }
           },
