@@ -2496,7 +2496,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "workspace_name"
+                    "displayName": "Workspace"
                   },
                   {
                     "fieldName": "warehouse_name",
@@ -2523,7 +2523,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "warehouse_name"
+                    "displayName": "Warehouse"
                   },
                   {
                     "fieldName": "warehouse_id",
@@ -2550,7 +2550,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "warehouse_id"
+                    "displayName": "ID Warehouse"
                   },
                   {
                     "fieldName": "team_name",
@@ -2577,7 +2577,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "team_name"
+                    "displayName": "Equipo"
                   },
                   {
                     "fieldName": "sql_type_from_sku",
@@ -2604,7 +2604,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "sql_type_from_sku"
+                    "displayName": "Tipo SQL"
                   },
                   {
                     "fieldName": "run_as",
@@ -2631,7 +2631,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "run_as"
+                    "displayName": "Usuario Ejecución"
                   },
                   {
                     "fieldName": "LastPeriodSpend",
@@ -2658,7 +2658,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "LastPeriodSpend"
+                    "displayName": "Gasto Último Período"
                   },
                   {
                     "fieldName": "OlderPeriodSpend",
@@ -2685,7 +2685,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "OlderPeriodSpend"
+                    "displayName": "Gasto Período Anterior"
                   },
                   {
                     "fieldName": "LastPeriodGrowth",
@@ -2712,7 +2712,7 @@
                     "highlightLinks": false,
                     "useMonospaceFont": false,
                     "preserveWhitespace": false,
-                    "displayName": "LastPeriodGrowth"
+                    "displayName": "Cambio de Costo"
                   },
                   {
                     "fieldName": "LastPeriodGrowthPct",
@@ -2756,7 +2756,7 @@
                         }
                       ]
                     },
-                    "displayName": "LastPeriodGrowthPct"
+                    "displayName": "Cambio de Costo (%)"
                   }
                 ]
               },
@@ -2821,7 +2821,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Mayor Cambio en Costo Mensual",
-                "description": "Detalles tabulares de lo que ha cambiado por warehouse en el período dado"
+                "description": "Muestra warehouses con mayor variación de costos entre dos períodos comparables. Compara el gasto del último período vs el período anterior. Útil para detectar aumentos significativos de costos y tomar acciones correctivas."
               }
             }
           },
