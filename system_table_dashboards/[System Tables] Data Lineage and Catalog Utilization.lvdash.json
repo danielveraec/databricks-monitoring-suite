@@ -8,7 +8,7 @@
     {
       "name": "225577d4",
       "displayName": "all_lineage",
-      "query": "select\n  t1.*,\n  t2.workspace_name,\n  case\n    when source_type is null then 'Sin Origen'\n    when source_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else source_type\n  end as source_type_short,\n  case\n    when target_type is null then 'Sin Destino'\n    when target_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else target_type\n  end as target_type_short\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
+      "query": "select\n  t1.*,\n  t2.workspace_name,\n  case\n    when entity_type is null then 'Acceso Externo'\n    else entity_type\n  end as entity_type,\n  case\n    when source_type is null then 'Sin Origen'\n    when source_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else source_type\n  end as source_type_short,\n  case\n    when target_type is null then 'Sin Destino'\n    when target_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else target_type\n  end as target_type_short\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
     },
     {
       "name": "21f428fa",
