@@ -659,21 +659,20 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "compute_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "compute_type"
+                  "displayName": "Tipo de Compute"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "showDescription": true,
-                "title": "Costo por Tipo de Compute (Últimos 30d)",
-                "description": "Distribución de costos entre diferentes tipos de compute en los últimos 30 días"
+                "showDescription": false,
+                "title": "Costo por Tipo de Compute (Últimos 30d)"
               }
             }
           },
