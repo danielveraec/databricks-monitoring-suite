@@ -111,7 +111,7 @@
     {
       "name": "75ca685c",
       "displayName": "access_pattern",
-      "query": "select\n  t1.workspace_id,\n  t2.workspace_name,\n  entity_type,\n  case\n    when source_table_catalog is not null\n    or target_table_catalog is not null then 'table_access'\n    when source_path is not null\n    or target_path is not null then 'path_access'\n    else 'no_access'\n  end as access_pattern\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
+      "query": "select\n  t1.workspace_id,\n  t2.workspace_name,\n  case\n    when entity_type is null then 'Acceso Externo'\n    else entity_type\n  end as entity_type,\n  case\n    when source_table_catalog is not null\n    or target_table_catalog is not null then 'table_access'\n    when source_path is not null\n    or target_path is not null then 'path_access'\n    else 'no_access'\n  end as access_pattern\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
     },
     {
       "name": "375f7dc3",
@@ -3103,28 +3103,28 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 },
                 "y": {
                   "fieldName": "entity_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 },
                 "color": {
                   "fieldName": "access_pattern",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "access_pattern"
+                  "displayName": "Patrón de Acceso"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Acceso por Tabla vs Path por Tipo de Entidad",
-                "description": "Conteo de registros (eje X) para cada entidad (eje Y) agrupado por acceso a tabla o path\n- Muestra si los assets están siendo accedidos usando nombre de tabla o cloud path\n- Null entity type* explicado arriba"
+                "title": "Patrones de Acceso a Datos por Tipo de Entidad",
+                "description": "Muestra cómo cada tipo de entidad accede a los datos: mediante tablas de Unity Catalog (recomendado) o rutas directas de storage (legacy). Ayuda a identificar qué entidades necesitan migración a Unity Catalog."
               }
             }
           },
