@@ -2236,9 +2236,8 @@
               },
               "frame": {
                 "showTitle": true,
-                "showDescription": true,
-                "title": "Distribución de Uso por Catálogo",
-                "description": "Muestra la popularidad relativa de cada catálogo basado en eventos de acceso. Los catálogos con mayor porción del gráfico son los más utilizados. Útil para identificar fuentes de datos principales y optimizar recursos."
+                "showDescription": false,
+                "title": "Distribución de Uso por Catálogo"
               }
             }
           },
