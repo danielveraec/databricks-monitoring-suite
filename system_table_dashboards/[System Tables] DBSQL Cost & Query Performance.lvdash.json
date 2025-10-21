@@ -2158,21 +2158,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of AllocatedQueryCostByTime"
+                  "displayName": "Costo Asignado"
                 },
                 "color": {
                   "fieldName": "executed_by",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "executed_by"
+                  "displayName": "Usuario"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Costo de Query Asignado por Usuario",
-                "description": "Costo de ejecución de query por usuario"
+                "title": "Distribución de Costos por Usuario",
+                "description": "Distribución de costos SQL por usuario basado en el tiempo de ejecución de sus queries. Cada color representa un usuario diferente. Útil para identificar usuarios con mayor consumo de recursos."
               }
             }
           },
