@@ -1073,28 +1073,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "usage_end_time"
+                  "displayName": "Semana"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "team_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "team_name"
+                  "displayName": "Equipo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Gasto Semanal por Tag",
-                "description": "Gasto diario por equipo (eje Y) a lo largo del tiempo (eje X)"
+                "title": "Gasto Semanal por Equipo",
+                "description": "Evolución temporal del gasto SQL semanal por equipo. Cada línea representa un equipo diferente basado en los tags de los warehouses. Útil para rastrear tendencias de consumo y asignación de costos por equipo a lo largo del tiempo."
               }
             }
           },
