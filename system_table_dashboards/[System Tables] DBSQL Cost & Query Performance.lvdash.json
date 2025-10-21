@@ -248,7 +248,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
@@ -258,21 +258,21 @@
                   "axis": {
                     "title": "$list"
                   },
-                  "displayName": "$DBU"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "sku_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "sku_name"
+                  "displayName": "SKU"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "title": "Gasto Diario por SKU",
                 "showDescription": true,
-                "description": "Gasto diario por SKU (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución temporal del gasto SQL diario por tipo de SKU. Cada color representa un SKU diferente (Classic, Pro, Serverless). Útil para identificar qué tipos de warehouse generan más costos."
               }
             }
           },
@@ -318,7 +318,7 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(list_cost)",
@@ -328,21 +328,21 @@
                   "axis": {
                     "title": "$list"
                   },
-                  "displayName": "$DBU"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "workspace_name",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "workspace_name"
+                  "displayName": "Workspace"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "title": "Gasto Diario por Workspace",
                 "showDescription": true,
-                "description": "Gasto diario por workspace (eje Y) a lo largo del tiempo (eje X)"
+                "description": "Evolución temporal del gasto SQL diario por workspace. Cada color representa un workspace diferente. Útil para comparar consumo de SQL warehouses entre entornos."
               }
             }
           },
