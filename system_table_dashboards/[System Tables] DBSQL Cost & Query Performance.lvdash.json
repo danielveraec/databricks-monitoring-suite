@@ -98,8 +98,7 @@
               "frame": {
                 "showTitle": true,
                 "title": "Gasto 30 Días Anteriores",
-                "showDescription": true,
-                "description": "Gasto en los 30 días previos (es decir, días 31-60 antes de la fecha actual)"
+                "showDescription": false
               }
             }
           },
@@ -563,8 +562,7 @@
               "frame": {
                 "showTitle": true,
                 "title": "Gasto Últimos 30 Días",
-                "showDescription": true,
-                "description": "Gasto en los últimos 30 días"
+                "showDescription": false
               }
             }
           },
