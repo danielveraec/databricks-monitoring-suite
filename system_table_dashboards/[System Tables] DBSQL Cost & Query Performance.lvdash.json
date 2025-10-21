@@ -690,7 +690,7 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of list_cost"
+                  "displayName": "Costo Total"
                 },
                 "color": {
                   "fieldName": "tagbucket",
@@ -703,7 +703,7 @@
                       }
                     ]
                   },
-                  "displayName": "tagbucket"
+                  "displayName": "Equipo"
                 },
                 "label": {
                   "show": false
@@ -713,7 +713,7 @@
                 "showTitle": true,
                 "title": "Costo 30d por Equipo",
                 "showDescription": true,
-                "description": "Costo por tag de nombre de equipo atribuido por queries"
+                "description": "Distribución de costos SQL de los últimos 30 días por equipo. Cada color representa un equipo diferente basado en los tags de los warehouses. Útil para asignación de costos y facturación por equipo."
               }
             }
           },
