@@ -18,7 +18,7 @@
     {
       "name": "f2627780",
       "displayName": "catalog_usage",
-      "query": "with lineage_catalog as (\n  SELECT\n    workspace_id,\n    entity_type,\n    entity_id,\n    source_table_catalog,\n    target_table_catalog,\n    array(source_table_catalog, target_table_catalog) as referred_catalogs\n  FROM\n    system.access.table_lineage\n  WHERE event_date > CURRENT_DATE() - INTERVAL 30 DAY\n),\ncatalogs_added as (\n  select\n    workspace_id,\n    entity_type,\n    entity_id,\n    array_distinct(\n      filter(\n        flatten(collect_set(referred_catalogs)),\n        x -> x IS NOT NULL\n      )\n    ) as referred_catalog\n  from\n    lineage_catalog\n  group by\n    all\n),\nfinal_data as (\n  select\n    workspace_id,\n    entity_type,\n    entity_id,\n    explode(referred_catalog) as catalog\n  from\n    catalogs_added\n)\nselect\n  t1.*,\n  t2.workspace_name\nfrom\n  final_data t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
+      "query": "with lineage_catalog as (\n  SELECT\n    workspace_id,\n    case\n      when entity_type is null then 'Acceso Externo'\n      else entity_type\n    end as entity_type,\n    entity_id,\n    source_table_catalog,\n    target_table_catalog,\n    array(source_table_catalog, target_table_catalog) as referred_catalogs\n  FROM\n    system.access.table_lineage\n  WHERE event_date > CURRENT_DATE() - INTERVAL 30 DAY\n),\ncatalogs_added as (\n  select\n    workspace_id,\n    entity_type,\n    entity_id,\n    array_distinct(\n      filter(\n        flatten(collect_set(referred_catalogs)),\n        x -> x IS NOT NULL\n      )\n    ) as referred_catalog\n  from\n    lineage_catalog\n  group by\n    all\n),\nfinal_data as (\n  select\n    workspace_id,\n    entity_type,\n    entity_id,\n    explode(referred_catalog) as catalog\n  from\n    catalogs_added\n)\nselect\n  t1.*,\n  t2.workspace_name\nfrom\n  final_data t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
     },
     {
       "name": "7ea50289",
@@ -2304,7 +2304,7 @@
                 "showTitle": true,
                 "showDescription": true,
                 "title": "Actividad por Entidad y Catálogo",
-                "description": "Muestra qué entidades acceden más a qué catálogos. Cada color representa un catálogo diferente. Ayuda a identificar patrones de uso y qué entidades son más activas con cada fuente de datos."
+                "description": "Muestra qué entidades acceden más a qué catálogos. Cada color representa un catálogo diferente. 'Acceso Externo' representa accesos desde fuentes externas como JDBC o API. Ayuda a identificar patrones de uso y qué entidades son más activas con cada fuente de datos."
               }
             }
           },
