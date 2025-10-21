@@ -8,7 +8,7 @@
     {
       "name": "225577d4",
       "displayName": "all_lineage",
-      "query": "select\n  t1.*,\n  t2.workspace_name,\n  case\n    when source_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else source_type\n  end as source_type_short,\n  case\n    when target_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else target_type\n  end as target_type_short\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
+      "query": "select\n  t1.*,\n  t2.workspace_name,\n  case\n    when source_type is null then 'Sin Origen'\n    when source_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else source_type\n  end as source_type_short,\n  case\n    when target_type is null then 'Sin Destino'\n    when target_type = 'STREAMING_TABLE' then 'STRM_TB'\n    else target_type\n  end as target_type_short\nfrom\n  system.access.table_lineage t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id);"
     },
     {
       "name": "21f428fa",
@@ -731,28 +731,28 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "team_name"
+                  "displayName": "Equipo"
                 },
                 "y": {
                   "fieldName": "count(job_id)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of job_id"
+                  "displayName": "Número de Jobs"
                 },
                 "color": {
                   "fieldName": "catalog",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "catalog"
+                  "displayName": "Catálogo"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Uso de Catálogo por Equipo con respecto a Jobs",
+                "title": "Distribución de Jobs por Equipo y Catálogo",
                 "showDescription": true,
-                "description": "Número de jobs (eje Y) usando un catálogo por equipo (eje X)"
+                "description": "Muestra qué equipos usan qué catálogos en sus jobs. Cada color representa un catálogo diferente. Útil para entender la distribución de trabajo entre equipos y identificar qué catálogos son más populares por equipo."
               },
               "mark": {
                 "layout": "percent-stack"
@@ -801,14 +801,14 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "source_type"
+                  "displayName": "Tipo de Origen"
                 },
                 "y": {
                   "fieldName": "entity_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 },
                 "color": {
                   "fieldName": "count(*)",
@@ -819,14 +819,14 @@
                       "scheme": "greenblue"
                     }
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Mapeo de Tipo de Entidad a Tipo de Origen",
-                "description": "Muestra cómo las entidades (eje Y) están leyendo desde diferentes tipos de entrada (eje X) coloreado por conteo de eventos"
+                "title": "Patrones de Lectura por Tipo de Entidad",
+                "description": "Muestra qué tipos de fuentes de datos lee cada tipo de entidad. Colores más intensos indican mayor frecuencia de acceso. Ayuda a identificar qué entidades prefieren ciertos tipos de datos (ej. jobs leyendo más tablas, dashboards accediendo más vistas)."
               }
             }
           },
@@ -872,14 +872,14 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "target_type"
+                  "displayName": "Tipo de Destino"
                 },
                 "y": {
                   "fieldName": "entity_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 },
                 "color": {
                   "fieldName": "count(*)",
@@ -890,14 +890,14 @@
                       "scheme": "greenblue"
                     }
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Mapeo de Tipo de Entidad a Tipo de Destino",
-                "description": "Muestra cómo las entidades (eje Y) están escribiendo hacia diferentes tipos de salida (eje X) coloreado por conteo de eventos"
+                "title": "Patrones de Escritura por Tipo de Entidad",
+                "description": "Muestra qué tipos de objetos crea cada tipo de entidad. Colores más intensos indican mayor frecuencia de creación. Ayuda a entender los patrones de generación de datos (ej. jobs creando más tablas, dashboards generando vistas)."
               }
             }
           },
@@ -943,14 +943,14 @@
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "source_type"
+                  "displayName": "Tipo de Origen"
                 },
                 "y": {
                   "fieldName": "target_type_short",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "target_type"
+                  "displayName": "Tipo de Destino"
                 },
                 "color": {
                   "fieldName": "count(*)",
@@ -961,14 +961,14 @@
                       "scheme": "orangered"
                     }
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Distribución de Origen a Destino",
-                "description": "Muestra el tipo de entrada (eje X) y tipo de salida (eje Y) de eventos por conteo. Ej. un job leyendo de una tabla y escribiendo a una vista.\n- null source type significa que el evento no tiene entrada, solo salida, y viceversa para null target type."
+                "title": "Flujos de Datos entre Tipos de Objetos",
+                "description": "Mapa de calor que muestra cómo fluyen los datos entre diferentes tipos de objetos. El color indica la frecuencia: colores más intensos = flujos más comunes. Ejemplos: TABLE→VIEW (jobs creando vistas), STRM_TB→TABLE (streaming tables alimentando tablas batch). Valores null indican flujos unidireccionales (solo lectura o solo escritura)."
               }
             }
           },
@@ -1727,21 +1727,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 },
                 "color": {
                   "fieldName": "created_by",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "user"
+                  "displayName": "Usuario"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Usuarios Activos",
-                "description": "Usuarios más activos por conteo de eventos"
+                "title": "Distribución de Actividad por Usuario",
+                "description": "Muestra qué usuarios tienen más actividad en el sistema basado en eventos de linaje de datos. Los usuarios con mayor porción del gráfico son los más activos. Útil para identificar usuarios clave y patrones de uso."
               }
             }
           },
@@ -1787,28 +1787,28 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "event_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "count(*)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 },
                 "color": {
                   "fieldName": "entity_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Uso de Entidades a lo Largo del Tiempo",
-                "description": "Conteo de eventos (eje Y) a lo largo del tiempo (eje X) agrupado por tipo de entidad. Null entity type* se explica arriba."
+                "title": "Tendencias de Uso por Tipo de Entidad",
+                "description": "Muestra la evolución temporal de la actividad de diferentes tipos de entidades (jobs, dashboards, etc.). Permite identificar patrones estacionales, picos de actividad y tendencias de uso. Útil para planificación de recursos y optimización."
               }
             }
           },
@@ -2224,21 +2224,21 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 },
                 "color": {
                   "fieldName": "catalog",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "catalog"
+                  "displayName": "Catálogo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Catálogos Más Usados",
-                "description": "Catálogos más usados por conteo de eventos"
+                "title": "Distribución de Uso por Catálogo",
+                "description": "Muestra la popularidad relativa de cada catálogo basado en eventos de acceso. Los catálogos con mayor porción del gráfico son los más utilizados. Útil para identificar fuentes de datos principales y optimizar recursos."
               }
             }
           },
@@ -2284,28 +2284,28 @@
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Count of Records"
+                  "displayName": "Número de Eventos"
                 },
                 "y": {
                   "fieldName": "entity_type",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 },
                 "color": {
                   "fieldName": "catalog",
                   "scale": {
                     "type": "categorical"
                   },
-                  "displayName": "catalog"
+                  "displayName": "Catálogo"
                 }
               },
               "frame": {
                 "showTitle": true,
                 "showDescription": true,
-                "title": "Uso de Catálogo por Entidad",
-                "description": "Conteo de eventos (eje X) por entidad (eje Y) agrupado por catálogo. Null entity type* se explica arriba."
+                "title": "Actividad por Entidad y Catálogo",
+                "description": "Muestra qué entidades acceden más a qué catálogos. Cada color representa un catálogo diferente. Ayuda a identificar patrones de uso y qué entidades son más activas con cada fuente de datos."
               }
             }
           },
@@ -2363,14 +2363,14 @@
                   "scale": {
                     "type": "temporal"
                   },
-                  "displayName": "event_date"
+                  "displayName": "Fecha"
                 },
                 "y": {
                   "fieldName": "sum(day_access_count)",
                   "scale": {
                     "type": "quantitative"
                   },
-                  "displayName": "Sum of day_access_count"
+                  "displayName": "Número de Accesos"
                 },
                 "color": {
                   "fieldName": "entity_type",
@@ -2383,14 +2383,14 @@
                       }
                     ]
                   },
-                  "displayName": "entity_type"
+                  "displayName": "Tipo de Entidad"
                 }
               },
               "frame": {
                 "showTitle": true,
-                "title": "Acceso a Tabla por Fecha",
+                "title": "Evolución Temporal de Accesos a Tabla",
                 "showDescription": true,
-                "description": "Conteo de acceso a tabla (eje Y) a lo largo del tiempo (eje X). Null entity type* explicado arriba."
+                "description": "Muestra cómo evoluciona el acceso a una tabla específica a lo largo del tiempo, segmentado por tipo de entidad. Útil para identificar patrones de uso, picos de actividad y tendencias de acceso por diferentes usuarios y sistemas."
               }
             }
           },
