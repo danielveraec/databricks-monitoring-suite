@@ -71,7 +71,7 @@ Este repositorio contiene una suite de dashboards analíticos para entornos Data
 │   ├── [System Tables] DBSQL Cost & Query Performance.lvdash.json          # Código para DBSQL Cost & Query Performance Dashboard  
 │   ├── [System Tables] Data Lineage and Catalog Utilization.lvdash.json    # Código para Data Lineage and Catalog Utilization Dashboard  
 │   ├── create_dashboards.ipynb                                             # Código Python para desplegar los dashboards a tu Databricks  
-└── └── extract_dashboard  .ipynb                                           # Código Python para extraer un dashboard específico
+└── └── extract_dashboard.ipynb                                             # Código Python para extraer un dashboard específico
 ```
 ## Configuración y Uso
 
@@ -114,21 +114,13 @@ En tu workspace, abre el notebook `create_dashboards`. Este notebook está dise�
   Especifica un catálogo UC donde el usuario tenga **permisos de lectura y escritura**. Este catálogo alojará las [tablas y funciones requeridas](#tablas-y-funciones-creadas-durante-el-despliegue) por los dashboards. Si el catálogo especificado no existe todavía, será creado automáticamente durante el despliegue.  
 * **`schema` (Entrada de Texto)**:  
   Proporciona el nombre del schema dentro del catálogo seleccionado. Este schema almacenará todas las tablas y funciones necesarias. Como el catálogo, si el schema no existe, será creado como parte de la configuración.  
+* **`workspace_name` (Entrada de Texto)**:  
+  Proporciona un nombre descriptivo para el workspace actual. Este nombre se usará en los dashboards para visualización en lugar del ID del workspace, facilitando la identificación en reportes y visualizaciones.
 * **`tags_to_consider_for_team_name` (Entrada de Texto Separada por Comas)**:  
   Este parámetro define qué claves de tags deben ser usadas para identificar equipos en gráficos que muestran métricas de uso por equipo. Proporciona una lista de claves de tags separadas por comas, basada en la convención de etiquetado de la organización para clusters, warehouses, jobs, etc.  
   * Por ejemplo:  
     * Si los clusters están etiquetados con `team_name:<nombre del equipo>`, ingresa `team_name`.  
     * Si múltiples claves de tags son usadas (ej., `team_name` para algunos clusters y `group_name` para otros), proporciona ambas claves, como `team_name,group_name`. Esta configuración asegura que todos los equipos relevantes sean capturados con precisión en los dashboards.
-
-**Parámetros de Account API [Opcionales]**  
-Estos parámetros solo son requeridos si quieres que **nombres de workspace** (en lugar de IDs de workspace) se muestren dentro de los dashboards. Los dashboards están construidos usando system tables, que actualmente almacenan solo IDs de workspace. Estos parámetros permiten que los dashboards se conecten a la consola de cuenta para recuperar nombres de workspace mediante el Databricks Account API. Ten en cuenta que se requiere acceso a nivel de cuenta (usando M2M OAuth) para poblar la tabla **workspace\_reference** con nombres de workspace. [¿Cómo obtenerlos?](https://docs.databricks.com/en/dev-tools/auth/index.html#how-do-i-use-oauth-to-authenticate-with-databricks)
-
-* **`account_host`**: La URL del host de cuenta de Databricks.  
-* **`account_id`**: El identificador para la cuenta de Databricks.  
-* **`client_id`**: El client ID del service principal de Databricks, usado para autenticación machine-to-machine (M2M).  
-* **`client_secret`**: El client secret para el service principal de Databricks, requerido para autenticación M2M.
-
-Si estos parámetros se dejan en blanco, la tabla **workspace\_reference** será creada sin nombres de workspace, con IDs de workspace poblados en la columna `workspace_name` en su lugar. Para aquellos sin acceso a la consola de cuenta, los nombres de workspace pueden ser agregados manualmente a la tabla `workspace_reference` más tarde, permitiendo que los dashboards muestren nombres de workspace donde se desee.
 
 ### Completar el Despliegue
 
@@ -161,7 +153,7 @@ Como parte del despliegue, varias tablas y funciones son creadas para soportar e
 
 1. **`workspace_reference`**  
    * **Descripción**: Almacena mapeos entre `workspace_id` y `workspace_name` para mostrar nombres legibles dentro de los dashboards.  
-   * **Uso**: Habilita el uso de nombres de workspace en lugar de IDs. Si se proporcionan parámetros de acceso a nivel de cuenta, esta tabla es poblada automáticamente con nombres de workspace. De lo contrario, `workspace_id` será usado en lugar de `workspace_name`, con la opción para que los usuarios actualicen manualmente los workspaces comúnmente usados.  
+   * **Uso**: Esta tabla mapea el ID del workspace actual con el nombre descriptivo proporcionado en el parámetro `workspace_name`. Esto permite que los dashboards muestren nombres legibles en lugar de IDs numéricos, facilitando la identificación y navegación en reportes.  
 2. **`warehouse_reference`**  
    * **Descripción**: Contiene un mapeo entre `warehouse_id` y `warehouse_name` para hacer referencias de warehouse más eficientes en queries de dashboard.  
    * **Uso**: Mejora el rendimiento del dashboard evitando joins frecuentes con `system.access.audit` para recuperar nombres de warehouse. Las tablas `audit` cubren solo el último año y rastrean warehouses dentro del workspace actual, potencialmente perdiendo nombres de warehouse más antiguos o aquellos de otros workspaces en la cuenta. Para mantener esta tabla actualizada con nombres de warehouse nuevos, los usuarios deben ejecutar frecuentemente la acción **Create/Refresh Tables** en el notebook `create_dashboards`. Una vez que las system tables incluyan nombres de warehouse (roadmap futuro), esta tabla de referencia ya no será necesaria.
