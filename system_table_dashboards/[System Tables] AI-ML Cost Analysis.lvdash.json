@@ -1,0 +1,1014 @@
+{
+  "datasets": [
+    {
+      "name": "aiml_costs_base",
+      "displayName": "AI/ML Costs Base",
+      "query": "SELECT\n  t1.*,\n  t2.workspace_name,\n  t1.billing_origin_product AS product_type,\n  t1.usage_quantity * list_prices.pricing.default AS list_cost,\n  -- Extract model name from SKU for Foundation Models\n  CASE\n    WHEN t1.sku_name LIKE '%DBRX%' THEN 'DBRX'\n    WHEN t1.sku_name LIKE '%LLAMA%' OR t1.sku_name LIKE '%Llama%' THEN 'Llama'\n    WHEN t1.sku_name LIKE '%MIXTRAL%' OR t1.sku_name LIKE '%Mixtral%' THEN 'Mixtral'\n    WHEN t1.sku_name LIKE '%CLAUDE%' OR t1.sku_name LIKE '%Claude%' THEN 'Claude'\n    WHEN t1.sku_name LIKE '%GPT%' THEN 'GPT'\n    WHEN t1.sku_name LIKE '%BGE%' THEN 'BGE (Embeddings)'\n    WHEN t1.sku_name LIKE '%GTE%' THEN 'GTE (Embeddings)'\n    ELSE 'Other'\n  END AS model_name,\n  -- Determine if input or output tokens\n  CASE\n    WHEN t1.sku_name LIKE '%INPUT%' OR t1.sku_name LIKE '%Input%' THEN 'Input Tokens'\n    WHEN t1.sku_name LIKE '%OUTPUT%' OR t1.sku_name LIKE '%Output%' THEN 'Output Tokens'\n    ELSE 'N/A'\n  END AS token_type,\n  -- Extract endpoint name for Model Serving\n  t1.usage_metadata.endpoint_name AS endpoint_name,\n  t1.usage_metadata.endpoint_id AS endpoint_id\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product IN (\n    'MODEL_SERVING',\n    'FOUNDATION_MODEL_APIS',\n    'VECTOR_SEARCH',\n    'FEATURE_SERVING',\n    'AGENT_EVALUATION'\n  )"
+    },
+    {
+      "name": "aiml_costs_30d",
+      "displayName": "AI/ML Costs Last 30 Days",
+      "query": "SELECT\n  t1.*,\n  t2.workspace_name,\n  t1.billing_origin_product AS product_type,\n  t1.usage_quantity * list_prices.pricing.default AS list_cost,\n  CASE\n    WHEN t1.sku_name LIKE '%DBRX%' THEN 'DBRX'\n    WHEN t1.sku_name LIKE '%LLAMA%' OR t1.sku_name LIKE '%Llama%' THEN 'Llama'\n    WHEN t1.sku_name LIKE '%MIXTRAL%' OR t1.sku_name LIKE '%Mixtral%' THEN 'Mixtral'\n    WHEN t1.sku_name LIKE '%CLAUDE%' OR t1.sku_name LIKE '%Claude%' THEN 'Claude'\n    WHEN t1.sku_name LIKE '%GPT%' THEN 'GPT'\n    WHEN t1.sku_name LIKE '%BGE%' THEN 'BGE (Embeddings)'\n    WHEN t1.sku_name LIKE '%GTE%' THEN 'GTE (Embeddings)'\n    ELSE 'Other'\n  END AS model_name,\n  CASE\n    WHEN t1.sku_name LIKE '%INPUT%' OR t1.sku_name LIKE '%Input%' THEN 'Input Tokens'\n    WHEN t1.sku_name LIKE '%OUTPUT%' OR t1.sku_name LIKE '%Output%' THEN 'Output Tokens'\n    ELSE 'N/A'\n  END AS token_type,\n  t1.usage_metadata.endpoint_name AS endpoint_name,\n  t1.usage_metadata.endpoint_id AS endpoint_id\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product IN (\n    'MODEL_SERVING',\n    'FOUNDATION_MODEL_APIS',\n    'VECTOR_SEARCH',\n    'FEATURE_SERVING',\n    'AGENT_EVALUATION'\n  )\n  AND t1.usage_date >= current_date() - INTERVAL 30 DAY"
+    },
+    {
+      "name": "aiml_30_60_comparison",
+      "displayName": "AI/ML 30 vs 60 Day Comparison",
+      "query": "WITH usage_with_list_cost AS (\n  SELECT\n    t1.*,\n    t1.usage_quantity * list_prices.pricing.default AS list_cost\n  FROM\n    system.billing.usage t1\n    INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n    AND t1.sku_name = list_prices.sku_name\n    AND t1.usage_start_time >= list_prices.price_start_time\n    AND (\n      t1.usage_end_time <= list_prices.price_end_time\n      OR list_prices.price_end_time IS NULL\n    )\n  WHERE\n    t1.billing_origin_product IN (\n      'MODEL_SERVING',\n      'FOUNDATION_MODEL_APIS',\n      'VECTOR_SEARCH',\n      'FEATURE_SERVING',\n      'AGENT_EVALUATION'\n    )\n)\nSELECT\n  t1.*,\n  t3.workspace_name,\n  billing_origin_product AS product_type,\n  TRY_DIVIDE(\n    (last30DaySpend - last30to60DaySpend),\n    last30to60DaySpend\n  ) * 100 AS Last30DayGrowth\nFROM\n  (\n    SELECT\n      SUM(list_cost) AS spend,\n      workspace_id,\n      sku_name,\n      billing_origin_product,\n      SUM(\n        CASE\n          WHEN usage_end_time BETWEEN date_add(current_date(), -30)\n          AND (current_date() - 1) THEN list_cost\n          ELSE 0\n        END\n      ) AS Last30DaySpend,\n      SUM(\n        CASE\n          WHEN usage_end_time BETWEEN date_add(current_date(), -60)\n          AND date_add(current_date(), -31) THEN list_cost\n          ELSE 0\n        END\n      ) AS Last30to60DaySpend\n    FROM\n      usage_with_list_cost\n    GROUP BY\n      ALL\n  ) t1\n  INNER JOIN {catalog}.{schema}.workspace_reference t3 USING (workspace_id)"
+    },
+    {
+      "name": "foundation_models_tokens",
+      "displayName": "Foundation Models Token Usage",
+      "query": "SELECT\n  t1.usage_date,\n  t2.workspace_name,\n  CASE\n    WHEN t1.sku_name LIKE '%DBRX%' THEN 'DBRX'\n    WHEN t1.sku_name LIKE '%LLAMA%' OR t1.sku_name LIKE '%Llama%' THEN 'Llama'\n    WHEN t1.sku_name LIKE '%MIXTRAL%' OR t1.sku_name LIKE '%Mixtral%' THEN 'Mixtral'\n    WHEN t1.sku_name LIKE '%CLAUDE%' OR t1.sku_name LIKE '%Claude%' THEN 'Claude'\n    WHEN t1.sku_name LIKE '%GPT%' THEN 'GPT'\n    WHEN t1.sku_name LIKE '%BGE%' THEN 'BGE (Embeddings)'\n    WHEN t1.sku_name LIKE '%GTE%' THEN 'GTE (Embeddings)'\n    ELSE t1.sku_name\n  END AS model_name,\n  CASE\n    WHEN t1.sku_name LIKE '%INPUT%' OR t1.sku_name LIKE '%Input%' THEN 'Input'\n    WHEN t1.sku_name LIKE '%OUTPUT%' OR t1.sku_name LIKE '%Output%' THEN 'Output'\n    ELSE 'Other'\n  END AS token_type,\n  SUM(t1.usage_quantity) AS total_tokens,\n  SUM(t1.usage_quantity * list_prices.pricing.default) AS total_cost\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product = 'FOUNDATION_MODEL_APIS'\nGROUP BY\n  ALL"
+    },
+    {
+      "name": "model_serving_endpoints",
+      "displayName": "Model Serving Endpoints",
+      "query": "SELECT\n  t1.usage_date,\n  t2.workspace_name,\n  COALESCE(t1.usage_metadata.endpoint_name, 'Unknown Endpoint') AS endpoint_name,\n  t1.sku_name,\n  SUM(t1.usage_quantity) AS usage_quantity,\n  SUM(t1.usage_quantity * list_prices.pricing.default) AS total_cost\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product = 'MODEL_SERVING'\nGROUP BY\n  ALL"
+    },
+    {
+      "name": "vector_search_costs",
+      "displayName": "Vector Search Costs",
+      "query": "SELECT\n  t1.usage_date,\n  t2.workspace_name,\n  t1.sku_name,\n  SUM(t1.usage_quantity) AS usage_quantity,\n  SUM(t1.usage_quantity * list_prices.pricing.default) AS total_cost\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product = 'VECTOR_SEARCH'\nGROUP BY\n  ALL"
+    },
+    {
+      "name": "weekly_growth",
+      "displayName": "AI/ML Weekly Cost Growth",
+      "query": "WITH usage_with_list_cost AS (\n  SELECT\n    t1.*,\n    t1.usage_quantity * list_prices.pricing.default AS list_cost\n  FROM\n    system.billing.usage t1\n    INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n    AND t1.sku_name = list_prices.sku_name\n    AND t1.usage_start_time >= list_prices.price_start_time\n    AND (\n      t1.usage_end_time <= list_prices.price_end_time\n      OR list_prices.price_end_time IS NULL\n    )\n  WHERE\n    t1.billing_origin_product IN (\n      'MODEL_SERVING',\n      'FOUNDATION_MODEL_APIS',\n      'VECTOR_SEARCH',\n      'FEATURE_SERVING',\n      'AGENT_EVALUATION'\n    )\n),\nweekly_list_cost AS (\n  SELECT\n    date_sub(\n      to_date(usage_start_time),\n      dayofweek(to_date(usage_start_time))\n    ) AS week_start,\n    SUM(list_cost) AS list_cost,\n    COUNT(DISTINCT to_date(usage_start_time)) AS days\n  FROM\n    usage_with_list_cost t1\n  GROUP BY\n    ALL\n  HAVING\n    days = 7\n  ORDER BY\n    1 ASC\n),\nlist_cost_growth AS (\n  SELECT\n    week_start,\n    list_cost,\n    100 * (\n      list_cost - LAG(list_cost, 1) OVER (\n        ORDER BY\n          week_start\n      )\n    ) / LAG(list_cost, 1) OVER (\n      ORDER BY\n        week_start\n    ) AS weekly_growth\n  FROM\n    weekly_list_cost\n  ORDER BY\n    week_start ASC\n)\nSELECT\n  week_start,\n  weekly_growth,\n  AVG(weekly_growth) OVER (\n    ORDER BY\n      week_start ROWS BETWEEN 12 PRECEDING\n      AND CURRENT ROW\n  ) AS moving_avg_3m,\n  list_cost\nFROM\n  list_cost_growth"
+    },
+    {
+      "name": "top_consumers",
+      "displayName": "Top AI/ML Consumers",
+      "query": "SELECT\n  t2.workspace_name,\n  t1.billing_origin_product AS product_type,\n  COALESCE(t1.identity_metadata.run_as, 'Unknown') AS run_as,\n  COALESCE(t1.usage_metadata.endpoint_name, 'N/A') AS endpoint_name,\n  SUM(t1.usage_quantity * list_prices.pricing.default) AS total_cost,\n  SUM(t1.usage_quantity) AS total_usage\nFROM\n  system.billing.usage t1\n  INNER JOIN system.billing.list_prices list_prices ON t1.cloud = list_prices.cloud\n  AND t1.sku_name = list_prices.sku_name\n  AND t1.usage_start_time >= list_prices.price_start_time\n  AND (\n    t1.usage_end_time <= list_prices.price_end_time\n    OR list_prices.price_end_time IS NULL\n  )\n  INNER JOIN {catalog}.{schema}.workspace_reference t2 USING (workspace_id)\nWHERE\n  t1.billing_origin_product IN (\n    'MODEL_SERVING',\n    'FOUNDATION_MODEL_APIS',\n    'VECTOR_SEARCH',\n    'FEATURE_SERVING',\n    'AGENT_EVALUATION'\n  )\n  AND t1.usage_date >= current_date() - INTERVAL 30 DAY\nGROUP BY\n  ALL\nORDER BY\n  total_cost DESC"
+    }
+  ],
+  "pages": [
+    {
+      "name": "main_page",
+      "displayName": "AI/ML Cost Analysis",
+      "layout": [
+        {
+          "widget": {
+            "name": "header_text",
+            "textbox_spec": "### Dashboard de Costos AI/ML\n---\nEste dashboard proporciona análisis detallado de los costos relacionados con AI/ML en Databricks, incluyendo:\n\n- **Model Serving**: Endpoints de modelos personalizados desplegados\n- **Foundation Model APIs**: Uso de LLMs (DBRX, Llama, Mixtral, Claude, etc.) con pricing por token\n- **Vector Search**: Índices vectoriales para RAG y búsqueda semántica\n- **Feature Serving**: Serving de features desde Feature Store\n- **Agent Evaluation**: Evaluación de agentes AI\n\n#### System Tables Utilizadas\n- `system.billing.usage`\n- `system.billing.list_prices`"
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_date",
+            "queries": [
+              {
+                "name": "date_filter_query",
+                "query": {
+                  "datasetName": "aiml_costs_base",
+                  "fields": [
+                    {
+                      "name": "usage_date",
+                      "expression": "`usage_date`"
+                    },
+                    {
+                      "name": "usage_date_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-date-range-picker",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "usage_date",
+                    "displayName": "usage_date",
+                    "queryName": "date_filter_query"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Rango de Fechas"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_workspace",
+            "queries": [
+              {
+                "name": "workspace_filter_query",
+                "query": {
+                  "datasetName": "aiml_costs_base",
+                  "fields": [
+                    {
+                      "name": "workspace_name",
+                      "expression": "`workspace_name`"
+                    },
+                    {
+                      "name": "workspace_name_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "workspace_name",
+                    "displayName": "workspace_name",
+                    "queryName": "workspace_filter_query"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Workspace"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 4,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_product",
+            "queries": [
+              {
+                "name": "product_filter_query",
+                "query": {
+                  "datasetName": "aiml_costs_base",
+                  "fields": [
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "product_type_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-multi-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "product_type",
+                    "displayName": "product_type",
+                    "queryName": "product_filter_query"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Tipo de Producto AI/ML"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 4,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_30d_spend",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "aiml_30_60_comparison",
+                  "fields": [
+                    {
+                      "name": "sum(Last30DaySpend)",
+                      "expression": "SUM(`Last30DaySpend`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Last30DaySpend)",
+                  "displayName": "Gasto AI/ML"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Gasto AI/ML Ultimos 30 Dias",
+                "description": "Costo total de servicios AI/ML en los ultimos 30 dias"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_prev_30d",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "aiml_30_60_comparison",
+                  "fields": [
+                    {
+                      "name": "sum(Last30to60DaySpend)",
+                      "expression": "SUM(`Last30to60DaySpend`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(Last30to60DaySpend)",
+                  "displayName": "Gasto Anterior"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Gasto 30 Dias Anteriores",
+                "description": "Costo de servicios AI/ML en los dias 31-60 previos"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_growth",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "aiml_30_60_comparison",
+                  "fields": [
+                    {
+                      "name": "avg(Last30DayGrowth)",
+                      "expression": "AVG(`Last30DayGrowth`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(Last30DayGrowth)",
+                  "displayName": "Crecimiento %"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Crecimiento Promedio (%)",
+                "description": "Cambio porcentual promedio entre periodos"
+              }
+            }
+          },
+          "position": {
+            "x": 4,
+            "y": 5,
+            "width": 2,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_daily_by_product",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "aiml_costs_base",
+                  "fields": [
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "daily(usage_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `usage_date`)"
+                    },
+                    {
+                      "name": "sum(list_cost)",
+                      "expression": "SUM(`list_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily(usage_date)",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Fecha"
+                },
+                "y": {
+                  "fieldName": "sum(list_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo Total"
+                },
+                "color": {
+                  "fieldName": "product_type",
+                  "scale": {
+                    "type": "categorical",
+                    "mappings": [
+                      {
+                        "value": "MODEL_SERVING",
+                        "color": "#2196F3"
+                      },
+                      {
+                        "value": "FOUNDATION_MODEL_APIS",
+                        "color": "#9C27B0"
+                      },
+                      {
+                        "value": "VECTOR_SEARCH",
+                        "color": "#4CAF50"
+                      },
+                      {
+                        "value": "FEATURE_SERVING",
+                        "color": "#FF9800"
+                      },
+                      {
+                        "value": "AGENT_EVALUATION",
+                        "color": "#E91E63"
+                      }
+                    ]
+                  },
+                  "displayName": "Producto AI/ML"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Gasto Diario por Producto AI/ML",
+                "description": "Desglose diario de costos por tipo de servicio AI/ML. Permite identificar que servicios generan mas costos y como evolucionan en el tiempo."
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 7,
+            "width": 6,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "section_foundation_models",
+            "textbox_spec": "### Foundation Model APIs (LLMs)\n---\nAnalisis detallado del consumo de modelos fundacionales incluyendo DBRX, Llama, Mixtral, Claude y modelos de embeddings. El pricing se basa en tokens consumidos (input y output)."
+          },
+          "position": {
+            "x": 0,
+            "y": 12,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_tokens_by_model",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "foundation_models_tokens",
+                  "fields": [
+                    {
+                      "name": "model_name",
+                      "expression": "`model_name`"
+                    },
+                    {
+                      "name": "sum(total_tokens)",
+                      "expression": "SUM(`total_tokens`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "model_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Modelo"
+                },
+                "y": {
+                  "fieldName": "sum(total_tokens)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Total Tokens"
+                },
+                "color": {
+                  "fieldName": "model_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Modelo"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Tokens Consumidos por Modelo",
+                "description": "Total de tokens consumidos por cada modelo fundacional"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_cost_by_model",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "foundation_models_tokens",
+                  "fields": [
+                    {
+                      "name": "model_name",
+                      "expression": "`model_name`"
+                    },
+                    {
+                      "name": "sum(total_cost)",
+                      "expression": "SUM(`total_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "pie",
+              "encodings": {
+                "angle": {
+                  "fieldName": "sum(total_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo Total"
+                },
+                "color": {
+                  "fieldName": "model_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Modelo"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": false,
+                "title": "Distribucion de Costos por Modelo"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 14,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_tokens_daily",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "foundation_models_tokens",
+                  "fields": [
+                    {
+                      "name": "model_name",
+                      "expression": "`model_name`"
+                    },
+                    {
+                      "name": "daily(usage_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `usage_date`)"
+                    },
+                    {
+                      "name": "sum(total_cost)",
+                      "expression": "SUM(`total_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "area",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily(usage_date)",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Fecha"
+                },
+                "y": {
+                  "fieldName": "sum(total_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo"
+                },
+                "color": {
+                  "fieldName": "model_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Modelo"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Costo Diario de Foundation Models",
+                "description": "Evolucion temporal del gasto en modelos fundacionales"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 18,
+            "width": 6,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "section_model_serving",
+            "textbox_spec": "### Model Serving Endpoints\n---\nCostos de endpoints de Model Serving para modelos personalizados desplegados. Incluye tanto endpoints serverless como provisionados."
+          },
+          "position": {
+            "x": 0,
+            "y": 22,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_endpoints_cost",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "model_serving_endpoints",
+                  "fields": [
+                    {
+                      "name": "endpoint_name",
+                      "expression": "`endpoint_name`"
+                    },
+                    {
+                      "name": "sum(total_cost)",
+                      "expression": "SUM(`total_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(total_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo Total"
+                },
+                "y": {
+                  "fieldName": "endpoint_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Endpoint"
+                },
+                "color": {
+                  "fieldName": "endpoint_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Endpoint"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Costo por Endpoint de Model Serving",
+                "description": "Ranking de endpoints por costo total"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 24,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_endpoints_daily",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "model_serving_endpoints",
+                  "fields": [
+                    {
+                      "name": "endpoint_name",
+                      "expression": "`endpoint_name`"
+                    },
+                    {
+                      "name": "daily(usage_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `usage_date`)"
+                    },
+                    {
+                      "name": "sum(total_cost)",
+                      "expression": "SUM(`total_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily(usage_date)",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Fecha"
+                },
+                "y": {
+                  "fieldName": "sum(total_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo"
+                },
+                "color": {
+                  "fieldName": "endpoint_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Endpoint"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Costo Diario por Endpoint",
+                "description": "Tendencia de costos por endpoint a lo largo del tiempo"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 24,
+            "width": 3,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "section_vector_search",
+            "textbox_spec": "### Vector Search\n---\nCostos de indices vectoriales utilizados para RAG (Retrieval Augmented Generation) y busqueda semantica."
+          },
+          "position": {
+            "x": 0,
+            "y": 28,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_vector_search_daily",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "vector_search_costs",
+                  "fields": [
+                    {
+                      "name": "sku_name",
+                      "expression": "`sku_name`"
+                    },
+                    {
+                      "name": "daily(usage_date)",
+                      "expression": "DATE_TRUNC(\"DAY\", `usage_date`)"
+                    },
+                    {
+                      "name": "sum(total_cost)",
+                      "expression": "SUM(`total_cost`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "daily(usage_date)",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Fecha"
+                },
+                "y": {
+                  "fieldName": "sum(total_cost)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Costo"
+                },
+                "color": {
+                  "fieldName": "sku_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "SKU"
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Costo Diario de Vector Search",
+                "description": "Evolucion del gasto en indices vectoriales"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 30,
+            "width": 6,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "section_top_consumers",
+            "textbox_spec": "### Top Consumidores AI/ML\n---\nUsuarios y endpoints con mayor consumo de servicios AI/ML en los ultimos 30 dias."
+          },
+          "position": {
+            "x": 0,
+            "y": 34,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "table_top_consumers",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "top_consumers",
+                  "fields": [
+                    {
+                      "name": "workspace_name",
+                      "expression": "`workspace_name`"
+                    },
+                    {
+                      "name": "product_type",
+                      "expression": "`product_type`"
+                    },
+                    {
+                      "name": "run_as",
+                      "expression": "`run_as`"
+                    },
+                    {
+                      "name": "endpoint_name",
+                      "expression": "`endpoint_name`"
+                    },
+                    {
+                      "name": "total_cost",
+                      "expression": "`total_cost`"
+                    },
+                    {
+                      "name": "total_usage",
+                      "expression": "`total_usage`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "workspace_name",
+                    "displayName": "Workspace",
+                    "type": "string"
+                  },
+                  {
+                    "fieldName": "product_type",
+                    "displayName": "Producto",
+                    "type": "string"
+                  },
+                  {
+                    "fieldName": "run_as",
+                    "displayName": "Usuario",
+                    "type": "string"
+                  },
+                  {
+                    "fieldName": "endpoint_name",
+                    "displayName": "Endpoint",
+                    "type": "string"
+                  },
+                  {
+                    "fieldName": "total_cost",
+                    "displayName": "Costo Total",
+                    "type": "number"
+                  },
+                  {
+                    "fieldName": "total_usage",
+                    "displayName": "Uso Total",
+                    "type": "number"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Top Consumidores (Ultimos 30 Dias)",
+                "description": "Detalle de los principales consumidores de servicios AI/ML ordenados por costo"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 36,
+            "width": 6,
+            "height": 5
+          }
+        },
+        {
+          "widget": {
+            "name": "chart_weekly_growth",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "weekly_growth",
+                  "fields": [
+                    {
+                      "name": "week_start",
+                      "expression": "`week_start`"
+                    },
+                    {
+                      "name": "weekly_growth",
+                      "expression": "`weekly_growth`"
+                    },
+                    {
+                      "name": "moving_avg_3m",
+                      "expression": "`moving_avg_3m`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "combo",
+              "encodings": {
+                "x": {
+                  "fieldName": "week_start",
+                  "scale": {
+                    "type": "temporal"
+                  },
+                  "displayName": "Semana"
+                },
+                "y": {
+                  "primary": {
+                    "fields": [
+                      {
+                        "fieldName": "weekly_growth",
+                        "displayName": "Cambio Semanal (%)"
+                      }
+                    ]
+                  },
+                  "secondary": {
+                    "fields": [
+                      {
+                        "fieldName": "moving_avg_3m",
+                        "displayName": "Promedio Movil 3 Meses (%)"
+                      }
+                    ]
+                  },
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "showDescription": true,
+                "title": "Tendencia de Crecimiento de Costos AI/ML",
+                "description": "Cambio porcentual semanal y promedio movil de 3 meses. Valores positivos indican aumento de costos."
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 41,
+            "width": 6,
+            "height": 4
+          }
+        }
+      ]
+    }
+  ]
+}
